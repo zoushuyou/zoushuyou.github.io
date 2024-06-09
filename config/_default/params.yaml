@@ -961,6 +961,6 @@ vendors:
 # Assets
 # Accelerate delivery of static files using a CDN
 # The js option is only valid when vendors.internal is local.
-css: ./public/css
-js: ./public/js
-images: ./public/imgs
+css: css
+js: js
+images: imgs
