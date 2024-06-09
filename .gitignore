@@ -1,6 +1,2 @@
 # Ignore Hugo resource files
-config/
-content/
-data/
-themes/
 .idea/
