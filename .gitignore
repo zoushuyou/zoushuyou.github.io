@@ -3,3 +3,4 @@ config/
 content/
 data/
 themes/
+.idea/
