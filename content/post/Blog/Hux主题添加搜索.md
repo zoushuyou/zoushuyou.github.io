@@ -1,10 +1,10 @@
 ---
 
-title:      "Hux主题添加搜索"
-date:       2021-04-22
+title: "Hux主题添加搜索"
+date: 2021-04-22
 lastmod: 2024-06-09
 categories:
-    - Modify Theme
+    - Blog
 ---
 
 >本文介绍下给hux主题添加搜索功能，主要是抄 [黄玄](https://huangxuan.me/) 的作业，可以去参考[huxpro](https://github.com/Huxpro/huxpro.github.io/)
