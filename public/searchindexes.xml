@@ -1,641 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>2021</title><url>/post/shuyou/2021/</url><categories><category>记录</category></categories><tags/><content type="html"> 2021过完啦，1月中旬就会回去了，2022年2月中旬开始在武汉找工作。
-刚入社会的第一年，已经受到了社会的毒打了，呜呜呜呜。
-回看2021，新冠扰乱社会的一年，而我也戴了一年的口罩，打了三针疫苗。
-首先是工作，勤勤恳恳，任劳任怨地工作了一年，还是值得夸赞的一年。虽然还是底层打工仔，但是要相信自己能有so much money 的呀。
-其次就是生活，也算是去了其他地方，广州、北京两个大都市，不得不感叹真是乡巴佬进城呀，有钱人是真的多。
-奶奶在去年走了。
-一年又一年，心里的目标呢？期待的生活呢？
-好像始终是为了美好的生活而四处奔波，明明别人触手可及的，却是自己羡慕不已的。
-今年也是一样呀，回武汉找份好工作，努力赚钱。
-虽然生活很苦，但是自己心里要觉得甜甜的呀，做一个有能量的人。
-后记
-回武汉3天了，前天把电脑装好了，这两天找女朋友玩了，也倒腾了下新电脑。家里的宽带快到期了，本来想换电信的宽带的，今天上门师傅来安装，弄了半天，后面发现我家的光纤埋线坏了，装不了电信的了，等退钱吧，我订个联通的宽带看看。
-武汉的冬天好冷，天总是灰蒙蒙的，全是雾霾呀。
-明天开始要准备简历，刷刷面试题之类的了。
-希望2022生活更美好，自己也变得更好。</content></entry><entry><title>Spring 循环依赖</title><url>/post/spring/spring%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/</url><categories><category>Spring</category></categories><tags/><content type="html"><![CDATA[   本文介绍Spring的循环依赖问题，以及Spring是如何解决的。
-循环依赖是指多个对象实例之间存在直接或间接的依赖关系，如A对象中引用了B对象，B对象中引用了A对象，有时在项目中遇到这种情况会出现StackOverflow异常，可以通过属性注入的方式解决这个问题。
-Spring循环依赖是指容器中的bean对象存在的循环依赖问题，Spring通过使用三级缓存解决的该问题。
-第一层缓存（singletonObjects）：单例对象缓存池，已经实例化并且属性赋值，这里的对象是成熟对象； 第二层缓存（earlySingletonObjects）：单例对象缓存池，已经实例化还未属性赋值，这里的对象是半成品对象； 第三层缓存（singletonFactories）: 单例工厂的缓存 AbstractBeanFactory类中：
-/** Cache of singleton objects: bean name --&amp;gt; bean instance */ private final Map&amp;lt;String, Object&amp;gt; singletonObjects = new ConcurrentHashMap&amp;lt;String, Object&amp;gt;(256); /** Cache of early singleton objects: bean name --&amp;gt; bean instance */ private final Map&amp;lt;String, Object&amp;gt; earlySingletonObjects = new HashMap&amp;lt;String, Object&amp;gt;(16); /** Cache of singleton factories: bean name --&amp;gt; ObjectFactory */ private final Map&amp;lt;String, ObjectFactory&amp;lt;?&amp;gt;&amp;gt; singletonFactories = new HashMap&amp;lt;String, ObjectFactory&amp;lt;?&amp;gt;&amp;gt;(16); 获取单例bean
-protected Object getSingleton(String beanName, boolean allowEarlyReference) …  ]]></content></entry><entry><title>Win10下使用docker</title><url>/post/docker/win10%E4%B8%8B%E4%BD%BF%E7%94%A8docker/</url><categories><category>Docker</category></categories><tags/><content type="html"> 本文介绍在win10下使用docker和wsl2
-之前一直是在虚拟机或者远程服务器上使用的docker，后面发现了win10下有wsl2之后就习惯了在win10的wsl2上使用docker
-使用wsl2也很方便
-wsl2
-安装 WSL
-可从win10自带的商店下载安装发行版linux，我使用的是ubuntu
-docker
-在wsl2中允许docker，需要下载docker官方提供的 Docker Desktop
-windows terminal
-在win10商店下载 windows terminal，一款美化的命令行工具。
-docker-compose
-使用docker-compose管理docker相关的内容会更加的方便。
-utools
-这里再推荐一款工具:Utools，它是一款win10插件平台，提供了很多插件。</content></entry><entry><title>Mybatis执行过程</title><url>/post/mybatis/mybatis%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/</url><categories><category>Mybatis</category></categories><tags/><content type="html"> 本文简单分析Mybatis的执行过程
-重要类
-SqlSession Configuration Excutor MappedStatement StatementHandler 从注入开始
-spring boot使用mybatis，需要导入mybatis-spring-boot-starter包，该包会导入mybatis-spring-boot-autoconfigure包。
-MybatisAutoConfiguration类会自动注入 SqlSessionFactory ，注入MapperScannerConfigurer且会扫描dao包，注入其中标注@Mapper注解的接口。 如果是使用XML配置的，则会在 SqlSessionFactory（其实是SqlSessionFactoryBean类） 注入时，扫描xml配置，并添加到 Configuration 中。 会注入 SqlSessionTemplate ，该类包含一个SqlSession代理类。
-MapperRegistry、MapperProxyFactory、MapperProxy
-Configuration中包含 MapperRegistry 属性。
-mapperRegistry有getMapper和addMapper方法，有一个map，用来保存mapper类和MapperProxyFactory。当需要的mapper在map中找不到时，会通过MapperProxyFactory生成一个代理mapper类。
-MapperProxyFactory是MapperProxy的工程类，可以生成MapperProxy代理类
-MapperProxy是Mapper代理类，相当于mapper接口的注入到容器的bean类型，使用mapper接口的方法时，会调到MapperProxy的invoke方法上，这里使用的是JDK代理。
-SqlSessionTemplate、SqlSession
-MapperProxy的invoke方法会执行MapperMethod的invoke方法，之后根据sql语句类型继续向下执行，接着会调用SqlSessionTemplate上的方法，
-SqlSessionTemplate会调用代理的SqlSession类上的方法，这里是DefaultSqlSession。
-Excutor
-MappedStatement包含很多属性，sql语句、返回结果等 DefaultSqlSession会调用Excutor继续执行相应的方法。
-StatementHandler
-Excutor执行时，会调用相应的StatementHandler继续执行。
-小结
-大致的流程就是上述过程，还是挺复杂的。
-参考
-SpringBoot中，Mybatis的执行流程源码解析</content></entry><entry><title>吵架后记</title><url>/post/shuyou/%E5%90%B5%E6%9E%B6%E5%90%8E%E8%AE%B0/</url><categories><category>记录</category></categories><tags/><content type="html"> 11.3
-和她吵架了，这次比较严重，她想分手，可能这次吵架只是一个导火索而已。
-她觉得我对她不够好，说我不是有意识的，只是我性格和脾气的一部分。想想确实觉得自己对她不是很好。
-唉，昨晚失眠很久，发信息挽回。
-今天发短信挽回，她还是很生气，我知道她只是希望有时候我能哄她，包容她，照顾她。但是有时候我自己的情绪都很难照顾，所以顾及不上她。
-11.4
-道歉了很久，哄了她很久，她也不是那么生气了。
-我觉得我还是很喜欢她的，只是偶尔两个人有争论，有矛盾。
-11.7
-和好了，呜呜呜呜。
-这几天感觉开心了很多。</content></entry><entry><title>SSM项目改造为Spring Boot项目</title><url>/post/spring-boot/ssm%E9%A1%B9%E7%9B%AE%E6%94%B9%E9%80%A0%E4%B8%BAspring-boot%E9%A1%B9%E7%9B%AE/</url><categories><category>Spring Boot</category></categories><tags/><content type="html"><![CDATA[   本文介绍怎么把SSM项目改造为Spring Boot项目
-0.改造步骤原ssm项目打成jar包 将相关配置文件放到resources目录下 将前端界面文件放到web目录下 servlet 、 listener 和 Filter 要注册到容器中 1.ServletSSM里使用的Servlet，要注册到容器中
-使用ServletRegistrationBean类或者使用注解@WebServlet
-@Bean public ServletRegistrationBean myServlet() { return new ServletRegistrationBean(new MyServlet, new String[]{&#34;/kjdp_cache&#34;}); } 2.FilterSSM里使用的Filter，要注册到容器中
-使用FilterRegistrationBean类或者使用注解@WebFilter
-@Bean public FilterRegistrationBean encodingFilter() { FilterRegistrationBean registration = new FilterRegistrationBean(); registration.setName(&#34;encodingFilter&#34;); registration.setOrder(1); registration.addUrlPatterns(new String[]{&#34;/*&#34;}); registration.setFilter(new CharacterEncodingFilter()); registration.addInitParameter(&#34;encoding&#34;, &#34;UTF-8&#34;); return registration; } 3.ListenerSSM里使用的Filter，要注册到容器中
-使用ListenerRegistrationBean类或者使用注解@WebListener
-4.自定义启动类注解可以通过@SpringBootApplication再注解一个自定义启动类注解
-@Target({ElementType.TYPE}) @Retention(RetentionPolicy.RUNTIME) @Inherited @SpringBootApplication @ImportResource public @interface MyBootApplication { @AliasFor( annotation = ImportResource.class ) String[] locations() default {&#34;classpath:conf/spring-application.xml&#34;}; @AliasFor( annotation = SpringBootApplication.class ) Class&lt;?&gt;[] exclude() default {DataSourceAutoConfiguration.class}; @AliasFor( annotation = SpringBootApplication.class ) String[] excludeName() default {}; @AliasFor( annotation = SpringBootApplication.class ) String[] scanBasePackages() default {&#34;com.my.boot&#34;}; @AliasFor( annotation = SpringBootApplication.class ) Class&lt;?&gt;[] scanBasePackageClasses() default {}; @AliasFor( annotation = SpringBootApplication.class ) boolean proxyBeanMethods() default true; } 使用上面三个注解的需要在启动类上加一个@ServletComponentScan注解来扫描。
-  ]]></content></entry><entry><title>Spring Cloud Gateway网关服务</title><url>/post/spring-cloud/spring-cloud-gateway%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/</url><categories><category>Spring Cloud</category></categories><tags/><content type="html"><![CDATA[   本文介绍Spring Cloud Gateway网关服务相关知识
-简介Gateway 是Spring提供的API网关服务框架，具有强大的智能路由和过滤功能。
-依赖&lt;properties&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;!-- 核心依赖 --&gt; &lt;spring-cloud.version&gt;2020.0.2&lt;/spring-cloud.version&gt; &lt;spring-cloud-alibaba.version&gt;2021.1&lt;/spring-cloud-alibaba.version&gt; &lt;nacos.version&gt;2.0.1&lt;/nacos.version&gt; &lt;/properties&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-loadbalancer&lt;/artifactId&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;!-- 核心依赖 --&gt; &lt;!--spring cloud--&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-cloud.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;!--spring cloud alibaba--&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-cloud-alibaba.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-gateway&lt;/artifactId&gt; &lt;version&gt;3.0.2&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.nacos&lt;/groupId&gt; &lt;artifactId&gt;nacos-client&lt;/artifactId&gt; &lt;version&gt;${nacos.version}&lt;/version&gt; &lt;exclusions&gt; &lt;exclusion&gt; &lt;groupId&gt;org.yaml&lt;/groupId&gt; &lt;artifactId&gt;snakeyaml&lt;/artifactId&gt; &lt;/exclusion&gt; &lt;/exclusions&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;/dependencyManagement&gt; 这里使用 nacos 做服务注册中心，还须引入 loadbalancer 和 gateway 依赖包。
-配置server: port: 8446 spring: application: name: gateway cloud: nacos: discovery: server-addr: http://10.60.80.115:8848 gateway: discovery: locator: enabled: true #开启从注册中心动态创建路由的功能 routes: - id: feign uri: lb://feign #lb是指从注册中心获取id为feign的路由地址 predicates: - Path=/** - Method=GET logging: level: com.zsy.gateway: debug 使用参考代码一些配置功能Route PredicateSpring Cloud Gateway包括许多内置的Route Predicate工厂。 所有这些Predicate都与HTTP请求的不同属性匹配。 多个Route Predicate工厂可以进行组合。可以参考官网，这里只列举一些，比如：
-After Route Predicate 在指定时间之后的请求会匹配该路由 Before Route Predicate 在指定时间之前的请求会匹配该路由 Route Filter路由过滤器可用于修改进入的HTTP请求和返回的HTTP响应，路由过滤器只能指定路由进行使用。Spring Cloud Gateway 内置了多种路由过滤器，他们都由GatewayFilter的工厂类来产生。可以参考官网，这里只列举一些，比如：
-AddRequestHeader 给请求头添加参数的过滤器 AddRequestParameter 给请求添加参数的过滤器 How It Works  ]]></content></entry><entry><title>Tomcat报错及解决方案</title><url>/post/tomcat/tomcat%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url><categories><category>Tomcat</category></categories><tags/><content type="html"><![CDATA[  最近试着在wsl2中使用docker跑公司的web项目，但是tomcat容器会报错
-报错java.lang.illegalargumentexception the main resource set specified [...] is not valid in Tomcat 解决方案将 %CATALINA_HOME%/conf/server.xml 中的
-&lt;Context docBase=&#34;&#34; path=&#34;/web&#34; reloadable=&#34;false&#34; /&gt; 删除掉
-并在 %CATALINA_HOME%/conf/Catalina/localhost 中创建 ROOT.xml 文件 ，写入以下内容
-&lt;Context docBase=&#34;&lt;yourApp&gt;&#34; path=&#34;/web&#34; reloadable=&#34;false&#34; /&gt; 我本机是成功解决了报上述错的问题。
-JDK版本问题java.lang.ClassNotFoundException: javax.xml.bind.JAXBException 使用的镜像是 tomcat8.5 ，但是它是JDK11，会报上述错误
-原因：JAXB API是java EE 的API，因此在java SE 9.0 中不再包含这个 Jar 包。 java 9 中引入了模块的概念，默认情况下，Java SE中将不再包含java EE 的Jar包 而在 java 6/7 / 8 时关于这个API 都是捆绑在一起的
-解决方案降低 JDK 版本
-参考： How to solve common problems when using Tomcat真正解决方案：java.lang.ClassNotFoundException: javax.xml.bind.JAXBException  ]]></content></entry><entry><title>Disruptor源码分析</title><url>/post/disruptor/disruptor%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url><categories><category>Disruptor</category></categories><tags/><content type="html"> 本文简单分析下Disruptor的原理
-简介
-Disruptor是一个高性能队列，它是系统内部的内存队列，而不是Kafka这样的分布式队列。
-由于Java内置的队列，会出现加锁和伪共享等影响性能的问题，所以公司项目里使用了Disruptor框架。
-Disruptor采用生产者-消费者模式，并使用环形数组结构，无锁设计，拥有很高的性能。
-环形数组队列
-先介绍下 Disruptor 的环形数组 RingBuffer
-public static final long INITIAL_CURSOR_VALUE = -1L; private final int indexMask; private final Object[] entries; private final int bufferSize; private final Sequencer sequencer; 这是 RingBuffer 类中的变量，比较重要的变量：
-entries 环形数组 生产者生产的类就放在这个数组中 bufferSize 环形数组的大小 sequencer 序列号 用于事件发布者和事件处理者在ringbuffer上相互追逐，标记它们的相对位置 next()
-public long next() { return this.sequencer.next(); } 返回下一个可用的序列号
-get()
-public E get(long sequence) { return this.entries[(int)sequence &amp;amp;amp; this.indexMask]; } 返回生产者生产的消息，消息对象里面的内容是空的，需要指定值
-publish()
-public void publish(long sequence) { this.sequencer.publish(sequence); } 发布消费者可用序列，只有发布了，消费者才能看见。
-序列
-Sequence 是 Disruptor 中的序列类，主要用于生成序列号
-在 Sequence 类中，可以看到避免伪共享的相关代码，主要就是 long 类型的，使用了长度为16的 long 类型的数组进行填充，这样可以有效的避免伪共享。
-也采用了CAS相关操作，可以提高性能。
-public class Sequence { static …</content></entry><entry><title>OpenFeign服务调用</title><url>/post/spring-cloud/openfeign%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/</url><categories><category>Spring Cloud</category></categories><tags/><content type="html"><![CDATA[   本文介绍 OpenFeign 相关知识
-简介Spring Cloud OpenFeign 是声明式的服务调用工具，它整合了Ribbon和Hystrix，拥有负载均衡和服务容错功能。
-依赖&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-loadbalancer&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt; &lt;/dependency&gt; &lt;/dependencies&gt; 这里使用 nacos 做服务注册中心，要想拥有负载均衡和服务容错还须引入 loadbalancer 和 hystrix 依赖包。
-配置server: port: 8445 spring: application: name: feign cloud: nacos: discovery: server-addr: http://10.60.80.115:8848 feign: circuitbreaker: enabled: true //开启服务容错功能 这里由于使用的版本较高 低版本应该是 feign.hystrix.enabled client: config: default: connectTimeout: 5000 readTimeout: 5000 loggerLevel: FULL //请求的日志级别为记录全部 logging: level: com.zsy.feign: debug //还需指定本项目的日志级别 需要在启动类上加上注解 @EnableFeignClients
-使用创建一个接口，并加上注解 @FeignClient，例如： @FeignClient(value = &ldquo;provider&rdquo;, fallback = FallBackService.class)
-这里的 value 表示要调用的服务的名称， fallback 表示服务降级时调用的类。
-参考代码  ]]></content></entry><entry><title>Nacos服务注册与发现</title><url>/post/spring-cloud/nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</url><categories><category>Spring Cloud</category></categories><tags/><content type="html"><![CDATA[   本文介绍 Nacos 相关知识
-简介Nacos 可以用来实现分布式环境下的配置管理和服务注册与发现。
-通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-config 实现配置的动态变更。 通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-discovery 实现服务的注册与发现。 安装Nacos下载地址：nacos下载并解压之后，还需要作一些配置
-conf 目录下的 application.properties 需要配置数据源
-### If use MySQL as datasource: spring.datasource.platform=mysql ### Count of DB: db.num=1 ### Connect URL of DB: db.url.0=jdbc:mysql://127.0.0.1:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC db.user.0=root db.password.0=123456 然后在MySQL数据库中新建nacos数据库，并导入Nacos解压包conf目录下的nacos-mysql.sql脚本
-更改 Nacos 启动方式为单机模式 配置pom.xml文件
-需要注意的是 spring-cloud-starter-alibaba-nacos-discovery 的依赖，我看网上其他例子配的是spring-cloud-alibaba-nacos-discovery，这个好像是低版本的依赖
-&lt;properties&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;!-- 核心依赖 --&gt; &lt;spring-boot.version&gt;2.4.3&lt;/spring-boot.version&gt; &lt;spring-cloud.version&gt;2020.0.2&lt;/spring-cloud.version&gt; &lt;spring-cloud-alibaba.version&gt;2021.1&lt;/spring-cloud-alibaba.version&gt; &lt;/properties&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-bootstrap&lt;/artifactId&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-alibaba-nacos-discovery&lt;/artifactId&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;!-- 核心依赖 --&gt; &lt;!--spring boot--&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-boot.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;!--spring cloud--&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-cloud.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;!--spring cloud alibaba--&gt; &lt;dependency&gt; &lt;groupId&gt;com.alibaba.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-alibaba-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-cloud-alibaba.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;/dependencyManagement&gt; 启动类上需要加注解 @EnableDiscoveryClient
-application.yml 中需要指明 nacos 的地址
-server: port: 8443 spring: application: name: provider cloud: nacos: discovery: server-addr: http://10.60.80.115:8848 入门代码案例参考：spring-cloud-samples  ]]></content></entry><entry><title>Eureka服务注册与发现</title><url>/post/spring-cloud/eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</url><categories><category>Spring Cloud</category></categories><tags/><content type="html"><![CDATA[   本文介绍Eureka相关知识
-简介Eureka是由netflix开发的一款服务治理的框架，Sping Cloud对其进行了集成。
-Eureka既包括客户端也包括服务端。Eureka客户端是服务提供者，它将自己注册到Eureka服务端，并周期性地发送心跳包来更新它的服务租约，同时也能从服务端查询当前注册的服务信息并把它们缓存到本地并周期性地刷新服务状态；Eureka服务端是一个服务注册中心，提供服务的注册和发现，即当前有哪些服务注册进来可供使用。
-服务注册中心1.在pom.xml文件中引入 eureka-server
-&lt;!--eureka-server--&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;/dependency&gt; 2.在启动类中加上注解 @EnableEurekaServer 3.在 application.yml 添加以下配置，作为服务注册中心时禁止默认的自我注册：
-eureka: instance: hostname: eureka7001.com #eureka服务端实例名称 client: register-with-eureka: false #表示不向注册中心注册自己 fetch-registry: false #false表示自己就是注册中心 service-url: defaultZone: http://eureka7001.com:7001/eureka/ 服务提供者1.在pom.xml文件中引入 eureka-client
-&lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt; &lt;/dependency&gt; 2.在启动类中加上注解 @EnableDiscoveryClient 3.在 application.yml 添加以下配置：
-eureka: client: register-with-eureka: true #表示向注册中心注册自己 fetch-registry: true #是否从EurekaServer抓取已有的注册信息，默认为true，单节点无所谓,集群必须设置为true才能配合ribbon使用负载均衡 service-url: defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/ Eureka-Server集群Eureka服务端充当了重要的角色，所有Eureka客户端都将自己提供的服务注册到Eureka服务端，然后供所有服务消费者使用。如果单节点的Eureka服务端宕机了，那么所有服务都无法正常的访问，这必将是灾难性的。为了提高Eureka服务端的可用性，我们一般会对其集群部署，即同时部署多个Eureka服务端，并且可以相互间同步服务。
-eureka-server1:
-server: port: 7001 eureka: instance: hostname: eureka7001.com #eureka服务端实例名称 client: register-with-eureka: false #表示不向注册中心注册自己 fetch-registry: false #false表示自己就是组测中心 service-url: defaultZone: http://eureka7002.com:7002/eureka/ eureka-server2:
-server: port: 7002 eureka: instance: hostname: eureka7001.com #eureka服务端实例名称 client: register-with-eureka: false #表示不向注册中心注册自己 fetch-registry: false #false表示自己就是组测中心 service-url: defaultZone: http://eureka7001.com:7001/eureka/ 通过指定 defaultZone 为其他 server 地址进行集群。
-参考
-Spring Cloud Eureka服务治理Eureka  ]]></content></entry><entry><title>十月杂感</title><url>/post/shuyou/%E5%A4%8D%E5%8E%9F%E7%9A%84%E5%8D%81%E6%9C%88/</url><categories><category>记录</category></categories><tags/><content type="html"> 黄金假期
-十一假期已经过完啦，太快咯，要是天天都放假就好了。
-29号回去的，10号又回深圳了，除去两天车程，相当于有十天假期。
-愉快的日子一去不复返，又是努力奋斗、拼命打工的时候了。
-十月规划
-十月底可能又得去北京，要做二期项目，希望12月底能做完回深圳。
-十月希望能熟悉微服务相关知识，重点是spring cloud alibaba的解决方案，公司采用的netflix方案也可以了解一下。
-明年要回武汉，希望可以在武汉找一份好工作。
-路上感想
-脑子好像没有以前那么好使了，就像是得了一场大病之后的后遗症，也可能是这几年晚上睡太晚的原因。
-这几年学习和工作老是心不在焉，自己也能感受的到，但是却无力改变，集中不了注意力。
-要整理好自己，慢慢变好。
-如梦复原
-工作之前的过去20多年像是虚度一样，自我感觉是没起到太大的作用。
-如果说，读书是人生序章的话，那么我人生的起点就是很低的了。
-乐观的往前，相信有一个好的未来。</content></entry><entry><title>微服务相关概念</title><url>/post/spring-cloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</url><categories><category>Spring Cloud</category></categories><tags/><content type="html"> 本文介绍微服务相关概念，了解微服务的相关架构和发展。
-微服务架构
-传统的软件架构，往往是一个单体应用糅合了各种业务模块。随着业务的发展，单体应用变得庞大之后产生难以维护的问题，微服务架构便出现了。
-微服务是一种架构风格，微服务将一个独立的系统拆分成多个微小的服务，这些小型服务都在各自独立的进程中运行，服务之间通过约定的通讯方式进行通信协作。
-微服务架构中的一些核心概念：
-服务注册与发现 熔断、限流、降级、隔离 服务网关 链路追踪 负载均衡 服务调用 集群与分布式
-集群：多台计算机完成同一个工作。 分布式：多台计算机做不同的工作，但是它们之间彼此进行交互以实现一个共同的目标。 分布式集群：一个业务使用集群部署，多个业务之间采用分布式部署，从而形成分布式集群。
-服务注册与发现
-对每个微服务模块进行统一的服务注册，方便管理。
-常用的解决方案有：
-Spring Cloud Eureka Nacos Zookeeper 服务调用
-服务之间互相调用的解决方案: rpc 还是 http
-Dubbo Spring Cloud Ribbon Spring Cloud Feign 配置中心
-解决服务太多导致配置文件太多的问题
-Nacos Spring Cloud Config API网关
-对外提供统一的API接口，方便管理，采用API网关
-Spring Cloud Gateway Spring Cloud Zuul 链路跟踪
-当服务之间调用出现错误时，方便排除哪一服务出现问题。
-Spring Cloud Sleuth 服务流控、熔断等
-当访问量过大时对流量进行控制
-Spring Cloud Alibaba Sentinel Spring Cloud Hystrix Spring Cloud对微服务架构提供了很多的解决方案，其中一部分是Netflix的解决方案，Spring Cloud对其进行了整合，还有一部分是alibaba提供的解决方案。
-总的来说，Spring Cloud Alibaba的解决方案更加完整，且社区还在进行更新，所以后续可能会入门和学习Spring Cloud Alibaba的解决方案。</content></entry><entry><title>面</title><url>/post/shuyou/%E9%9D%A2/</url><categories><category>记录</category></categories><tags/><content type="html"> 事
-一件事是具有多面性的，不同的人看到的面是不一样的，当然可能和观察者的阅历、角度等有很大的关系。
-看到哪一面，除了事情流露出来的信息外，很大程度上取决于观察者相信什么。
-互联网时代的今天，每天都有很多新闻，各种瓜。
-作为吃瓜群众，往往会跟着舆论或者大众趋势去看待某件事。
-但是信息往往不是那么公开的，看到的可能只是冰山一角。
-这样可能会对别人带来误解，同时使我们自己尴尬。
-保持理性很重要。
-人
-人也是有多面性的，是复杂的动物。
-现在的爽文、影视剧中的人物都太单一了，但其实人是很复杂的，具有多面性的。
-身份、角色对人的面有较大的影响。
-人在成长中，经历多面性，看到社会的一角，会慢慢地成熟。
-八面玲珑的人，可谓是人精了。
-少有年轻轻轻的八面玲珑之人，但也不是没有。
-父辈的传道有很关键的作用。
-自我
-个体与社会利益总会存在冲突的情况。
-比如现在的教育，是流水线的教育形式，毕业也就是出厂，工作就是到各行各业当螺丝钉。
-这于国家发展而言，是有利的，但对个人来说，是弊大于利的。
-当自我与它物存在冲突面时，如何抉择，往往是个问题。
-很多时候是没有很大选择的，只能被社会、时代裹挟着往前。
-上层决定下层，如何跳出上层画的圈，跳出下层面，很难也很重要。
-所谓富贵险中求，道理人人都懂，但不冒险自然是求不得的。</content></entry><entry><title>Spring Boot内容协商</title><url>/post/spring-boot/spring-boot%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86/</url><categories><category>Spring Boot</category></categories><tags/><content type="html"><![CDATA[   本文介绍内容协商相关知识
-内容协商（Content Negotiation）内容协商：客户端和服务器就响应的资源内容进行交涉，然后服务器提供给客户端最为合适的资源。
-内容协商会以响应资源的语言、字符集、编码方式等作为判断的基准。HTTP请求头中Content-Type，Accept等内容就是内容协商判断的标准。
-HttpMessageConverterHttpMessageConverter为HTTP消息转换接口，Spring Boot根据不同的媒体类型进行了相应的实现。
-MappingJackson2XmlHttpMessageConverter MappingJackson2HttpMessageConverter 当使用@ResponseBody注解时，默认是返回JSON格式的数据。
-当在pom.xml中加入如下两个包：
-&lt;dependency&gt; &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt; &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt; &lt;version&gt;2.9.8&lt;/version&gt; &lt;/dependency&gt; &lt;!-- jackson默认只会支持的json。若要xml的支持，需要额外导入如下包 --&gt; &lt;dependency&gt; &lt;groupId&gt;com.fasterxml.jackson.dataformat&lt;/groupId&gt; &lt;artifactId&gt;jackson-dataformat-xml&lt;/artifactId&gt; &lt;version&gt;2.9.8&lt;/version&gt; &lt;/dependency&gt; 指定请求头Accpt: application/xml时，就会返回XML格式的数据。
-这是因为最终都由AbstractMessageConverterMethodProcessor.writeWithMessageConverters()处理
-Spring Boot会根据请求头进行内容协商，返回相应格式的数据。
-通过实现AbstractGenericHttpMessageConverter类，可以自定义HttpMessageConverter。
-除了请求头Accept，还可以根据扩展名、请求参数等方法进行内容协商。
-除了HttpMessageConverter外，还能通过实现HandlerMethodArgumentResolver接口对方法入参进行内容协商。 通过实现HandlerMethodReturnValueHandler接口对返回值进行内容协商。
-值得注意的是：不能在配置类WebMvcConfigurer中通过重写addArgumentResolvers的方式来添加到Spring Boot自带的HandlerMethodArgumentResolver实现类集合，而是通过修改RequestMappingHandlerAdapter来实现。
-参考：
-自定义Spring Boot 内容协商Spring MVC内容协商  ]]></content></entry><entry><title>又一岁</title><url>/post/shuyou/%E5%8F%88%E4%B8%80%E5%B2%81/</url><categories><category>记录</category></categories><tags/><content type="html"> 这一年发生了很多事情，尤其是社会和国家，当然我个人也经历了很多事。
-小时候以为电视里的新闻，政府的政策与我没有关系，影响不到我，越长大越明白权力的力量，那是直接或间接影响一代又一代人的。
-有时候会想是不是在之前的时光里荒废了许多时间，比如读书的时候没用功学习，当然这都是事后复盘。
-有时候往日的种种会在脑海中浮现，然后就会产生不一样的情绪。
-现在还算是比较年轻，但是又老了一岁。
-新的一岁，希望自己更加成熟，工作顺利，赚更多的money，生活越来越美好。
-对过去的事说再见，向着未来出发。</content></entry><entry><title>Spring Boot中使用过滤器和拦截器</title><url>/post/spring-boot/spring-boot%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%87%E6%BB%A4%E5%99%A8%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/</url><categories><category>Spring Boot</category></categories><tags/><content type="html"><![CDATA[   过滤器（Filter）和拦截器（Interceptor）是Web项目中常用的两个功能，本文将简单介绍在Spring Boot中使用过滤器和拦截器。
-Filter过滤器可以用于过滤一些非法字符、权限检查等操作
-在Spring Boot中可以通过注解@WebFilter或者使用配置类来实现过滤器
-1.通过注解
-@WebFilter(&#34;/*&#34;) public class MyFilter implements Filter { @Override public void init(FilterConfig filterConfig) throws ServletException { System.out.println(&#34;过滤器初始化&#34;); } @Override public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException { System.out.println(&#34;开始执行过滤器&#34;); Long start = System.currentTimeMillis(); HttpServletRequest httpServletRequest = (HttpServletRequest) request; String s = httpServletRequest.getRequestURL().toString(); if (s.contains(&#34;/user&#34;)){ response.setCharacterEncoding(&#34;utf-8&#34;); response.setContentType(&#34;text/json;charset=UTF-8&#34;); PrintWriter writer = response.getWriter(); writer.write(&#34;不允许访问此url&#34;); writer.flush(); writer.close(); } chain.doFilter(request, response); System.out.println(&#34;【过滤器】耗时 &#34; + (System.currentTimeMillis() - start)); System.out.println(&#34;结束执行过滤器&#34;); } @Override public void destroy() { System.out.println(&#34;过滤器销毁&#34;); } } 这样当访问&quot;/user&quot;时，会在浏览器显示&quot;不允许访问此url&quot;。 2.通过配置类
-@Configuration public class WebConfig{ @Bean public FilterRegistrationBean timeFilter(){ FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean(); MyFilter myFilter = new MyFilter(); filterRegistrationBean.setFilter(myFilter); List&lt;String&gt; urlList = new ArrayList&lt;&gt;(); urlList.add(&#34;/*&#34;); filterRegistrationBean.setUrlPatterns(urlList); return filterRegistrationBean; } } 上述配置类也会对所有url进行过滤。
-2.拦截器拦截器需要实现HandlerInterceptor接口
-@Component public class MyInterceptor implements HandlerInterceptor { @Override public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception { System.out.println(&#34;处理拦截之前&#34;); request.setAttribute(&#34;startTime&#34;, System.currentTimeMillis()); if (null == request.getSession().getAttribute(&#34;SESSION&#34;)){ response.sendRedirect(request.getContextPath() + &#34;/login&#34;); return false; } System.out.println(((HandlerMethod) handler).getBean().getClass().getName()); System.out.println(((HandlerMethod) handler).getMethod().getName()); return true; } @Override public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception { System.out.println(&#34;开始处理拦截&#34;); Long start = (Long) request.getAttribute(&#34;startTime&#34;); System.out.println(&#34;【拦截器】耗时 &#34; + (System.currentTimeMillis() - start)); } @Override public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception { System.out.println(&#34;处理拦截之后&#34;); Long start = (Long) request.getAttribute(&#34;startTime&#34;); System.out.println(&#34;【拦截器】耗时 &#34; + (System.currentTimeMillis() - start)); System.out.println(&#34;异常信息 &#34; + ex); } } 上述拦截器会判断是否登录，对未登录的进行拦截。 还需进行注册才能生效。
-@Configuration public class WebConfig implements WebMvcConfigurer { @Autowired MyInterceptor myInterceptor; @Override public void addInterceptors(InterceptorRegistry registry) { registry.addInterceptor(myInterceptor) .addPathPatterns(&#34;/user&#34;) .excludePathPatterns(&#34;/jacksonSerialization&#34;); } } 过滤器要先于拦截器执行，晚于拦截器结束。 上图很好的描述了他们的执行时间。
-参考：
-Spring Boot中使用过滤器和拦截器  ]]></content></entry><entry><title>Spring Boot中操作JSON</title><url>/post/spring-boot/spring-boot%E4%B8%AD%E7%9A%84json/</url><categories><category>Spring Boot</category></categories><tags/><content type="html"><![CDATA[   本文介绍常用的JSON相关操作，Spring Boot内置Jackson包可以进行JSON相关操作
-序列化FastjsonUser user1 = new User(); String s1 = JSON.toJSONString(user1); System.out.println(s1); JacksonObjectMapper objectMapper = new ObjectMapper(); String s2 = objectMapper.writeValueAsString(user); System.out.println(s2); 反序列化FastjsonString s =&#34;{\n&#34; + &#34; \&#34;id\&#34;: 1,\n&#34; + &#34; \&#34;userName\&#34;: \&#34;zhangsan\&#34;,\n&#34; + &#34; \&#34;password\&#34;: \&#34;123456\&#34;,\n&#34; + &#34; \&#34;userSex\&#34;: \&#34;man\&#34;,\n&#34; + &#34; \&#34;nickName\&#34;: \&#34;asdf\&#34;,\n&#34; + &#34; \&#34;birthday\&#34;: \&#34;2000-09-11 00:00:00\&#34;\n&#34; + &#34;}&#34;; User user = JSON.parseObject(s, User.class); System.out.println(user.toString()); JacksonUser user = (User) objectMapper.readValue(s, User.class); System.out.println(user.toString()); 自定义ObjectMapperSpring Boot内置了Jackson来完成JSON的序列化和反序列化。
-在Spring中使用@ResponseBody注解可以将方法返回的对象序列化成json串
-在Spring Boot中可以自定义一个ObjectMapper来序列化我们想要返回的格式，比如序列化时间
-package com.springboot.demos.config; import com.fasterxml.jackson.databind.ObjectMapper; import org.springframework.context.annotation.Bean; import org.springframework.context.annotation.Configuration; import java.text.SimpleDateFormat; /** * @author zousy * @version v1.0 * @Description * @date 2021-09-07 15:22 */ @Configuration public class JacksonConfig { @Bean public ObjectMapper getObjectMapper(){ ObjectMapper mapper = new ObjectMapper(); mapper.setDateFormat(new SimpleDateFormat(&#34;yyyy-MM-dd HH:mm:ss&#34;)); return mapper; } } 这样就会返回如下json串：
-{ &#34;id&#34;: 1, &#34;userName&#34;: &#34;zhangsan&#34;, &#34;password&#34;: &#34;123456&#34;, &#34;nickName&#34;: &#34;asdf&#34;, &#34;birthday&#34;: &#34;2000-09-11 00:00:00&#34;, &#34;sex&#34;: &#34;man&#34; } Jackson注解1.@JsonProperty@JsonProperty，作用在属性上，用来为JSON Key指定一个别名。
-2.@Jsonlgnore@Jsonlgnore，作用在属性上，用来忽略此属性。
-3.@JsonIgnoreProperties@JsonIgnoreProperties，忽略一组属性，作用于类上，比如JsonIgnoreProperties({ &ldquo;password&rdquo;, &ldquo;birthday&rdquo; })。
-4.@JsonFormat@JsonFormat，用于日期格式化，如：@JsonFormat(pattern = &ldquo;yyyy-MM-dd HH:mm:ss&rdquo;)
-还有其他的一些注解，这里不再介绍可参考官方文档。
-JSON相关操作JSON数组字符串&ndash;&gt;ListJackson
-String jsonArray = &#34;[{\&#34;brand\&#34;:\&#34;ford\&#34;}, {\&#34;brand\&#34;:\&#34;Fiat\&#34;}]&#34;; ObjectMapper objectMapper = new ObjectMapper(); List&lt;Car&gt; cars1 = objectMapper.readValue(jsonArray, new TypeReference&lt;List&lt;Car&gt;&gt;(){}); Fastjson
-String jsonArray = &#34;[{\&#34;brand\&#34;:\&#34;ford\&#34;}, {\&#34;brand\&#34;:\&#34;Fiat\&#34;}]&#34;; List&lt;Car&gt; cars = JSON.parseArray(jsonArray, Car.class); Jackson 主要操作JSON的类是 ObjectMapper FastJson 主要操作JSON的类是 JSON、JSONObject、JSONArray
-参考：
-Spring Boot中的JSON技术Jackson使用详解FastJson使用详解  ]]></content></entry><entry><title>Spring Boot相关注解</title><url>/post/spring-boot/spring-boot%E7%9B%B8%E5%85%B3%E6%B3%A8%E8%A7%A3/</url><categories><category>Spring Boot</category></categories><tags/><content type="html"> 本文介绍Spring Boot开发web相关注解知识
-基础web注解
-Bean处理
-@Component：通用的注解，可标注任意类为 Spring 组件。如果一个 Bean 不知道属于哪个层，可以使用@Component 注解标注； @Repository：对应持久层即 Dao 层，主要用于数据库相关操作； @Service：对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层； @Controller：对应 Spring MVC 控制层，一般需要注入 Service 类返回结果数据； @RestController：继承于 @Controller，区别在于标注后整个类所有方法将直接返回 JSON 数据，不再需要视图解析处理，目前前后端分离的项目后端都是直接用这个注解的； @Configuration：标注是 Java 代码的配置类， Spring Boot 中推荐这种做法不再使用 xml 配置了； @Scope：声明 Spring Bean 的作用域,作用于一共有以下几种： singleton：唯一 bean 实例，Spring 中的 bean 默认都是单例的。 prototype：每次请求都会创建一个新的 bean 实例。 request：每一次 HTTP 请求都会产生一个新的 bean，该 bean 仅在当前 HTTP request 内有效。 session：每一次 HTTP 请求都会产生一个新的 bean，该 bean 仅在当前 HTTP session 内有效。 HTTP请求
-@RequestMapping：@RequestMapping(value=&amp;amp;quot;/test&amp;amp;quot;,method=RequestMethod.GET)可以指定路径和请求方法 @GetMapping：get请求注解 @PostMapping：post请求注解 @PutMapping @DeleteMapping 前后端参数传递
-@RequestParam：用在方法的参数前面，获取请求中表单类型的key=value格式的数据。 @PathVariable：用于获取请求路径中的参数。 @RequestBody：获取请求 body 中的数据，常用于搭配 @PostMapping 请求来提交对象数据. 请求体 的Content-Type …</content></entry><entry><title>Spring Boot自动配置相关知识</title><url>/post/spring-boot/spring-boot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/</url><categories><category>Spring Boot</category></categories><tags/><content type="html"> 本文介绍Spring Boot自动配置相关知识
-Spring 3.0开始，Spring提供了Java Config的方式，进行Spring bean的创建
-@Configuration public class DemoConfiguration { @Bean public void object() { return new Obejct(); } } 通过在类上添加 @Configuration 注解，声明这是一个 Spring 配置类。 通过在方法上添加 @Bean 注解，声明该方法创建一个 Spring Bean。 在Spring Boot中也可以使用上述注解进行Bean的配置。
-配置类：在类上添加了 @Configuration 注解，声明这是一个配置类 条件注解：在类上添加了 @ConditionalOnWebApplication 条件注解 配置属性：使用@ConfigurationProperties 注解声明配置属性类和 @EnableConfigurationProperties 注解让配置属性类生效 自动配置 上面的介绍仅仅是解决了配置的问题，Spring Boot是如何实现自动配置的呢？
-@SpringBootApplication 注解中有 @EnableAutoConfiguration 这样一个注解。而@EnableAutoConfiguration 这个注解看名字就知道是启用自动配置注解
-@EnableAutoConfiguration
-@EnableAutoConfiguration使用@Import添加了一个AutoConfigurationImportSelector类，Spring自动注入配置的核心功能就依赖于这个对象。
-在这个类中，提供了一个getCandidateConfigurations()方法用来加载配置文件。借助Spring提供的工具类SpringFactories的loadFactoryNames()方法加载配置文件。扫描的默认路径位于META-INF/spring.factories中。
-原先 @Configuration 注解的配置类，就升级成类自动配置类。这样，Spring Boot 在获取到需要自动配置的配置类后，就可以自动创建相应的 Bean，完成自动配置的功能。 …</content></entry><entry><title>天道</title><url>/post/shuyou/%E9%81%A5%E8%BF%9C%E7%9A%84%E6%95%91%E4%B8%96%E4%B8%BB/</url><categories><category>记录</category></categories><tags/><content type="html"> 最近看了电视剧天道，根据豆豆的小说遥远的救世主改编的。
-有比较大的触动。
-书中有这样一句话：神就是道，道就是规律。规律如来，容不得你思议，按规律办事的人就是神。
-从来没有救世主，能救自己的只有自己呀。
-古语说：有道无术，术尚可求，有术无道，止于术
-以前我是没有道的，做一件事情，也没有很大的兴趣探究所以然，像是被推着往前，学习和工作都是如此。
-但是我想今后我的道应该是努力去追寻事务的规律,了解人的交流和社会的运作。</content></entry><entry><title>无题</title><url>/post/shuyou/%E5%BA%94%E6%98%AF%E5%A6%82%E6%AD%A4/</url><categories><category>记录</category></categories><tags/><content type="html"> 时间过得真快呀，就到八月了。这个月回到深圳了，可能下个月还得去北京，流下不争气的泪水。
-想以后每个月都可以写一篇杂文，可以回顾这个月发生的事儿，或者吃瓜下网上的热门话题。
-最近沉迷永结无间，想双十一入手一台主机电脑，但是最近显卡太贵了，还没想好倒底买不买。马上要国庆了，应该要回武汉。
-最近在学习Golang语言，准备通过一些小项目来熟悉这门语言。打算慢慢补上自己因为出差而欠下的相关八股文。
-突然发现自己做啥事都没有基调，就像现在写的东西，挺乱的，但是自我感觉最近成长了许多，自己将事业和发展放到了更重要的位置。
-世界一日千里啊，发展太快了。要跟得上，与时俱进是必须的，确定主基调的同时，要顺应时代的发展。</content></entry><entry><title>synchronized和volatile相关知识</title><url>/post/java-concurrent/synchronized%E5%92%8Cvolatile%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</url><categories><category>Java并发</category></categories><tags/><content type="html"> 总结下synchronized和volatile关键字相关八股文
-在多线程环境下，线程是交替执行的，多线程竞争共享资源容易产生线程不安全的问题，甚至产生死锁的问题。
-使用多线程，一定要保证程序是线程安全的。通常会采用以下一些方法来保证线程安全：
-多线程之间没有共享变量，即考虑使用线程私有变量 加锁 CAS synchronized
-Synchronized是Java的关键字，它可以将代码块锁起来。
-public void synchronized lock(){ //do something } 可以修饰普通方法、代码块、静态方法等。
-Synchronized是可重入锁、互斥锁、内置锁（监视器锁）
-可重入锁：是指允许同一个线程多次获取同一把锁 互斥锁：是指同一时刻只允许一个线程进入锁 内置锁：是值使用对象的内置锁（监视器）来实现的锁 Synchronized是由相关字节码指令实现的：monitorenter和monitorexit，而这两个指令依赖于底层操作系统Mutex Lock来实现的。但是使用Mutex Lock需要将当前线程挂起并从用户态切换到内核态来执行，这种切换的代价是非常昂贵的。在jdk1.6后，对synchronized关键字进行了大量的优化，如锁升级、偏向锁、轻量级锁、重量级锁等。
-在Java SE 1.6里Synchronied同步锁，一共有四种状态：无锁、偏向锁、轻量级锁、重量级锁，它会随着竞争情况逐渐升级。锁可以升级但是不可以降级，目的是为了提供获取锁和释放锁的效率。
-锁膨胀方向： 无锁 → 偏向锁 → 轻量级锁 → 重量级锁 (此过程是不可逆的)
-偏向锁
-当一个线程访问同步块并获取锁时，会在对象头和栈帧中的锁记录里存储锁偏向的线程ID，以后该线程在进入和退出同步块时不需要进行CAS操作来加锁和解锁。只需要简单地测试一下对象头的Mark Word里是否存储着指向当前线程的偏向锁。如果成功，表示线程已经获取到了锁。
-偏向锁使用了一种等待竞争出现才会释放锁的机制。所以当其他线程尝试获取偏向锁时，持有偏向锁的线程才会释放锁。
-但是偏向锁的撤销需要等到全局安全点(就是当前线程没有正在执行的字节码)。它会首先暂停拥有偏向锁的线程，让你后检查持有偏向锁的线程是否活着。如果线程不处于活动状态，直接将对象头设置为无锁状态。如果线程活着，JVM会遍历栈帧中的 …</content></entry><entry><title>Cookie、Session和Token相关知识</title><url>/post/tomcat/cookiesession%E5%92%8Ctoken/</url><categories><category>Tomcat</category></categories><tags/><content type="html"><![CDATA[   本文介绍Cookie、Session和Token相关知识
-什么是Cookie
-由于Http是无状态的协议，这意味着一旦数据提交后，客户端与服务器的连接就会关闭，再次交互的时候需要重新建立新的连接。
-服务器无法确认用户信息，于是W3C就提出给每个用户发一个通行证，无论谁访问都携带通行证，这样服务器就能从通行证上确认用户信息，这个通行证就是cookie。
-cookie存储在客户端：cookie 是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。 cookie是不可跨域的： 每个 cookie 都会绑定单一的域名，无法在别的域名下获取使用，一级域名和二级域名之间是允许共享使用的（靠的是 domain）。 在servlet中使用cookie
-response.setContentType(&#34;text/html;charset=UTF-8&#34;); Cookie cookie = new Cookie(&#34;user&#34;,&#34;zsy&#34;); cookie.setMaxAge(30000); response.addCookie(cookie); response.getWriter().write(&#34;返回Cookie&#34;); 什么是Session
-Session 是另⼀种记录浏览器状态的机制。Cookie保存在浏览器中， 而Session保存在服务器中。⽤户使⽤浏览器访问服务器的时候，服务器把⽤户的信息以某种的形式记录在服务器，这就是Session。
-Session可以存储任何类型的数据，而Cookie只能存字符串 Session存在服务器，Cookie存在客户端浏览器上 Session是基于Cookie实现的，依赖于名为JSESSIONID的Cookie Cookie 可设置为长时间保持，比如我们经常使用的默认登录功能，Session 一般失效时间较短，客户端关闭（默认情况下）或者 Session 超时都会失效 在servlet中使用session
-//得到Session对象 HttpSession httpSession = request.getSession(); //设置Session属性 httpSession.setAttribute(&#34;name&#34;, &#34;看完博客就要点赞！！ &#34;); //得到Session对象 HttpSession httpSession = request.getSession(); //设置Session属性 httpSession.setAttribute(&#34;name&#34;, &#34;看完博客就要点赞！！ &#34;); 什么是Token
-token是访问资源接口（API）时所需要的资源凭证
-每一次请求都需要携带 token，需要把 token 放到 HTTP 的 Header 里 基于 token 的用户认证是一种服务端无状态的认证方式，服务端不用存放 token 数据。用解析 token 的计算时间换取 session 的存储空间，从而减轻服务器的压力，减少频繁的查询数据库 使用JWT（Json Web Token）可以解决跨域相关问题   ]]></content></entry><entry><title>道阻且长 行则将至</title><url>/post/shuyou/%E5%A6%82%E9%A2%98/</url><categories><category>记录</category></categories><tags/><content type="html"> 最近一直都没写博客，是因为来北京出差了，在中信建投这边做项目，很累，没什么时间写。
-都连续4个周末全加班了，很累，估计年底要辞职回家了。希望下半年不用来这边做二期的项目。
-很累但是又感觉啥都没做，这种状态是很可怕的。很多时候还是很烦躁，怕生，焦虑，但是能感觉到比以前的状态好多了。
-记录下最近的想法：
-要保持乐观的心态，积极向上的人生态度 多与人交流，别怕生 不要为过去的事情烦恼，多思考未来 做事情要专注，努力去做想做的事 要学会找到正确的方法，多观察，多思考 了解更多的事，多听，多看，停止事不关己的懒惰 多经营自己的人生，少羡慕别人</content></entry><entry><title>Redis实战----哨兵机制</title><url>/post/redis/redis%E5%AE%9E%E6%88%98----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</url><categories><category>Redis</category></categories><tags/><content type="html"> 本文介绍使用docker操作Redis哨兵机制相关内容
-还是使用 docker-compose 来测试 Redis 的哨兵机制。
-这里建议使用一个 docker-compose 来测试，我一开始是使用的两个 yaml 文件，会出现主节点挂掉之后，从节点无法切换为主节点的情况，搞了很久，后面看了下网上的说法，感觉应该是网络共享的问题。
-先建立一个文件夹测试哨兵机制，这边是我的目录结构
-zsy@zsy:~/redis/testSentinel$ ll total 32 drwxr-xr-x 3 zsy zsy 4096 Oct 21 17:23 ./ drwxr-xr-x 4 zsy zsy 4096 Oct 21 15:41 ../ drwxr-xr-x 5 root root 4096 Oct 21 17:23 data/ -rw-r--r-- 1 zsy zsy 1751 Oct 21 17:23 docker-compose.yml -rw-r--r-- 1 zsy zsy 264 Oct 21 17:21 sentinel.conf -rw-r--r-- 1 zsy zsy 264 Oct 21 17:21 sentinel1.conf -rw-r--r-- 1 zsy zsy 264 Oct 21 17:21 sentinel2.conf -rw-r--r-- 1 zsy zsy 264 Oct 21 17:21 sentinel3.conf 在文件夹里新建一个 docker-compose.yml
-version: &amp;amp;#39;3&amp;amp;#39; services: master: image: redis container_name: redis-master restart: always command: redis-server --port 6379 --requirepass 123456 --masterauth 123456 --appendonly yes ports: - 6379:6379 volumes: - ./data/master:/data slave1: image: redis container_name: redis-slave-1 restart: always command: redis-server …</content></entry><entry><title>Redis实战----主从复制</title><url>/post/redis/redis%E5%AE%9E%E6%88%98----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</url><categories><category>Redis</category></categories><tags/><content type="html"><![CDATA[   本文介绍使用docker操作Redis主从复制相关内容
-这里使用 docker-compose 来测试 Redis 的主从复制功能。
-首先需要安装 docker 和 docker-compose 以及 Redis 镜像，这里就不再做这方面的安装介绍了。
-安装好后，需要编写 docker-compose.yml 文件
-version: &#39;3&#39; services: master: image: redis container_name: redis-master restart: always command: redis-server --port 6379 --requirepass master123 --appendonly yes ports: - 6379:6379 volumes: - ./data/master:/data slave1: image: redis container_name: redis-slave-1 restart: always command: redis-server --slaveof master 6379 --port 6380 --requirepass slave123 --masterauth master123 --appendonly yes ports: - 6380:6380 volumes: - ./data/slave1:/data slave2: image: redis container_name: redis-slave-2 restart: always command: redis-server --slaveof master 6379 --port 6381 --requirepass slave456 --masterauth master123 --appendonly yes ports: - 6381:6381 volumes: - ./data/slave2:/data 然后在当前文件夹下，输入命令: docker-compose up -d
-运行结果：
-zsy@zsy:~/redis/testSlave$ ll total 16 drwxr-xr-x 3 zsy zsy 4096 Oct 21 11:17 ./ drwxr-xr-x 4 zsy zsy 4096 Oct 21 11:07 ../ drwxr-xr-x 5 root root 4096 Oct 21 11:17 data/ -rw-r--r-- 1 zsy zsy 1112 Oct 21 11:17 docker-compose.yml zsy@zsy:~/redis/testSlave$ docker ps -a CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 20adf82b1afd redis &#34;docker-entrypoint.s…&#34; 3 hours ago Up 3 hours 0.0.0.0:6379-&gt;6379/tcp redis-master 6ba1c3c93d2e redis &#34;docker-entrypoint.s…&#34; 3 hours ago Up 3 hours 6379/tcp, 0.0.0.0:6381-&gt;6381/tcp redis-slave-2 96b023c4bc57 redis &#34;docker-entrypoint.s…&#34; 3 hours ago Up 15 minutes 6379/tcp, 0.0.0.0:6380-&gt;6380/tcp redis-slave-1 zsy@zsy:~/redis/testSlave$ 测试主从复制：
-测试是否能向从库写入数据？ 测试写入数据到主库，从库有没有数据？ 测试一个从库节点挂掉，主库写入数据，从库节点重启后，是否能同步主库数据？ 测试主库挂点，从库是否能读取数据？ 答案：
-不能 有 能同步 能 参考： docker-compose搭建redis哨兵集群使用docker 搭建redis的主从复制  ]]></content></entry><entry><title>Java内存模型</title><url>/post/jvm/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</url><categories><category>JVM</category></categories><tags/><content type="html"> 本文介绍Java内存模型相关知识
-Java内存模型和JVM内存结构是两个不同的概念。
-Java内存模型：
-Java 的并发采用的是共享内存模型，Java 线程之间的通信总是隐式进行，整个通信过程对程序员完全透明。如果编写多线程程序的 Java 程序员不理解隐式进行的线程之间通信的工作机制，很可能会遇到各种奇怪的内存可见性问题。
-为了解决可能由共享内存模型引发的内存可见性问题，抽象出了Java内存模型。
-Java 线程之间的通信由 Java 内存模型（本文简称为 JMM）控制，JMM 决定一个线程对共享变量的写入何时对另一个线程可见。从抽象的角度来看，JMM 定义了线程和主内存之间的抽象关系：线程之间的共享变量存储在主内存（main memory）中，每个线程都有一个私有的本地内存（local memory），本地内存中存储了该线程以读 / 写共享变量的副本。本地内存是 JMM 的一个抽象概念，并不真实存在。它涵盖了缓存，写缓冲区，寄存器以及其他的硬件和编译器优化。
-JMM 通过控制主内存与每个线程的本地内存之间的交互，来为 java 程序员提供内存可见性保证。
-重排序：
-在执行程序时为了提高性能，编译器和处理器常常会对指令做重排序。
-编译器优化的重排序。编译器在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序。 指令级并行的重排序。现代处理器采用了指令级并行技术（Instruction-Level Parallelism， ILP）来将多条指令重叠执行。如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序。 内存系统的重排序。由于处理器使用缓存和读 / 写缓冲区，这使得加载和存储操作看上去可能是在乱序执行。 这些重排序都可能会导致多线程程序出现内存可见性问题。
-对于编译器，JMM 的编译器重排序规则会禁止特定类型的编译器重排序（不是所有的编译器重排序都要禁止）。对于处理器重排序，JMM 的处理器重排序规则会要求 java 编译器在生成指令序列时，插入特定类型的内存屏障（memory barriers，intel 称之为 memory fence）指令，通过内存屏障指令来禁止特定类型的处理器重排序（不是所有的处理器重排序都要禁止）。
-数据依赖：
-如果两个操作访问同一个变量，且这两个操作中有一个为写操作，此时这两个操作之间就存在数据依赖性。数据依赖分 …</content></entry><entry><title>Redis相关知识----缓存问题</title><url>/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</url><categories><category>Redis</category></categories><tags/><content type="html"> 本文介绍Redis缓存相关问题，包括缓存穿透、缓存击穿、缓存雪崩等相关知识
-缓存穿透： 缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，这将导致这个不存在的数据每次请求都要到存储层去查询，失去了缓存的意义。当流量过大时，数据库可能挂掉。
-解决方案：
-用户校验：接口层增加校验，如用户鉴权校验，id做基础校验，id&amp;amp;lt;=0的直接拦截； 对空值缓存：从缓存取不到的数据，在数据库中也没有取到，这时也可以将key-value对写为key-null，缓存有效时间可以设置短点，如30秒（设置太长会导致正常情况也没法使用）。这样可以防止攻击用户反复用同一个id暴力攻击。 布隆过滤器：bloomfilter就类似于一个hash set，用于快速判某个元素是否存在于集合中，其典型的应用场景就是快速判断一个key是否存在于某容器，不存在就直接返回。 缓存击穿： 缓存击穿是指缓存中没有但数据库中有的数据（一般是热门缓存数据时间到期），这时由于大量并发请求，同时读缓存没读到数据，又同时去数据库去取数据，引起数据库压力瞬间增大，可能造成数据库宕机。
-解决方案：
-设置热点数据永远不过期。 接口限流与熔断，降级。重要的接口一定要做好限流策略，防止用户恶意刷接口，同时要降级准备，当接口中的某些 服务 不可用时候，进行熔断，失败快速返回机制。 加互斥锁。 缓存雪崩： 缓存雪崩是指缓存中数据大批量到过期时间，而查询数据量巨大，引起数据库压力过大甚至down机。和缓存击穿不同的是，缓存击穿指并发查同一条数据，缓存雪崩是不同数据都过期了，很多数据都查不到从而查数据库。
-解决方案：
-缓存数据的过期时间设置随机，防止同一时间大量数据过期现象发生。 如果缓存数据库是分布式部署，将热点数据均匀分布在不同的缓存数据库中。 设置热点数据永远不过期。 使用锁或者队列。 缓存污染： 缓存污染问题说的是缓存中一些只会被访问一次或者几次的的数据，被访问完后，再也不会被访问到，但这部分数据依然留存在缓存中，消耗缓存空间。 缓存污染会随着数据的持续增加而逐渐显露，随着服务的不断运行，缓存中会存在大量的永远不会再次被访问的数据。缓存空间是有限的，如果缓存空间满了，再往缓存里写数据时就会有额外开销，影响Redis性能。这部分额外开销主要是指写的时候判断淘汰策略，根据淘汰策略去选择要淘汰的数据，然后进行删除操作。
-缓存 …</content></entry><entry><title>最近一些想法</title><url>/post/shuyou/%E6%9C%80%E8%BF%91%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95/</url><categories><category>记录</category></categories><tags/><content type="html"> 总想写一点什么，但是又感觉没什么好写的。
-写写一下最近的生活、工作、想法和规划吧。
-Life
-最近的生活也就工作日上班，节假日宅在宿舍。我也知道宅不太好，自己身体也没有以前好了，应该多去运动，跑跑步啥的。平时还是多做做运动吧，毕竟身体是自己的。前段时间，去广州找帆哥玩了几天，看了很多广州景点，也吃了很多好吃的。
-来深圳工作快一年了，也没有好好逛逛。一方面，自己对这座城市的感情没那么深吧，总觉得这是座“打工”的城市。也是第一次到另一座城市生活，独立生活的能力很差，离家的生活比较糟糕，可能是在家对我妈太依赖了吧。另一方面，目前的工资确实很低，这边消费很高，周末又不想一个人出去逛，自己出去的话也买不去很多东西。之前周末还去万科云城那边看看电影，但是最近开始和室友一起在网上看，体验也不差就没出去看电影了。
-最近好像长胖了，肚子一到春天就一堆肉。
-五一要回家看看爸妈，陪陪女朋友。但是只买到2号凌晨3点的票，就很难受。
-Work
-最近的工作，谈不上996，属于比较轻松的吧，但是一般晚上到宿舍也都8点多了。 其实我是只想写后端的，但是工作内容要求前后端都写，所以了解了下工作用的前端组件，然后也给这个博客加了一个搜索功能。 但是我的工资比较低，还需要努力学习技术。
-最近也记录了很多博文，大多是从网上其他博文搬过来的，但自己用心去阅读了这些博文，理解了很多知识点。
-Idea
-要努力啊，不然只能坐3点的高铁。
-勤奋一点，多学习技术。
-自信一点，要相信自己能做到。
-Plan
-想回武汉工作，估计年底就辞职回去吧。但是换工作，想要高工资得技术厉害才行。所以最近看的都是一些八股文类型的，理论很深的知识，然后写博客记录下来。但是很容易遗忘，而且口述出来很难，容易卡住。
-五一来了之后，学学微服务相关的技术。
-5/9 晚 回深圳了
-假期过得好快呀，一晃就过去了，又苦逼地回到深圳打工了。
-不想在这边打工了，无依无靠的，一个人在这边也交不到很多朋友，认清了自己是不喜欢孤独的一个人，还是喜欢热热闹闹的。
-要努力学习技术呀，多看点视频、博客，多花时间动手去学习，不管能不能达到自己想要的目标，开始就挺棒的。
-人生如戏啊 Life is a fucking movie
-2021已经快过了一半，加油吧。</content></entry><entry><title>Redis相关知识----哨兵机制</title><url>/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</url><categories><category>Redis</category></categories><tags/><content type="html"> 本文介绍Redis哨兵相关知识
-哨兵机制（Redis Sentinel）： Redis Sentinel，即Redis哨兵，在Redis 2.8版本开始引入。哨兵的核心功能是主节点的自动故障转移。其他功能：
-监控（Monitoring）：哨兵会不断地检查主节点和从节点是否运作正常。 自动故障转移（Automatic failover）：当主节点不能正常工作时，哨兵会开始自动故障转移操作，它会将失效主节点的其中一个从节点升级为新的主节点，并让其他从节点改为复制新的主节点。 配置提供者（Configuration provider）：客户端在初始化时，通过连接哨兵来获得当前Redis服务的主节点地址。 通知（Notification）：哨兵可以将故障转移的结果发送给客户端。 其中，监控和自动故障转移功能，使得哨兵可以及时发现主节点故障并完成转移；而配置提供者和通知功能，则需要在与客户端的交互中才能体现。
-哨兵集群：哨兵实例之间可以相互发现，要归功于 Redis 提供的 pub/sub 机制，也就是发布 / 订阅机制。
-在主从集群中，主库上有一个名为__sentinel__:hello的频道，不同哨兵就是通过它来相互发现，实现互相通信的。在下图中，哨兵 1 把自己的 IP（172.16.19.3）和端口（26579）发布到__sentinel__:hello频道上，哨兵 2 和 3 订阅了该频道。那么此时，哨兵 2 和 3 就可以从这个频道直接获取哨兵 1 的 IP 地址和端口号。然后，哨兵 2、3 可以和哨兵 1 建立网络连接。
-哨兵监控Redis库
-每个哨兵节点每10秒会向主节点和从节点发送info命令获取最拓扑结构图，哨兵配置时只要配置对主节点的监控即可，通过向主节点发送info，获取从节点的信息，并当有新的从节点加入时可以马上感知到。 每个哨兵节点每隔2秒会向redis数据节点的指定频道上发送该哨兵节点对于主节点的判断以及当前哨兵节点的信息，同时每个哨兵节点也会订阅该频道，来了解其它哨兵节点的信息及对主节点的判断，其实就是通过消息publish和subscribe来完成的。 每隔1秒每个哨兵会向主节点、从节点及其余哨兵节点发送一次ping命令做一次心跳检测，这个也是哨兵用来判断节点是否正常的重要依据 主库下线的判定：
-主观下线：任何一个哨兵都是可以监控探测，并作 …</content></entry><entry><title>Redis相关知识----主从复制</title><url>/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</url><categories><category>Redis</category></categories><tags/><content type="html"> 本文介绍Redis主从复制相关知识
-主从复制：是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master)，后者称为从节点(slave)；数据的复制是单向的，只能由主节点到从节点。
-作用：
-数据冗余：主从复制实现了数据的热备份，是持久化之外的一种数据冗余方式。 故障恢复：当主节点出现问题时，可以由从节点提供服务，实现快速的故障恢复；实际上是一种服务的冗余。 负载均衡：在主从复制的基础上，配合读写分离，可以由主节点提供写服务，由从节点提供读服务（即写Redis数据时应用连接主节点，读Redis数据时应用连接从节点），分担服务器负载；尤其是在写少读多的场景下，通过多个从节点分担读负载，可以大大提高Redis服务器的并发量。 高可用基石：除了上述作用以外，主从复制还是哨兵和集群能够实施的基础，因此说主从复制是Redis高可用的基础。 主从复制采用的是读写分离的方式
-读操作：主库和从库都可以。 写操作：首先到主库执行，然后，主库将写操作同步给从库。 主从复制原理：
-全量复制：比如第一次同步时 增量复制：只会把主从库网络断连期间主库收到的命令，同步给从库 全量复制： 当我们启动多个 Redis 实例的时候，它们相互之间就可以通过 replicaof（Redis 5.0 之前使用 slaveof）命令形成主库和从库的关系，之后会按照三个阶段完成数据的第一次同步。
-使用replicaof命令确定主从关系：
-#在 172.16.19.7 端使用 replicaof命令 之后172.16.19.7变成 172.16.19.9的从库 replicaof 172.16.19.9 6379 全量复制的三个阶段： 第一阶段是主从库间建立连接、协商同步的过程，主要是为全量复制做准备。 在这一步，从库和主库建立起连接，并告诉主库即将进行同步，主库确认回复后，主从库间就可以开始同步了。 具体来说，从库给主库发送 psync 命令，表示要进行数据同步，主库根据这个命令的参数来启动复制。psync 命令包含了主库的 runID 和复制进度 offset 两个参数。runID，是每个 Redis 实例启动时都会自动生成的一个随机 ID，用来唯一标记这个实例。当从库和主库第一次复制时，因为不知道主库的 runID，所以将 runID 设为“？”。offset， …</content></entry><entry><title>Redis相关知识----持久化（RDB和AOF）</title><url>/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%8C%81%E4%B9%85%E5%8C%96/</url><categories><category>Redis</category></categories><tags/><content type="html"><![CDATA[   本文介绍Redis的持久化相关知识
-简介Redis是基于内存的数据库，服务器一旦宕机，内存中的数据将全部丢失。
-通常的解决方案是从后端数据库恢复这些数据，但后端数据库有性能瓶颈，如果是大数据量的恢复，1、会对数据库带来巨大的压力，2、数据库的性能不如Redis。导致程序响应慢。
-所以对Redis来说，实现数据的持久化，避免从后端数据库中恢复数据，是至关重要的。
-Redis提供RDB和AOF持久化解决方案。
-RDB持久化RDB：Redis DataBase，中文叫快照（内存快照）。RDB持久化就是进程中的数据保存到磁盘上的过程（生成rdb文件），由于是某一时刻的快照，那么快照中的值要早于或者等于内存中的值。
-手动触发RDB持久化：
-save命令：阻塞当前Redis服务器，直到RDB过程完成为止，对于内存 比较大的实例会造成长时间阻塞，线上环境不建议使用。 bgsave命令：Redis进程执行fork操作创建子进程，RDB持久化过程由子 进程负责，完成后自动结束。阻塞只发生在fork阶段，一般时间很短。 自动触发RDB持久化：
-redis.conf中配置save m n，即在m秒内有n次修改时，自动触发bgsave生成rdb文件； 主从复制时，从节点要从主节点进行全量复制时也会触发bgsave操作，生成当时的快照发送到从节点； 执行debug reload命令重新加载redis时也会触发bgsave操作； 默认情况下执行shutdown命令时，如果没有开启aof持久化，那么也会触发bgsave操作； redis.conf中RDB相关配置：
-# 周期性执行条件的设置格式为 save &amp;lt;seconds&amp;gt; &amp;lt;changes&amp;gt; # 默认的设置为： save 900 1 save 300 10 save 60 10000 # 以下设置方式为关闭RDB快照功能 save &amp;#34;&amp;#34; # 文件名称 dbfilename dump.rdb # 文件保存路径 dir /home/work/app/redis/data/ # 如果持久化出错，主进程是否停止写入 stop-writes-on-bgsave-error yes # 是否压缩 rdbcompression yes # 导入时是否检查 rdbchecksum yes 主线程在保证写操作的情况 …  ]]></content></entry><entry><title>Hux主题添加搜索</title><url>/post/modify/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</url><categories><category>Modify Theme</category></categories><tags/><content type="html"><![CDATA[   本文介绍下给hux主题添加搜索功能，主要是抄 黄玄的作业，可以去参考huxpro使用插件：hexo-generator-search
-npm install hexo-generator-search --save 配置 _config.yml：
-search: path: search.json field: post limit: 50 enable: true 增加模板 search.ejs:
-&lt;div class=&#34;search-page&#34;&gt; &lt;div class=&#34;search-icon-close-container&#34;&gt; &lt;span class=&#34;search-icon-close&#34;&gt; &lt;i class=&#34;fa fa-chevron-down&#34;&gt;&lt;/i&gt; &lt;/span&gt; &lt;/div&gt; &lt;div class=&#34;search-main container&#34;&gt; &lt;div class=&#34;row&#34;&gt; &lt;div class=&#34;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&#34;&gt; &lt;form&gt;&lt;/form&gt; &lt;input type=&#34;text&#34; id=&#34;search-input&#34; placeholder=&#34;search: &#34;&gt; &lt;div id=&#34;search-results&#34; class=&#34;mini-post-list&#34;&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;script&gt; $(document).ready(function () { var $searchPage = $(&#39;.search-page&#39;); var $searchOpen = $(&#39;.search-icon&#39;); var $searchClose = $(&#39;.search-icon-close&#39;); var $searchInput = $(&#39;#search-input&#39;); var $body = $(&#39;body&#39;); $searchOpen.on(&#39;click&#39;, function (e) { e.preventDefault(); $searchPage.toggleClass(&#39;search-active&#39;); var prevClasses = $body.attr(&#39;class&#39;) || &#39;&#39;; setTimeout(function () { $body.addClass(&#39;no-scroll&#39;); }, 400) if ($searchPage.hasClass(&#39;search-active&#39;)) { $searchClose.on(&#39;click&#39;, function (e) { e.preventDefault(); $searchPage.removeClass(&#39;search-active&#39;); $body.attr(&#39;class&#39;, prevClasses); // from closure }); $searchInput.focus(); } searchFunc(&#39;/search.json&#39;, &#39;search-input&#39;, &#39;search-results&#39;); }); }); &lt;/script&gt; 把search.ejs导入到 layout.ejs中:
-&lt;!-- Search --&gt; &lt;%- partial(&#39;_partial/search&#39;)%&gt; 新增search.js:
-定义 searchFunc 函数
-var searchFunc = function (path, search_id, content_id) { console.log(&#34;test&#34;); $.ajax({ url: path, dataType: &#34;json&#34;, success: function (datas) { var $input = document.getElementById(search_id); var $resultContent = document.getElementById(content_id); $input.addEventListener(&#39;input&#39;, function () { var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/); var str = &#34;&#34;; $resultContent.innerHTML = &#34;&#34;; if (this.value.trim().length &lt;= 0) { return; } datas.forEach(function (data) { var isMatch = true; var content_index = []; var data_title = data.title.trim().toLowerCase(); var data_content = data.content.trim().replace(/&lt;[^&gt;]+&gt;/g, &#34;&#34;).toLowerCase(); var data_url = data.url; var index_title = -1; var index_content = -1; var first_occur = -1; // only match artiles with not empty titles and contents if (data_title != &#39;&#39; &amp;&amp; data_content != &#39;&#39;) { keywords.forEach(function (keyword, i) { index_title = data_title.indexOf(keyword); index_content = data_content.indexOf(keyword); if (index_title &lt; 0 &amp;&amp; index_content &lt; 0) { isMatch = false; } else { if (index_content &lt; 0) { index_content = 0; } if (i == 0) { first_occur = index_content; } } }); } // show search results if (isMatch) { str += &#34;&lt;div class=&#39;post-preview item&#39;&gt;&lt;a href=&#39;&#34; + data_url +&#34;&#39;&gt;&#34; +&#34;&lt;h2 class=&#39;post-title&#39;&gt;&#34; + data_title +&#34;&lt;/h2&gt;&#34; + &#34;&lt;/a&gt;&#34;; var content = data.content.trim().replace(/&lt;[^&gt;]+&gt;/g, &#34;&#34;); if (first_occur &gt;= 0) { // cut out 40 characters var start = first_occur - 20; var end = first_occur + 20; if (start &lt; 0) { start = 0; } if (start == 0) { end = 40; } if (end &gt; content.length) { end = content.length; } var match_content = content.substring(start, end); // highlight all keywords keywords.forEach(function (keyword) { var regS = new RegExp(keyword, &#34;gi&#34;); match_content = match_content.replace(regS, &#34;&lt;em class=\&#34;search-keyword\&#34;&gt;&#34; + keyword + &#34;&lt;/em&gt;&#34;); }); str += &#34;&lt;p class=\&#34;search-result\&#34;&gt;&#34; + match_content + &#34;...&lt;/p&gt;&lt;hr&gt;&#34; } str+=&#34;&lt;/div&gt;&#34; } }); $resultContent.innerHTML = str; }); } }); } 增加样式：
-抄huxpro的作业：hux  ]]></content></entry><entry><title>Redis相关知识----对象机制</title><url>/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%AF%B9%E8%B1%A1%E6%9C%BA%E5%88%B6/</url><categories><category>Redis</category></categories><tags/><content type="html"> 本文介绍Redis对象机制相关知识，只是对底层做一些了解，并不深入底层的数据结构。
-Redis的5种基础数据类型，在底层是采用对象机制实现的。
-Redis的每种对象其实都由对象结构(redisObject) 与 对应编码的数据结构组合而成，而每种对象类型对应若干编码方式，不同的编码方式所对应的底层数据结构是不同的。 redisObject: redisObject 是 Redis 类型系统的核心, 数据库中的每个键、值, 以及 Redis 本身处理的参数, 都表示为这种数据类型。 其中type、encoding和ptr是最重要的三个属性。
-type记录了对象所保存的值的类型，它的值可能是以下常量中的一个： /* - 对象类型 */ #define OBJ_STRING 0 // 字符串 #define OBJ_LIST 1 // 列表 #define OBJ_SET 2 // 集合 #define OBJ_ZSET 3 // 有序集 #define OBJ_HASH 4 // 哈希表 encoding记录了对象所保存的值的编码，它的值可能是以下常量中的一个： /* * 对象编码 */ #define OBJ_ENCODING_RAW 0 /* Raw representation */ #define OBJ_ENCODING_INT 1 /* Encoded as integer */ #define OBJ_ENCODING_HT 2 /* Encoded as hash table */ #define OBJ_ENCODING_ZIPMAP 3 /* 注意：版本2.6后不再使用. */ #define OBJ_ENCODING_LINKEDLIST 4 /* 注意：不再使用了，旧版本2.x中String的底层之一. */ #define OBJ_ENCODING_ZIPLIST 5 /* Encoded as ziplist */ #define OBJ_ENCODING_INTSET 6 /* Encoded as intset */ #define OBJ_ENCODING_SKIPLIST 7 /* Encoded as skiplist */ #define OBJ_ENCODING_EMBSTR 8 /* Embedded sds string …</content></entry><entry><title>Redis相关知识----数据类型</title><url>/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url><categories><category>Redis</category></categories><tags/><content type="html"> 本文介绍Redis的数据类型相关知识
-Redis数据结构简介
-对于Redis，所有的Key都是字符串。我们在谈Redis基础数据结构时，讨论的是存储值的数据类型，主要包括常见的5种数据类型，分别是：String、List、Set、Zset、Hash。
-String字符串
-String是redis中最基本的数据类型，一个key对应一个value。String类型是二进制安全的，意思是 redis 的 string 可以包含任何数据。如数字，字符串，jpg图片或者序列化的对象。
-命令：
-命令 简述 使用 GET 获取存储在给定键中的值 GET value SET 设置存储在给定键中的值 SET value DEL 删除存储在给定键中的值 DEL value INCR 将键存储的值加1 INCR key DECR 将键存储的值减1 DECR key INCRBY 将键存储的值加上整数 INCRBY key amount DECRBY 将键存储的值减去整数 DECRBY key amount 使用场景：
-缓存： 经典使用场景，把常用信息，字符串，图片或者视频等信息放到redis中，redis作为缓存层，mysql做持久化层，降低mysql的读写压力。 计数器：redis是单线程模型，一个命令执行完才会执行下一个，同时数据可以一步落地到其他的数据源。 session：常见方案spring session + redis实现session共享。 List列表
-Redis中的List其实就是链表（Redis用双端链表实现List）。
-命令：
-命令 简述 使用 RPUSH 将给定值推入到列表右端 RPUSH key value LPUSH 将给定值推入到列表左端 LPUSH key value RPOP 从列表的右端取出一个值 RPOP key value LPOP 从列表的左端取出一个值 LPOP key value LRANGE 获取列表在给定范围上的所有值 LRANGE key 0 -1 LINDEX 通过索引获取列表中的元素 LINDEX key index 使用Redis List的技巧：
-LPUSH + RPOP 相当于队列 LPUSH + LPOP 相当于栈 LPUSH + BRPOP 相当于消息队列 使用场景：
-微博TimeLine: 有人发布微博，用lpush加 …</content></entry><entry><title>阻塞队列BlockingQueue</title><url>/post/java-concurrent/%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97blockingqueue/</url><categories><category>Java并发</category></categories><tags/><content type="html"> 本文介绍BlockingQueue阻塞队列相关知识
-简介
-BlockingQueue是JUC包下的一个接口，通常用于一个线程生产对象，而另外一个线程消费这些对象的场景。 方法： BlockingQueue继承Queue接口，因此，对数据元素的基本操作有：
-插入元素
-add(E e) ：往队列插入数据，当队列满时，插入元素时会抛出IllegalStateException异常； offer(E e)：当往队列插入数据时，插入成功返回true，否则则返回false。 删除元素
-remove(Object o)：从队列中删除数据，成功则返回true，否则为false poll：删除数据，当队列为空时，返回null； 查看元素
-element：获取队头元素，如果队列为空时则抛出NoSuchElementException异常； peek：获取队头元素，如果队列为空则抛出NoSuchElementException异常 BlockingQueue具有的特殊操作：
-插入数据：
-put：当阻塞队列容量已经满时，往阻塞队列插入数据的线程会被阻塞，直至阻塞队列已经有空余的容量可供使用； offer(E e, long timeout, TimeUnit unit)：若阻塞队列已经满时，同样会阻塞插入数据的线程，直至阻塞队列已经有空余的地方，与put方法不同的是，该方法会有一个超时时间，若超过当前给定的超时时间，插入数据的线程会退出； 删除数据
-take()：当阻塞队列为空时，获取队头数据的线程会被阻塞； poll(long timeout, TimeUnit unit)：当阻塞队列为空时，获取数据的线程会被阻塞，另外，如果被阻塞的线程超过了给定的时长，该线程会退出 常用实现类
-ArrayBlockingQueue： ArrayBlockingQueue是由数组实现的有界队列，ArrayBlockingQueue可作为“有界数据缓冲区”，生产者插入数据到队列容器中，并由消费者提取。ArrayBlockingQueue一旦创建，容量不能改变。
-从ArrayBlockingQueue的构造函数中可以看出，线程访问队列默认是非公平的，但是可以调用另一个构造函数进行设置。
-当队列容量满时，尝试将元素放入队列将导致操作阻塞;尝试从一个空队列中取一个元素也会同样阻塞。
-public …</content></entry><entry><title>Mysql相关知识（五）</title><url>/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%94/</url><categories><category>Mysql</category></categories><tags/><content type="html"> 本文介绍Mysql ACID特性的实现原理
-ACID:
-原子性 一致性 隔离性 持久性 原子性：一个事务是一个不可切割的单位，要么全部执行成功，要么全部失败。
-是采用undo log日志实现的。undo log日志用来记录Mysql逻辑语句的执行。
-当事务对数据库进行修改时，InnoDB会生成对应的undo log；如果事务执行失败或调用了rollback，导致事务需要回滚，便可以利用undo log中的信息将数据回滚到修改之前的样子。
-当发生回滚时，InnoDB会根据undo log的内容做与之前相反的工作：对于每个insert，回滚时会执行delete；对于每个delete，回滚时会执行insert；对于每个update，回滚时会执行一个相反的update，把数据改回去。
-一致性：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对一个数据的读取结果都是相同的。
-从数据库层面，数据库通过原子性、隔离性、持久性来保证一致性。也就是说ACID四大特性之中，C(一致性)是目的，A(原子性)、I(隔离性)、D(持久性)是手段，是为了保证一致性，数据库提供的手段。数据库必须要实现AID三大特性，才有可能实现一致性。例如，原子性无法保证，显然一致性也无法保证。
-但是，如果你在事务里故意写出违反约束的代码，一致性还是无法保证的。例如，你在转账的例子中，你的代码里故意不给B账户加钱，那一致性还是无法保证。因此，还必须从应用层角度考虑。
-从应用层面，通过代码判断数据库数据是否有效，然后决定回滚还是提交数据！
-隔离性：事务内部的操作与其他事务是隔离的，并发执行的各个事务之间不能互相干扰。
-隔离性主要解决并发环境下，事务之间互不干扰，因为并发情况下会出现并发一致性问题。
-丢失修改 脏读 不可重复读 幻读 这些并发一致性问题，从读写角度考虑，可以通过不同的方式解决
-(一个事务)写操作对(另一个事务)写操作的影响：锁机制保证隔离性 (一个事务)写操作对(另一个事务)读操作的影响：MVCC保证隔离性 按照锁的粒度，可以分位表锁和行锁。MyIsam只支持表锁，而InnoDB同时支持表锁和行锁。
-MVCC（Multi-Version Concurrency Control）：多版本并发控制，通过版本链、undo log、ReadView实现。
-隐藏列：InnoDB中每行数据都有隐 …</content></entry><entry><title>Mysql相关知识（四）</title><url>/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%9B%9B/</url><categories><category>Mysql</category></categories><tags/><content type="html"> 本文介绍Mysql中explain相关知识
-explain: 当mysql的查询语句执行较慢时，可以通过使用explain命令解释mysql语句，通过结果分析mysql语句执行慢的原因，来优化mysql语句。
-expain出来的信息有10列：
-id select_type table type possible_keys key key_len ref rows Extra id：SQL执行的顺序的标识,SQL根据id从大到小的执行
-id列的编号是 select 的序列号，有几个 select 就有几个id，并且id的顺序是按 select 出现的顺序增长的。MySQL将 select 查询分为简单查询和复杂查询。复杂查询分为三类：简单子查询、派生表（from语句中的子查询）、union 查询。
-id相同时，执行顺序由上至下 如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行 id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行 select_type：查询中每个select子句的类型
-simple：简单查询。查询不包含子查询和union primary：复杂查询中最外层的 select subquery：包含在 select 中的子查询（不在 from 子句中） derived：包含在 from 子句中的子查询。MySQL会将结果存放在一个临时表中，也称为派生表（derived的英文含义） mysql&amp;amp;gt; explain select (select 1 from actor where id = 1) from (select * from film where id = 1) der; +----+-------------+------------+--------+---------------+---------+---------+-------+------+-------------+ | id | select_type | table | type | possible_keys | key | key_len | ref | rows | Extra | …</content></entry><entry><title>Mysql相关知识（三）索引</title><url>/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%89%E7%B4%A2%E5%BC%95/</url><categories><category>Mysql</category></categories><tags/><content type="html"> 本文介绍Mysql索引相关知识
-索引是什么
-索引是一种帮助数据库高效查询数据的数据结构
-索引本身也很大，不可能全部存储在内存中，因此索引往往是存储在磁盘上的文件中。（可能是单独的索引文件，也可能是和数据一起存储在数据文件中）
-通常所说的索引，包括聚集索引、覆盖索引、组合索引、前缀索引、唯一索引等，没有特别说明，默认都是使用B+树结构组织（多路搜索树，并不一定是二叉的）的索引。
-索引的类型
-主键索引：索引列中的值必须是唯一的，且不允许有空值。 唯一索引：索引列中的值必须是唯一的，但允许为空值。 全文索引：只能在文本类型CHAR,VARCHAR,TEXT类型字段上创建全文索引。字段长度比较大时，如果创建普通索引，在进行like模糊查询时效率比较低，这时可以创建全文索引。 组合索引： 可以是单列上创建的索引，也可以是在多列上创建的索引。 普通索引： 最基本的索引类型，没有唯一性之类的限制。 索引相关操作：
-主键索引：
-#建表的时候创建主键索引 create table 表名 (字段1 数据类型，字段2 数据类型,primary key (列名)); #修改表增加主键索引 alter table 表名 add primary key (列名); #删除主键索引 alter table 表名 drop primary key; 唯一索引：
-#创建 create unique index 索引名 on 表名 (列名); 或 alter table 表名 add unique 索引名 (列名); 或 create table 表名 (字段1 数据类型，字段2 数据类型,unique 索引名 (列名)); 全文索引:
-create fulltext index 索引名 on 表名 (列名); alter table 表名 add fulltext 索引名 (列名); create table 表名 (字段1 数据类型，字段2 数据类型,fulltext 索引名 (列名)); 组合索引：
-create table 表名 (字段1 数据类型，字段2 数据类型,index 索引名 (列名1，列名2)); #需要满足最左原则，因为select语句的 where 条件是依次从左往右执行的，所以在使用 select 语句查询时 where 条件使用的字段顺序必须和组合索引中的排序一致，否则索 …</content></entry><entry><title>Mysql相关知识（二）</title><url>/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%8C/</url><categories><category>Mysql</category></categories><tags/><content type="html"><![CDATA[   本文介绍Mysql操作和语句相关知识，包括增删改查、建表、函数、过程等相关知识。
-1.操作连接Mysql：
-mysql -h 主机地址 -u 用户名 -p 密码 本地连接： mysql -u root -p 修改密码：
-mysqladmin -u 用户名 -p 旧密码 password 新密码 或者 alter user `username`@`host` identified by &amp;#39;password&amp;#39; 增加权限：
-grant all privileges on databasename.tablename to 用户名@登录主机 identified by 密码 增加一个用户 test1 密码为 abc，让他可以在任何主机上登录，并对所有数据库 有查询、插入、修改、删除的权限： grant select,insert,update,delete on . to `test1`@`localhost` identified by &amp;#34;abc&amp;#34; 删除授权：
-revoke all privileges on databasename.tablename from `username`@`host` 创建用户：
-create user `username`@`host` identified by &amp;#39;password&amp;#39; 要求使用ssl登录 create user `username`@`host` identified by &amp;#39;password&amp;#39; require ssl; 锁定用户
-alter user `username`@`host` account lock; 解锁 alter user `username`@`host` account unlock; 删除用户：
-drop user `username`@`host` 2.常用命令数据库：
-show databases; #显示数据库 create database [if not exists] t [character set=&amp;#39;utf8&amp;#39;]; #建数据库 use t; #使用数据库 drop database t; #删除数据库 show tables; #显示表 #建表 CREATE TABLE `T` ( `id` …  ]]></content></entry><entry><title>Mysql相关知识（一）</title><url>/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%80/</url><categories><category>Mysql</category></categories><tags/><content type="html"> 本文介绍Mysql相关知识，主要包括Mysql的基础架构、事务、索引和日志等知识。
-基础架构
-基础架构示意图：
-连接器：管理连接，权限验证 查询缓存：命中则直接返回结果 分析器：词法分析，语法分析 优化器：执行计划生成，索引选择 执行器：操作引擎，返回结果 存储引擎：存储数据，提供读写接口 Mysql可以分为Server层和存储引擎层，不同的存储引擎公用一个Server层，常见的存储引擎有InnoDB、MyISAM、Memory等，现在Mysql主要使用InnoDB做存储引擎。
-大多数情况下不要使用查询缓存，因为查询缓存失效非常频繁，只要对一个表有更新，这个表上的所有存储查询缓存都会被清空。
-日志
-redo log：当有一条记录需要更新时，InnoDB引擎会先把记录写到redo log，并更新内存，这个时候更新就算完成了。同时，InnoDB引擎会在适当的时候，将这个操作记录更新到磁盘里面，而这个更新往往是在系统比较空闲的时候。
-redo log这种机制可以保证即使数据库发生异常重启，之前提交的记录也不会丢失，这个称为crash-safe。
-redo log是InnoDB存储引擎特有的日志，而Server层也有自己的日志，称为bin log。
-bin log：MySQL的Server层实现的，所有引擎都可以使用。binlog是逻辑日志，记录的是这个语句的原始逻辑，比如“给ID=2这一行的c字段加1 ”。
-两种日志的不同：
-redo log是InnoDB引擎特有的；binlog是MySQL的Server层实现的，所有引擎都可以使用。 redo log是物理日志，记录的是“在某个数据页上做了什么修改”；binlog是逻辑日志，记录的是这个语句的原始逻辑，比如“给ID=2这一行的c字段加1 ”。 redo log是循环写的，空间固定会用完；binlog是可以追加写入的。“追加写”是指binlog文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。 两阶段提交： 如果不使用“两阶段提交”，那么数据库的状态就有可能和用它的日志恢复出来的库的状态不一致。
-索引
-索引是为了提高查询效率，实现索引的方式有很多种：
-哈希表 有序数组 搜索树 哈希表：适用于只有等值查询的场景，区间查询会搜索整个哈希表
-有序数组：等值查询和区间查询场景中的性能都很优秀，但插入和删除数据需要移动后面的 …</content></entry><entry><title>Java线程池相关知识</title><url>/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/</url><categories><category>Java并发</category></categories><tags/><content type="html"> 本文介绍Java线程池相关知识
-前言
-线程池：线程池是一种基于池化思想管理线程的工具，经常出现再多线程服务器中。
-线程池解决的问题是什么： 线程池解决的核心问题就是资源管理问题。在并发环境下，系统不能确定任意时刻，有多少任务需要执行，有多少资源需要投入。会存在下列问题：
-频繁申请/销毁资源和调度资源，将带来额外的消耗，可能会非常巨大。 对资源无限申请缺乏抑制手段，可能会引发系统资源耗尽的风险。 系统无法合理管理内部的资源分布，会降低系统的稳定性。 为解决资源分配这个问题，线程池采用了“池化”（Pooling）思想。池化，顾名思义，是为了最大化收益并最小化风险，而将资源统一在一起管理的一种思想。
-线程池的优点：
-降低资源消耗：通过池化技术重复利用已创建的线程，降低线程创建和销毁造成的损耗。 提高响应速度：任务到达时，无需等待线程创建即可立即执行。 提高线程的可管理性：线程是稀缺资源，如果无限制创建，不仅会消耗系统资源，还会因为线程的不合理分布导致资源调度失衡，降低系统的稳定性。使用线程池可以进行统一的分配、调优和监控。 提供更多更强大的功能：线程池具备可拓展性，允许开发人员向其中增加更多的功能。比如延时定时线程池ScheduledThreadPoolExecutor，就允许任务延期执行或定期执行。 TheadPoolExecutor源码设计
-Java中线程池核心实现类是ThreadPoolExecutor,它的继承关系： 运行机制： ThreadPoolExecutor内部实际上构建了一个生产者消费者模型，将线程和任务两者解耦，并不直接关联。线程池的运行主要分为两部分：任务管理、线程管理。任务管理部分充当生产者的角色，当任务提交后，线程池会判断该任务后续的流转：
-直接申请线程执行任务 缓存到队列中等待线程执行 拒绝该任务 线程管理部分是消费者，它们被统一维护在线程池内，根据任务请求进行线程的分配，当线程执行完任务后会继续获取新的任务去执行，最终当线程获取不到任务时，线程就会被回收。
-运行状态： ThreadPoolExecutor的运行状态有5种，分别为：
-运行状态 状态描述 RUNNING 能接受新提交的任务，且也能处理阻塞队列中的任务 SHUTDOWN 不再接受新提交的任务，但是能处理阻塞队列中的任务 STOP 不能接受新提交的任务，也不能处理阻塞队列中的任务， …</content></entry><entry><title>二叉树相关知识</title><url>/post/algorithm/%E4%BA%8C%E5%8F%89%E6%A0%91/</url><categories><category>算法</category></categories><tags/><content type="html"><![CDATA[   本文介绍二叉树相关知识
-定义：树的任意节点至多包含两棵子树。
-数据存储：
-链表 数组 链表方式定义
-public class TreeNode { public int val; public TreeNode left; public TreeNode right; public TreeNode(int val) { this.val = val; } public TreeNode(int val, TreeNode left, TreeNode right) { this.val = val; this.left = left; this.right = right; } } 二叉树的遍历
-递归：
-//前序遍历 public void preOrder(TreeNode root){ if (root == null){ return; } System.out.println(root.val); preOrder(root.left); preOrder(root.right); } //中序遍历 public void inOrder(TreeNode root){ if (root == null){ return; } inOrder(root.left); System.out.println(root.val); inOrder(root.right); } //后序遍历 public void postOrder(TreeNode root){ if (root == null){ return; } inOrder(root.left); inOrder(root.right); System.out.println(root.val); } //层序遍历 public void BFSOrder(TreeNode root){ if (root == null){ return; } Queue&lt;TreeNode&gt; queue = new LinkedList&lt;TreeNode&gt;(); TreeNode temp = null; queue.offer(root); while (!queue.isEmpty()){ temp = queue.poll(); System.out.println(temp.val); if (temp.left != null){ queue.offer(temp.left); } if (temp.right != null){ queue.offer(temp.right); } } } 迭代：
-//前序 public List&lt;Integer&gt; preorderTraversal(TreeNode root) { List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (root == null) { return list; } Deque&lt;TreeNode&gt; deque = new LinkedList&lt;&gt;(); while (!deque.isEmpty() || root != null){ if (root != null){ list.add(root.val); deque.push(root); root =root.left; }else { TreeNode tmp = deque.pop(); root = tmp.right; } } return list; } //中序 public List&lt;Integer&gt; preorderTraversal(TreeNode root) { List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (root == null) { return list; } Deque&lt;TreeNode&gt; deque = new LinkedList&lt;&gt;(); while (!deque.isEmpty() || root != null){ if (root != null){ deque.push(root); root =root.left; }else { TreeNode tmp = deque.pop(); list.add(tmp.val); root = tmp.right; } } return list; } //后序 反转前序操作 先添加队首添加节点 先循环右子树 再循环左子树 public List&lt;Integer&gt; postorderTraversal(TreeNode root) { List&lt;Integer&gt; list = new ArrayList&lt;&gt;(); if (root == null) { return list; } Deque&lt;TreeNode&gt; deque = new LinkedList&lt;&gt;(); while (!deque.isEmpty() || root != null){ if (root != null){ deque.push(root); list.add(0,root.val); root =root.right; }else { TreeNode tmp = deque.pop(); root = tmp.left; } } return list; } 二叉搜索树 （BST）
-定义：
-若任意节点的左子树不空，则左子树上所有结点的值均小于它的根结点的值； 任意节点的右子树不空，则右子树上所有结点的值均大于它的根结点的值； 任意节点的左、右子树也分别为二叉查找树。 没有键值相等的节点。 链表方式实现：
-public class BSTree&lt;T extends Comparable&lt;T&gt;&gt; { private BSTNode&lt;T&gt; mRoot; // 根结点 public class BSTNode&lt;T extends Comparable&lt;T&gt;&gt; { public T key; // 关键字(键值) public BSTNode&lt;T&gt; left; // 左孩子 public BSTNode&lt;T&gt; right; // 右孩子 public BSTNode&lt;T&gt; parent; // 父结点 public BSTNode(T key, BSTNode&lt;T&gt; parent, BSTNode&lt;T&gt; left, BSTNode&lt;T&gt; right) { this.key = key; this.parent = parent; this.left = left; this.right = right; } } }   ]]></content></entry><entry><title>Spring bean的生命周期相关知识</title><url>/post/spring/spring-bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url><categories><category>Spring</category></categories><tags/><content type="html"> 本文简单介绍Spring bean的生命周期相关知识
-Spring IOC 简介
-IOC：Inversion of Control,即控制反转。传统Java程序中，我们是自己创建对象，而Spring IoC 是有一个容器来保管我们创建的对象，即将对象交给Spring 容器进行管理。
-bean：在 Spring 中，构成应用程序主干并由 Spring IoC 容器管理的对象称为 bean。 bean 是一个由 Spring IoC 容器实例化，组装和管理的对象。
-BeanDefinition：bean的定义类，用来存储bean的所有属性和方法。
-BeanFactory：BeanFactory接口是Spring IoC的基础。
-ApplicationContext：是BeanFactory的子接口，同时还继承了其他的接口，是相对比较高级的 IoC 容器实现。
-bean生命周期核心流程：
-实例化 Instantiation 注入属性 Populate 初始化 Initialization 销毁 Destruction bean生命周期经历了各种方法的调用，可以分为几类：
-Bean自身的方法：这个包括了Bean本身调用的方法和通过配置文件中的init-method和destroy-method指定的方法 Bean级生命周期接口方法：这个包括了BeanNameAware、BeanFactoryAware、InitializingBean和DiposableBean这些接口的方法 容器级生命周期接口方法：这个包括了InstantiationAwareBeanPostProcessor 和 BeanPostProcessor 这两个接口实现，一般称它们的实现类为“后置处理器”。 Spring Bean生命周期
-测试代码：
-bean生命周期
-扩展点
-4个后置处理器：
-InstantiationAwareBeanPostProcessor SmartInstantiationAwareBeanPostProcessor MergedBeanDefinitionPostProcessor SmartInitializingSingleton 影响多个Bean：
-BeanPostProcessor ： postProcessBeforeInitialization postProcessAfterInitialization InstantiationAwareBeanPostProcessor postProcessBeforeInstantiation postProcessAfterInstantiation postProcessProperties MergedBeanDefinitionPostProcessor postProcessMergedBeanDefinition SmartInstantiationAwareBeanPostProcessor determineCandidateConstructors getEarlyBeanReference 影响单个Bean：
-BeanNameAware BeanClassLoaderAware BeanFactoryAware EnvironmentAware EmbeddedValueResolverAware ApplicationContextAware InitializingBean DisposableBean 参考：
-spring bean生命周期</content></entry><entry><title>Java垃圾回收</title><url>/post/jvm/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</url><categories><category>JVM</category></categories><tags/><content type="html"><![CDATA[   本文介绍Java垃圾回收相关知识
-判断一个对象是否可以被回收回收对象首先需要判断这个对象是否可以被回收，Java虚拟机采用可达性分析算法判断。
-引用计数算法
-给对象添加一个引用计数器，当对象增加一个引用时计数器加一，减少一个引用时计数器减一。引用计数为 0 的对象可被回收。
-两个对象出现循环引用的情况下，此时引用计数器永远不为 0，导致无法对它们进行回收。
-正因为循环引用的存在，因此 Java 虚拟机不使用引用计数算法。
-可达性分析算法 通过 GC Roots 作为起始点进行搜索，能够到达到的对象都是存活的，不可达的对象可被回收。
-Java 虚拟机使用该算法来判断对象是否可被回收，在 Java 中 GC Roots 一般包含以下内容:
-虚拟机栈中引用的对象 本地方法栈中引用的对象 方法区中类静态属性引用的对象 方法区中常量引用的对象 方法区的回收
-方法区的垃圾回收主要包括两部分：废弃的变量和不再使用的类型。
-判断一个常量是否废弃：当没有其他对象引用这个常量时，Java虚拟机会对这个常量进行回收。
-判断一个类型是否属于不再使用的类：
-该类所有的实例都已经被回收，也就是堆中不存在该类的任何实例。 加载该类的 ClassLoader 已经被回收。 该类对应的 Class 对象没有在任何地方被引用，也就无法在任何地方通过反射访问该类方法。 引用类型强引用 被强引用关联的对象不会被回收。
-使用 new 一个新对象的方式来创建强引用。
-Object obj = new Object(); 软引用 被软引用关联的对象，只有在虚拟机内存不足时才会被回收
-使用 SoftReference 类来创建软引用。
-Object obj = new Object(); SoftReference&amp;lt;Object&amp;gt; sf = new SoftReference&amp;lt;Object&amp;gt;(obj); obj = null; // 使对象只被软引用关联 弱引用 被弱引用关联的对象，在虚拟机下一次GC时会被回收
-使用 WeakReference 类来实现弱引用。
-Object obj = new Object(); WeakReference&amp;lt;Object&amp;gt; sf = new WeakReference&amp;lt;Object&amp;gt;(obj); obj = null; // …  ]]></content></entry><entry><title>深入了解JVM内存结构</title><url>/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</url><categories><category>JVM</category></categories><tags/><content type="html"> 本文主要介绍JVM内存结构相关知识，需要注意JVM内存结构和Java内存模型是两个概念。
-运行时数据区
-Java虚拟机在执行程序时会把它所管理的内存划分为若干个不同的数据区域。这些区域有各自的用途，以及创建和销毁的时间，有的区域随着虚拟机进程的启动而一直存在，有些区域则依赖用户线程的启动和结束而建立和销毁。
-下图是 JVM 整体架构，中间部分就是 Java 虚拟机定义的各种运行时数据区域。 在这里插入图片描述 下面介绍下这些内存结构
-程序计数器
-程序计数器（program counter register）是一块较小的内存空间，可以看作是当前线程所执行的字节码的行号指令器。
-在 JVM 规范中，每个线程都有它自己的程序计数器，是线程私有的，生命周期与线程的生命周期一致。 在任何一个时刻，一个处理器都只会处理一条线程中的指令，因此为了线程切换后能恢复到正确的执行位置，每条线程都要有一个独立的程序计数器，各条线程之间的计数器互不影响，我们称这类区域为“线程私有”区域。 它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成 字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令 它是唯一一个在 JVM 规范中没有规定任何 OutOfMemoryError 情况的区域 虚拟机栈
-与程序计数器一样，Java虚拟机栈（Java Virtual Machine Stacks）也是线程私有的，它的生命周期与线程相同。
-Java虚拟机栈描述的是Java方法执行的线程内存模型：每个方法被执行时，Java虚拟机都会创建一个栈帧用于存储局部变量表、操作数栈、动态链接、方法出口等信息。
-栈不存在垃圾回收的问题：进栈和出栈，出栈相当于释放内存。
-栈中可能出现的异常：
-如果采用固定大小的 Java 虚拟机栈，那每个线程的 Java 虚拟机栈容量可以在线程创建的时候独立选定。如果线程请求分配的栈容量超过 Java 虚拟机栈允许的最大容量，Java 虚拟机将会抛出一个 StackOverflowError 异常 如果 Java 虚拟机栈可以动态扩展，并且在尝试扩展的时候无法申请到足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈，那 Java 虚拟机将会抛出一个OutOfMemoryError异常 可以通过参 …</content></entry><entry><title>Spring 事务相关知识</title><url>/post/spring/spring%E4%BA%8B%E5%8A%A1/</url><categories><category>Spring</category></categories><tags/><content type="html"> 本文介绍Spring事务相关的知识，包括事务隔离级别和事务传播特性。
-事务
-事务是逻辑上的一组操作，要么都执行，要么都不执行。我自己的理解是，数据库操作的最小单位，要么成功，要么失败。
-特性：ACID
-原子性（Atomicity）：事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么全部失败回滚。 一致性（Consistency）：数据库在事务执行前后都保持一致性状态。在一致性状态下，所有事务对一个数据的读取结果都是相同的。 隔离性（Isolation）：一个事务所做的修改在最终提交以前，对其他事务是不可见的。 持久性（Durability）：一旦事务提交，则其所做的修改将会永远保存到数据库中。即使系统发生崩溃，事务执行的结果也不能丢失。 事务隔离级别
-在并发环境下，事务的隔离性很难得到保证，因此会出现很多并发一致性的问题。
-丢失修改 T1和T2 两个事务同时对一个数据进行修改，T1修改之后，T2又修改，T2的修改覆盖了T1的修改。
-读脏数据 T1 修改一个数据，T2 随后读取这个数据。如果 T1 撤销了这次修改，那么 T2 读取的数据是脏数据。
-不可重复读 T2 读取一个数据，T1 对该数据做了修改。如果 T2 再次读取这个数据，此时读取的结果和第一次读取的结果不同。
-幻读 T1 读取某个范围的数据，T2 在这个范围内插入新的数据，T1 再次读取这个范围的数据，此时读取的结果和和第一次读取的结果不同。
-不可重复读的重点是修改，幻读的重点在于新增或者删除。
-在Spring中，TransactionDefinition 接口中定义了五个表示隔离级别的常量：
-TransactionDefinition.ISOLATION_DEFAULT：使用数据库默认的事务隔离级别 TransactionDefinition.ISOLATION_READ_UNCOMMITTED（未提交读）：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读 TransactionDefinition.ISOLATION_READ_COMMITTED（读已提交）：允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生 TransactionDefinition.ISOLATION_REPEATABLE_READ（可重复读）：对同一字 …</content></entry><entry><title>Java类加载机制</title><url>/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</url><categories><category>JVM</category></categories><tags/><content type="html"> 本文简单介绍Java类加载相关知识
-Java类的生命周期
-一个类从被加载到虚拟机内存到卸载出虚拟机内存，它的生命周期会经历：加载、验证、准备、解析、初始化、使用、卸载这七个阶段。其中验证、准备、解析三个部分统称为连接。 其中加载、验证、准备、初始化、卸载这五个阶段的顺序是确定的，类型的加载过程必须按这种顺序，而解析阶段却不一定，它在某些情况下可以在初始化之后再开始，这是为了支持Java语言运行时绑定特性（也称动态绑定）。
-另外注意这里的几个阶段是按顺序开始，而不是按顺序进行或完成，因为这些阶段通常都是互相交叉地混合进行的，通常在一个阶段执行的过程中调用或激活另一个阶段。
-加载
-加载是整个类加载的过程中的一个阶段，在加载阶段，Java虚拟机需要完成三件事：
-通过一个类的全限定名来获取定义此类的二进制字节流 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构 在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口 相对于类加载的其他阶段而言，加载阶段(准确地说，是加载阶段获取类的二进制字节流的动作)是可控性最强的阶段，因为开发人员既可以使用系统提供的类加载器来完成加载，也可以自定义自己的类加载器来完成加载。
-加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中，而且在Java堆中也创建一个java.lang.Class类的对象，这样便可以通过该对象访问方法区中的这些数据。
-类加载器并不需要等到某个类被“首次主动使用”时再加载它，JVM规范允许类加载器在预料某个类将要被使用时就预先加载它，如果在预先加载的过程中遇到了.class文件缺失或存在错误，类加载器必须在程序首次主动使用该类时才报告错误(LinkageError错误)如果这个类一直没有被程序主动使用，那么类加载器就不会报告错误。
-验证
-验证是连接的第一步，这一阶段的目的是确保Class文件的字节流信息符合规范，保证这些信息被当作代码运行后不会危害虚拟机自身的安全。验证阶段大致会完成4个阶段的检验动作:
-文件格式验证： 验证字节流是否符合Class文件格式的规范；例如: 是否以0xCAFEBABE开头、主次版本号是否在当前虚拟机的处理范围之内、常量池中的常量是否有不被支持的类型。 元数据验证： 对字节码描述的信息进行语义分析(注意: …</content></entry><entry><title>FIFO、LRU、LFU三种缓存淘汰算法</title><url>/post/algorithm/%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/</url><categories><category>算法</category></categories><tags/><content type="html"><![CDATA[   本文介绍三种常用缓存淘汰算法，即它们的简单实现。
-简介缓存，就是将程序或系统经常要调用的对象存在内存中，再次调用时可以快速从内存中获取对象，不必再去创建新的重复的实例。 当缓存中的数据太多超过一定值时，通常会采取一些缓存淘汰算法进行处理。
-FIFO（先进先出）FIFO即先进先出算法，队列也具有先进先出的性质，所以可以考虑采用LinkedList实现FIFO算法。但是只用LinkedList的话，查找时时间复杂度为O(n)，所以可以考虑采用HashMap+LinkedList实现。
-public class FIFOCache&amp;lt;K,V&amp;gt;{ private Map&amp;lt;K,V&amp;gt; cache; private LinkedList&amp;lt;K&amp;gt; list; private volatile int maxCapacity; private final Lock lock; public FIFOCache(){ this(1000); } public FIFOCache(int maxCapacity){ this.maxCapacity = maxCapacity; this.lock = new ReentrantLock(); this.cache = new HashMap&amp;lt;&amp;gt;(); this.list = new LinkedList&amp;lt;&amp;gt;(); } public V get(K key){ this.lock.lock(); V var; try { var = this.cache.get(key); }finally { this.lock.unlock(); } return var; } public void put(K key, V value){ this.lock.lock(); try { this.list.addLast(key); if (maxCapacity &amp;lt; this.list.size()){ K k = this.list.getFirst(); cache.remove(k); this.list.removeFirst(); } this.cache.put(key, value); }finally { this.lock.unlock(); } } …  ]]></content></entry><entry><title>深入了解LinkedHashMap</title><url>/post/java-base/linkedhashmap/</url><categories><category>Java集合</category></categories><tags/><content type="html"><![CDATA[   本文介绍LinkedHashMap的相关知识
-简介之前了解过HashMap，HashMap是无序的，当我们希望有顺序地去存储key-value时，就需要使用LinkedHashMap了。
-LinkedHashMap由哈希表+双向链表组成，它继承自HashMap，重写了HashMap的一些方法，可以用于LRU算法，它和HashMap一样不是线程安全的。
-public class TestLinkedHashMap { public static void main(String[] args) { LinkedHashMap&amp;lt;String, String&amp;gt; linkedHashMap = new LinkedHashMap&amp;lt;String, String&amp;gt;(16,0.75f,true); linkedHashMap.put(&amp;#34;name1&amp;#34;, &amp;#34;josan1&amp;#34;); linkedHashMap.put(&amp;#34;name2&amp;#34;, &amp;#34;josan2&amp;#34;); linkedHashMap.put(&amp;#34;name3&amp;#34;, &amp;#34;josan3&amp;#34;); System.out.println(&amp;#34;LinkedHashMap遍历时顺序：&amp;#34;); for (Entry&amp;lt;String, String&amp;gt; entry : linkedHashMap.entrySet()){ String key = (String) entry.getKey(); String value = (String) entry.getValue(); System.out.println(&amp;#34;key:&amp;#34; + key + &amp;#34;,value:&amp;#34; + value); } HashMap&amp;lt;String, String&amp;gt; hashMap = new HashMap&amp;lt;String, String&amp;gt;(16); hashMap.put(&amp;#34;name1&amp;#34;, &amp;#34;josan1&amp;#34;); hashMap.put(&amp;#34;name2&amp;#34;, &amp;#34;josan2&amp;#34;); hashMap.put(&amp;#34;name3&amp;#34;, …  ]]></content></entry><entry><title>Java线程通信工具类的使用</title><url>/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</url><categories><category>Java并发</category></categories><tags/><content type="html"> 本文介绍一些Java线程常用通信工具类，主要介绍怎么使用。
-简介
-常见的线程间通信方法有：
-wait()和notify() +加锁机制synchronized和lock 还有线程的join()方法 Condition接口的awiat() 和 signAll()方法 + 加锁机制synchronized和lock 生产者消费者模式 这里介绍一些JDK中java.util.concurrent包下的一些通信工具类。
-类 作用 Semaphore 限制线程的数量 Exchanger 两个线程交换数据 CountDownLatch 线程等待直到计数器减为0时开始工作 CyclicBarrier 作用跟CountDownLatch类似，但是可以重复使用 1.Semaphore
-Semaphore即信号，以前学操作系统时，学过信号量机制。Semaphore往往用于资源有限的场景中，去限制线程的数量，这里介绍下这个类的使用。举个例子，我想限制同时只能有3个线程在工作：
-package threadcon; import java.util.Random; import java.util.concurrent.Semaphore; /** * @author zousy * @version v1.0 * @Description * @date 2021-03-11 17:47 */ public class SemaphoreDemo { static class MyThread implements Runnable { private int value; private Semaphore semaphore; public MyThread(int value, Semaphore semaphore) { this.value = value; this.semaphore = semaphore; } @Override public void run() { try { semaphore.acquire(); // 获取permit System.out.println(String.format(&amp;amp;#34;当前线程是%d, 还剩%d个资源，还有%d个线程在等待&amp;amp;#34;, value, semaphore.availablePermits(), …</content></entry><entry><title>深入了解ReentrantReadWriteLock</title><url>/post/java-concurrent/reentrantreadwritelock/</url><categories><category>Java并发</category></categories><tags/><content type="html"><![CDATA[   本文分析JDK1.8中的ReentrantReadWriteLock类
-简介由于ReentrantLock是独占锁，某时只有一个线程可以获取该锁，而实际中会有写少读多的场景，所以ReentrantReadWriteLock应运而生，采用读写分离的策略，允许多个线程同时获取该锁。
-ReentrantReadWriteLock即可重入读写锁，内部维护一个ReadLock和一个WriteLock，他们依赖Sync来实现，而Sync继承AbstractQueuedSynchronizer，并且也提供了公平和非公平的实现。
-内部类Sync
-抽象类Sync继承自AQS
-abstract static class Sync extends AbstractQueuedSynchronizer {} 一些属性
-//高16位为读锁，低16位为写锁 static final int SHARED_SHIFT = 16; //共享锁读锁 状态单位值65536 static final int SHARED_UNIT = (1 &amp;lt;&amp;lt; SHARED_SHIFT); //共享锁读锁 最大个数65535 static final int MAX_COUNT = (1 &amp;lt;&amp;lt; SHARED_SHIFT) - 1; //排它锁写锁掩码 15个1 static final int EXCLUSIVE_MASK = (1 &amp;lt;&amp;lt; SHARED_SHIFT) - 1; // 返回读锁线程数 c右移 16位 static int sharedCount(int c) { return c &amp;gt;&amp;gt;&amp;gt; SHARED_SHIFT; } //返回写锁可重入个数 c &amp;amp; 15个1 static int exclusiveCount(int c) { return c &amp;amp; EXCLUSIVE_MASK; } //本地线程计数器 private transient ThreadLocalHoldCounter readHolds; //缓存计数器 private transient HoldCounter cachedHoldCounter; //第一个读线程 private transient Thread firstReader = null; …  ]]></content></entry><entry><title>Java并发基础</title><url>/post/java-concurrent/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</url><categories><category>Java并发</category></categories><tags/><content type="html"> 本篇介绍Java并发的基础知识，主要包括线程安全，共享变量的内存可见性，synchronized和volatile关键字，指令重排序，伪共享等相关知识。
-并发与并行
-并发是指同一时间段内多个任务执行。 并行是指同一时刻，多个任务同时执行。 并发是单位时间内，一个CPU切换时间片对多个任务进行处理
-并行是同一时刻，多个CPU对多个任务同时进行处理
-线程安全
-共享资源：该资源被多个线程所持有。
-线程安全问题是指当多线程同时读写一个共享资源并且没有任何同步措施时，导致出现脏数据或者其他不可预见的结果的问题
-Java中共享变量的内存可见性
-Java内存模型规定，将所有变量存放在主内存中，当线程使用变量时，会把主内存里面的变量复制到自己的工作内存，线程读写变量时操作的是自己工作内存中的变量。 当线程A和线程B同时处理一个共享变量X。
-线程A首先获取共享变量X的值，由于两级Cache都没有命中，所以加载主内存中X的值，假如是0，然后把X=0缓存到二级缓存，并刷新到主内存。此时二级缓存和主内存中X的值都是1。 线程B获取X的值，一级缓存未命中，二级缓存命中，返回X=1。然后线程B将X的值改为2，并缓存到二级缓存，刷新到主内存。此时二级缓存和主内存中X的值都是1 线程A再次获取X的值，一级缓存命中，此时线程A工作内存中的X=1。这样就出现了问题，二级缓存和主内存中X的值已经被线程B修改为2了。这就是共享变量的内存不可见问题，也就是线程B写入的值对线程A不可见。 Java中的原子性操作和指令重排序
-所谓原子性操作，是指在执行一系列操作时，要么全部执行，要么全部不执行，不存在只执行其中一部分的情况。
-指令重排序：Java内存模型运行编译器和处理器对指令重排序以提高运行效率，只会对不存在数据依赖的指令重排序。重排序在单线程下可以保证最终的执行结果，在多线程下不能保证。
-synchronized和volatile关键字
-synchronized：
-synchronized块是Java提供的一种原子性内置锁，内置锁是排它锁，也就是当一个线程获取该锁时，其他线程必须等待该线程释放锁后才能获取该锁。 进入synchronized块的内存语义是把synchronized块内使用到的变量从线程工作内存中清除，这样线程使用到的变量会从主内存中获取。退出synchronized块的内存语义是 …</content></entry><entry><title>深入了解ThreadLocal</title><url>/post/java-concurrent/threadlocal/</url><categories><category>Java并发</category></categories><tags/><content type="html"><![CDATA[   本文分析ThreadLocal的原理和使用
-1.ThreadLocal简介多线程访问共享变量时容易出现并发问题，为了保证线程安全，一般会给共享变量进行适当的加锁同步。如果不想加锁呢？ ThreadLocal可以做到线程隔离，多个线程访问共享变量时，访问的是自己线程的变量。 ThreadLocal提供了线程本地变量，如果创建了一个ThreadLocal变量，那么访问这个变量的每个线程都会有这个变量的一个本地副本，当多线程操作这个变量时，实际操作的是自己本地内存的变量，从而避免线程安全的问题。
-2.ThreadLocal使用public class ThreadLocalDemo { static ThreadLocal&amp;lt;String&amp;gt; stringThreadLocal = new ThreadLocal&amp;lt;String&amp;gt;(); public static void main(String[] args) { CountDownLatch countDownLatch = new CountDownLatch(10); for (int i = 0; i &amp;lt; 10; i++) { Thread thread = new Thread(new Runnable() { @Override public void run() { stringThreadLocal.set(Thread.currentThread().getName()); System.out.println(stringThreadLocal.get()); countDownLatch.countDown(); } },&amp;#34;i am thread --&amp;#34;+i); thread.start(); } } } 运行结果 3.ThreadLocal的原理Thread类中有两个包访问变量，一个是threadLocals ，一个是inheritableThreadLocals，它们都是ThreadLocalMap类型的变量。 而ThreadLocalMap又是ThreadLocal的内部类。 默认情况下，每个线程的这两个变量都为null，只有当线程第一次调用ThreadLocal 的set 或者get方法时才会创建他们。 每个线程的本地变量是存在调用线程 …  ]]></content></entry><entry><title>深入了解ConcurrentHashMap</title><url>/post/java-base/concurrenthashmap/</url><categories><category>Java集合</category></categories><tags/><content type="html"><![CDATA[   本文将深入源码分析ConcurrentHashMap的相关内容
-1.ConcurrentHashMap简介由于HashMap是非线程安全的，所以如果想在多线程下安全的操作Map，有下面几个解决方案：
-使用HashTable 使用Collections.synchronizedMap 使用ConcurrentHashMap HashTable HashTable类是一个线程安全的类，它的底层给几乎所有的多线程操作方法都加上了synchronized关键字，相当于锁住整个HashTable，多线程访问时，只要有一个线程访问或操作该对象，其他线程只能阻塞等待锁的释放，性能非常差，所以HashTable不推荐使用。
-Collections.synchronizedMap 底层也是使用对象锁来保证线程安全，本质上也相当于是全表锁。
-CocurrentHashMap JDK1.7: 在JDK1.7中，采用分段锁。所谓分段锁，是将HashMap中的Entry数组进行切割，分成许多小数组即Segment,Segment继承ReetrantLock（可重入锁）。 JDK1.8 在JDK1.8中，取消了Segment分段锁，采用CAS+synchronized来保证并发安全，synchronized只锁住table数组中链表或者红黑树的头节点，只要插入节点的hash不冲突,就不会产生线程竞争。
-jdk1.8中的ConcurrentHashMap相比于jdk1.7 锁的粒度更小，性能更好。
-2.底层数据结构同jdk1.8中的HashMap一样，底层也采用了数组+链表/红黑树的数据结构，这样当hash冲突较多时，查询效率会更好。
-Node和TreeNode同HashMap中的差不多，不过Node中的Value 和 next 用 volatile修饰
-static class Node&amp;lt;K,V&amp;gt; implements Map.Entry&amp;lt;K,V&amp;gt; { final int hash; final K key; //val和next都会在扩容时发生变化，所以加上volatile来保持可见性和禁止重排序 volatile V val; volatile Node&amp;lt;K,V&amp;gt; next; Node(int hash, K key, V val, …  ]]></content></entry><entry><title>深入了解HashMap</title><url>/post/java-base/hashmap/</url><categories><category>Java集合</category></categories><tags/><content type="html"><![CDATA[   本篇分析HashMap的 hash()函数 和 底层数据结构 以及 常用方法 和 常见面试相关题目
-1. HashMap简介HashMap 是一个K，V键值对的常用集合类，它实现了Map接口。 jdk1.8 之前 HashMap 采用 数组 + 链表 的方式实现，链表存储key值冲突的数据。 jdk1.8 采用 数组 + 链表 / 红黑树 的方式实现，在满足下面两个条件之后，会执行链表转红黑树操作，以此来加快搜索速度。
-链表长度大于阈值（默认为 8） HashMap 数组长度超过 64 2. HashMap底层数据结构类的属性
-public class HashMap&amp;lt;K,V&amp;gt; extends AbstractMap&amp;lt;K,V&amp;gt; implements Map&amp;lt;K,V&amp;gt;, Cloneable, Serializable { // 默认的初始容量是16 static final int DEFAULT_INITIAL_CAPACITY = 1 &amp;lt;&amp;lt; 4; // 最大容量 static final int MAXIMUM_CAPACITY = 1 &amp;lt;&amp;lt; 30; // 默认的填充因子 static final float DEFAULT_LOAD_FACTOR = 0.75f; // 当桶(bucket)上的结点数大于这个值时会转成红黑树 static final int TREEIFY_THRESHOLD = 8; // 当桶(bucket)上的结点数小于这个值时树转链表 static final int UNTREEIFY_THRESHOLD = 6; // 桶中结构转化为红黑树对应的table的最小大小 static final int MIN_TREEIFY_CAPACITY = 64; // 存储元素的数组，大小总是2的幂次倍 transient Node&amp;lt;k,v&amp;gt;[] table; // 存放具体元素的集 transient Set&amp;lt;map.entry&amp;lt;k,v&amp;gt;&amp;gt; entrySet; // 存放元素的个数，注意这个不等于数组的长度。 transient int size; // 每次扩容和更改map结构的计数器 transient int modCount; // …  ]]></content></entry><entry><title>Java集合小结</title><url>/post/java-base/java%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/</url><categories><category>Java集合</category></categories><tags/><content type="html"> 这篇文章对Java集合相关类进行介绍，包括Collection、List、Set、Map、Queue这些常见得集合相关接口和类。
-1.集合概述
-常用的集合有List、Set、Map、Queue等，他们之间的关系如下图。List、Queue、Set继承Collection接口。Iterable接口是迭代器，这里不进行过多介绍。Map接口是一个单独的接口，这里不进行介绍。 List、Set、Queue、Map的区别
-List存储可以重复、有序的元素 Set存储不可以重复、无序的元素 Queue存储有序的元素且先进先出，是一个队列 Map是键值对存储结构，Key 是无序的、不可重复的，value 是无序的、可重复的，每个键最多映射到一个值，key和value都可以为null 2.List
-List：元素有序，元素可重复，添加的元素放在最后（按照插入顺序保存元素）
-常用子类有：
-ArrayList LinkedList Vector 2.1 ArrayList ArrayList继承AbstractList抽象类，实现List、Serializable、Cloneable、RandomAccess接口。 使用 Object[] 数组存储元素 因此查询快，增删操作慢，没有实现线程同步。
-常用方法：
-add(E e) 向数组末尾添加一个元素 clear() 清除所有元素，数组里的元素为null，size置为0 contains(Object o) 是否包含某个元素 get(int index) 获取第i个元素 remove(int index) 删除第i个元素 remove(Object o) 删除某个元素 size() 返回存储了多少个元素 2.2 LinkedList LinkedList继承AbstractSequentialList抽象类，实现List、Serializable、Cloneable、Deque接口。 使用双向链表存储元素（内有Node私有静态内部类） 因此查询慢，增删操作快，没有实现线程同步。 因为实现了Deque接口，所以除了拥有列表相关的常用方法外，还有队列相关的方法。
-实现List接口的方法（列表相关操作）常用方法和ArrayList类似 实现Deque接口的方法（队列相关操作） addFirst(E e) offerFirst(E e) 插入链 …</content></entry><entry><title>Aviator的初步了解和使用</title><url>/post/aviator/aviator%E4%BD%BF%E7%94%A8/</url><categories><category>Aviator</category></categories><tags/><content type="html"><![CDATA[   &amp;ldquo;初步了解和使用Aviator&amp;rdquo;
-1.Aviator简介Aviator 是一个高性能，轻量级的java语言实现的表达式求值引擎，主要用于各种表达式的动态求值。
-官方文档github地址支持数字、字符串、正则表达式、布尔值、正则表达式等基本类型，完整支持所有 Java 运算符及优先级等。 函数是一等公民，支持闭包和函数式编程。 内置 bigint/decmal 类型用于大整数和高精度运算，支持运算符重载得以让这些类型使用普通的算术运算符 +-*/ 参与运算。 完整的脚本语法支持，包括多行数据、条件语句、循环语句、词法作用域和异常处理等。 函数式编程结合 Sequence 抽象，便捷处理任何集合。 轻量化的模块系统。 多种方式，方便地调用 Java 方法，完整支持 Java 脚本 API（方便从 Java 调用脚本）。 丰富的定制选项，可作为安全的语言沙箱和全功能语言使用。 轻量化，高性能，通过直接将脚本翻译成 JVM 字节码，AviatorScript 的基础性能较好。
-使用场景包括：
-规则判断及规则引擎 公式计算 动态脚本控制 集合数据 ELT 等 …… 2.Aviator入门常用这里使用版本为4.2.5
-2.1数据类型Number类型: 数字类型,支持四种类型,分别是long,double,java.math.BigInteger(简称 big int)和java.math.BigDecimal(简 称 decimal),规则如下: 任何以大写字母 N 结尾的整数都被认为是 big int 任何以大写字母 M 结尾的数字都被认为是 decimal 其他的任何整数都将被转换为 Long 其他任何浮点数都将被转换为 Double 超过 long 范围的整数字面量都将自动转换为 big int 类型 String类型: 字符串类型,单引号或者双引号括起来的文本串,如&amp;rsquo;hello world&amp;rsquo;, 变量如果传入的是String或者Character也将转为String类型 Bool类型: 常量true和false,表示真值和假值,与 java 的Boolean.TRUE和Boolean.False对应 Pattern类型: 正则表达式, 以//括起来的字符串,如/\d+/,内部 实现 …  ]]></content></entry><entry><title>Spring AOP的初步使用</title><url>/post/spring/spring-aop/spring-aop%E4%BD%BF%E7%94%A8/</url><categories><category>Spring</category></categories><tags/><content type="html"><![CDATA[   &amp;ldquo;初步了解和使用SPRING AOP&amp;rdquo;
-一、JDK 动态代理的使用1.Food 目标接口package proxy; /** * @author zsy * @version v1.0 * @Description * @date 2020-09-23 15:50 */ public interface Food { /** * @Author Zousy * @Description 测试静态代理 * @Date 15:52 2020/9/23 * @Param [] * @return void */ void priName(); } 2.DynamicProxy 动态代理类 要实现 InvocationHandler接口package proxy; import java.lang.reflect.InvocationHandler; import java.lang.reflect.Method; /** * @author zsy * @version v1.0 * @Description * @date 2020-09-23 15:57 */ public class DynamicProxy implements InvocationHandler { private Object target; public DynamicProxy(Object target){ this.target = target; } @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable { System.out.println(&amp;#34;动态代理前------------&amp;#34;); Object result = method.invoke(target,args); System.out.println(&amp;#34;动态代理后------------&amp;#34;); return result; } } 3.Test 测试类package proxy; import java.lang.reflect.InvocationHandler; import java.lang.reflect.Proxy; …  ]]></content></entry><entry><title>Spring AOP的初步了解</title><url>/post/spring/spring-aop/spring-aop%E4%BB%8B%E7%BB%8D/</url><categories><category>Spring</category></categories><tags/><content type="html"> &amp;ldquo;初步了解和使用SPRING AOP&amp;rdquo;
-一、AOP
-1.1 什么是AOP
-AOP(Aspect Orient Programming)，面向切面编程。AOP是一种编程思想，是对面向对象编程（OOP）的一种补充。
-1.2 AOP实现分类
-AOP的本质是由AOP框架修改业务组件的字节码，是代理模式的一种应用。按照修改的字节码的时机可以分为两类:
-静态AOP: AOP框架在编译阶段进行修改，生成了静态的AOP代理类(生成的.class文件已经被改动)，比如AspecJ框架。 动态AOP: AOP框架在运行阶段动态生成代理对象(在内存中动态生成程序需要的.class文件)，比如SpringAop。 常用AOP实现比较
-二、AOP术语
-Aspect（切面）：通常是一个类，里面定义切入点和通知。 JointPoint（连接点）：程序执行过程中可以插入的点，可以是方法的调用、异常的抛出，在Spring AOP中通常是方法的调用。 Advice（通知）：AOP框架中的增强处理，有before,after,afterReturning,afterThrowing,around PoinCut（切入点）：带有通知的连接点， 引入（Introduction）：引入允许我们向现有的类添加新的方法或者属性。 织入（Weaving）: 将增强处理添加到目标对象中，并创建一个被增强的对象，这个过程就是织入。 三、初步认识Spring AOP
-Spring AOP 与ApectJ 的目的一致，都是为了统一处理横切业务，但与AspectJ不同的是，Spring AOP 并不尝试提供完整的AOP功能(即使它完全可以实现)，Spring AOP 更注重的是与Spring IOC容器的结合，并结合该优势来解决横切业务的问题，因此在AOP的功能完善方面，相对来说AspectJ具有更大的优势，同时,Spring注意到AspectJ在AOP的实现方式上依赖于特殊编译器(ajc编译器)，因此Spring很机智回避了这点，转向采用动态代理技术的实现原理来构建Spring AOP的内部机制（动态织入），这是与AspectJ（静态织入）最根本的区别。在AspectJ 1.5后，引入@Aspect形式的注解风格的开发，Spring也非常快地跟进了这种方式，因此Spring 2.0后便使用了与AspectJ一样的注解。请注意，Spring 只是使用了与 AspectJ 5 一样的注解，但仍然没有使用 AspectJ 的编译器，底层依是动态代理技术的实现，因此并不依赖于 AspectJ 的编译器。</content></entry><entry><title>About Me</title><url>/about.html</url><categories/><tags/><content type="html"> 关于我
-98年，湖北武汉人。
-有时积极，偶尔消极，总是平常。
-大体是乐观的一个人
-不太擅长社交，只是和熟悉起来的朋友会很来劲。
-编程方面
-主要是Java后台开发，磨练技术中&amp;hellip;&amp;hellip;
-会写一点点前端，对Golang语言有兴趣，最近在入门GO语言。
-喜欢编程，会有成就感，但是新技术太多，很多学不过来，也会有挫败感。
-慢慢积累，想当初自己也是啥都不会，后面意识到凡事都会有一个过程的。
-兴趣爱好
-游戏、电影、小说
-我比较喜欢玩竞技类的游戏、网络游戏，不太喜欢一个人玩单机游戏。
-个人喜欢的电影很多，也看过很多电影，很喜欢剧情片。
-小说也看过比较多吧，当然大部分都是网络小说，现在看的很少了，可能是没有那种第一次看时异世界的感觉了，主要是现在的小说都大同小异的，没有新鲜感了。
-一直想发展一些其他兴趣爱好，因为自己现在的兴趣爱好主要是消费娱乐为主，想发展一些自己有产出的那些兴趣爱好。我觉得自己有产出的兴趣爱好才是能给自己带来更多快乐的。所以现在电影和小说都很少看了，只有游戏偶尔和朋友一起玩一下。
-网站
-主要是自己记录下编程学习的网站，偶尔发点胡思乱想的东西。
-尽管自己的水平还有待提升，但记录本身就是一种提升的过程。
-感觉评论交流没有很大的必要性，所以没有弄博客评论功能，只是挂了下邮箱，虽然我邮箱不太常看，但是看到了相关交流邮件会尽量回复的。
-网站所有内容遵循GPL协议。
-END
-最后希望积累更多的编程知识。
-过去无法挽回，未来可以改变。</content></entry><entry><title>Welcome to ShuYou Blog</title><url>/post/shuyou/hello-world/</url><categories><category>记录</category></categories><tags/><content type="html"> “Yeah It&amp;rsquo;s on. ”
-前言
-这是使用Hexo搭建的博客，使用了Hux的主题。 用腾讯云做的服务器，nginx静态资源访问，图片加载很慢，之后再优化下吧。 刚开始是打算用来记录Java技术之类的学习，现在想了下这个博客还是用来记录自己平时的想法和生活吧。 具体的技术什么的就发表在平台之类的网站上吧。
-计划
-2020年毕业的，今年也比较特殊，新冠嘛。 年初谈了女朋友，当时已经签了三方，可是也没有去想毁三方，现在还是有点后悔的，早知道就留在武汉了。 打算呆到2022年3月份回去吧，所以可能2022年1月份会辞职，回去过年，找工作。 所以2021年要准备很多事情，学习很多东西。
-希望
-希望以后的自己会越来越好吧，生活和感情上都是。</content></entry><entry><title>站点示例</title><url>/flinks.html</url><categories/><tags/><content type="html"> 如想交换本站友情链接，请在评论区留下你的站点信息，格式参考如下：
-- name: Hugo-NexT desc: Hugo NexT 官方预览网站。 avatar: https://hugo-next.eu.org/imgs/hugo_next_avatar.png link: https://hugo-next.eu.org</content></entry></search>
