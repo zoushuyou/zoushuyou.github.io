@@ -122,7 +122,7 @@ logging:
 
 # 使用
 
-[参考代码](https://github.com/ZouShuYou/spring-cloud-samples/tree/main/spring-cloud-gateway)
+[参考代码](https://github.com/zoushuyou/spring-cloud-samples/tree/main/spring-cloud-gateway)
 
 # 一些配置功能
 

@@ -158,7 +158,7 @@ siteState:
 # Key is the link label order.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 socials: 
-  social0: Github || https://github.com/ZouShuYou || fab fa-github
+  social0: Github || https://github.com/zoushuyou || fab fa-github
   #social1: E-Mail || mailto:yourname@gmail.com || fa fa-envelope
   # social2: 知乎 || https://www.zhihu.com/people/lisenhui || fa fa-book
   #Google: https://plus.google.com/yourname || fab fa-google
@@ -376,7 +376,7 @@ followMe:
 # Easily browse and edit blog source code online.
 postEdit:
   enable: true
-  url: https://github.com/ZouShuYou/ZouShuYou.github.io/content/
+  url: https://github.com/zoushuyou/zoushuyou.github.io/content/
 
 
 # 设置文本的对齐方式
@@ -631,7 +631,7 @@ comments:
   # 可选值：livere | waline | utterances | artalk | giscus
   # Choose a comment system to be displayed by default.
   # Available values: livere | waline | utterances | artalk | giscus 
-  active: waline
+  active: giscus
   # 让用户自己选择使用评论插件留言
   # 如果设置为 false，将采用 active 参数的那个插件
   # Setting `true` means remembering the comment system selected by 
@@ -712,7 +712,7 @@ waline:
 giscus:
   # Github 仓库地址，格式：用户名/仓库名称
   # Github repository owner and name
-  repo: username/repo-name
+  repo: zoushuyou/zoushuyou.github.io
   # Giscus 生成的仓库 Id
   # Generate repository Id from Giscus
   repoId: #<repo-id>

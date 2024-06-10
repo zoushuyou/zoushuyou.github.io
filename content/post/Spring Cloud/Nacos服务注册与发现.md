@@ -120,7 +120,7 @@ spring:
 ```
 
 # 入门代码案例
-[参考：spring-cloud-samples](https://github.com/ZouShuYou/spring-cloud-samples/tree/main/spring-cloud-alibaba-nacos-register)
+[参考：spring-cloud-samples](https://github.com/zoushuyou/spring-cloud-samples/tree/main/spring-cloud-alibaba-nacos-register)
 
 
 

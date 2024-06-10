@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>2021</title><url>/post/shuyou/2021/</url><categories><category>记录</category></categories><tags/><content type="html"> 2021过完啦，1月中旬就会回去了，2022年2月中旬开始在武汉找工作。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><search><entry><title>从hexo迁移到hugo</title><url>/post/blog/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</url><categories><category>Blog</category></categories><tags/><content type="html"> 本文介绍下从hexo迁移到hugo的过程
+背景：
+从深圳回武汉后，都没怎么写博客了，一方面是公司开发主要都是业务方面涉及的多，技术方面没那么高的要求。
+最近想着重新刷刷面试题，背背八股文，看看有没有更好的机会，就开始重新鼓捣起博客了。
+其实之前在深圳的时候就知道hugo这个框架搭建博客，一直不太习惯用npm，所以这几天干脆把博客从hexo迁移到hugo了。
+一开始是想沿用之前的hux主题，网上搜了几天都没找到，后面搭建的时候挑了NEXT主题，搭建的时候了解github action，无意间又找到了puppet主题（hux主题的hugo版），想着还是换个主题换个心情，还是用NEXT主题了。
+迁移：
+大多数步骤网上都能搜到，这里不做详细介绍了，简略记录下过程。
+1.需要安装hugo、配置hugo环境变量。
+2.安装NEXT主题，调整配置。
+3.使用github action自动部署。
+后续：
+找个好用的图床工具 博客细节调整 找些golang项目学学</content></entry><entry><title>2021</title><url>/post/shuyou/2021/</url><categories><category>记录</category></categories><tags/><content type="html"> 2021过完啦，1月中旬就会回去了，2022年2月中旬开始在武汉找工作。
 刚入社会的第一年，已经受到了社会的毒打了，呜呜呜呜。
 回看2021，新冠扰乱社会的一年，而我也戴了一年的口罩，打了三针疫苗。
 首先是工作，勤勤恳恳，任劳任怨地工作了一年，还是值得夸赞的一年。虽然还是底层打工仔，但是要相信自己能有so much money 的呀。
@@ -359,7 +371,7 @@ RDB持久化RDB：Redis DataBase，中文叫快照（内存快照）。RDB持�
 手动触发RDB持久化：
 save命令：阻塞当前Redis服务器，直到RDB过程完成为止，对于内存 比较大的实例会造成长时间阻塞，线上环境不建议使用。 bgsave命令：Redis进程执行fork操作创建子进程，RDB持久化过程由子 进程负责，完成后自动结束。阻塞只发生在fork阶段，一般时间很短。 自动触发RDB持久化：
 redis.conf中配置save m n，即在m秒内有n次修改时，自动触发bgsave生成rdb文件； 主从复制时，从节点要从主节点进行全量复制时也会触发bgsave操作，生成当时的快照发送到从节点； 执行debug reload命令重新加载redis时也会触发bgsave操作； 默认情况下执行shutdown命令时，如果没有开启aof持久化，那么也会触发bgsave操作； redis.conf中RDB相关配置：
-# 周期性执行条件的设置格式为 save &amp;lt;seconds&amp;gt; &amp;lt;changes&amp;gt; # 默认的设置为： save 900 1 save 300 10 save 60 10000 # 以下设置方式为关闭RDB快照功能 save &amp;#34;&amp;#34; # 文件名称 dbfilename dump.rdb # 文件保存路径 dir /home/work/app/redis/data/ # 如果持久化出错，主进程是否停止写入 stop-writes-on-bgsave-error yes # 是否压缩 rdbcompression yes # 导入时是否检查 rdbchecksum yes 主线程在保证写操作的情况 …  ]]></content></entry><entry><title>Hux主题添加搜索</title><url>/post/modify/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</url><categories><category>Modify Theme</category></categories><tags/><content type="html"><![CDATA[   本文介绍下给hux主题添加搜索功能，主要是抄 黄玄的作业，可以去参考huxpro使用插件：hexo-generator-search
+# 周期性执行条件的设置格式为 save &amp;lt;seconds&amp;gt; &amp;lt;changes&amp;gt; # 默认的设置为： save 900 1 save 300 10 save 60 10000 # 以下设置方式为关闭RDB快照功能 save &amp;#34;&amp;#34; # 文件名称 dbfilename dump.rdb # 文件保存路径 dir /home/work/app/redis/data/ # 如果持久化出错，主进程是否停止写入 stop-writes-on-bgsave-error yes # 是否压缩 rdbcompression yes # 导入时是否检查 rdbchecksum yes 主线程在保证写操作的情况 …  ]]></content></entry><entry><title>Hux主题添加搜索</title><url>/post/blog/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</url><categories><category>Blog</category></categories><tags/><content type="html"><![CDATA[   本文介绍下给hux主题添加搜索功能，主要是抄 黄玄的作业，可以去参考huxpro使用插件：hexo-generator-search
 npm install hexo-generator-search --save 配置 _config.yml：
 search: path: search.json field: post limit: 50 enable: true 增加模板 search.ejs:
 &lt;div class=&#34;search-page&#34;&gt; &lt;div class=&#34;search-icon-close-container&#34;&gt; &lt;span class=&#34;search-icon-close&#34;&gt; &lt;i class=&#34;fa fa-chevron-down&#34;&gt;&lt;/i&gt; &lt;/span&gt; &lt;/div&gt; &lt;div class=&#34;search-main container&#34;&gt; &lt;div class=&#34;row&#34;&gt; &lt;div class=&#34;col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1&#34;&gt; &lt;form&gt;&lt;/form&gt; &lt;input type=&#34;text&#34; id=&#34;search-input&#34; placeholder=&#34;search: &#34;&gt; &lt;div id=&#34;search-results&#34; class=&#34;mini-post-list&#34;&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;script&gt; $(document).ready(function () { var $searchPage = $(&#39;.search-page&#39;); var $searchOpen = $(&#39;.search-icon&#39;); var $searchClose = $(&#39;.search-icon-close&#39;); var $searchInput = $(&#39;#search-input&#39;); var $body = $(&#39;body&#39;); $searchOpen.on(&#39;click&#39;, function (e) { e.preventDefault(); $searchPage.toggleClass(&#39;search-active&#39;); var prevClasses = $body.attr(&#39;class&#39;) || &#39;&#39;; setTimeout(function () { $body.addClass(&#39;no-scroll&#39;); }, 400) if ($searchPage.hasClass(&#39;search-active&#39;)) { $searchClose.on(&#39;click&#39;, function (e) { e.preventDefault(); $searchPage.removeClass(&#39;search-active&#39;); $body.attr(&#39;class&#39;, prevClasses); // from closure }); $searchInput.focus(); } searchFunc(&#39;/search.json&#39;, &#39;search-input&#39;, &#39;search-results&#39;); }); }); &lt;/script&gt; 把search.ejs导入到 layout.ejs中:
