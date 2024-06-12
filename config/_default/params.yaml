@@ -378,7 +378,7 @@ followMe:
 # Easily browse and edit blog source code online.
 postEdit:
   enable: true
-  url: https://github.com/zoushuyou/zoushuyou.github.io/content/
+  url: https://github.com/zoushuyou/zoushuyou.github.io/tree/main/content/
 
 
 # 设置文本的对齐方式
