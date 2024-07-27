@@ -1,9 +1,9 @@
 ---
-
-title:      "Disruptor源码分析"
-date:       2021-10-20
-lastmod: 2024-06-09
-categories:
+title: "Disruptor源码分析"
+date: 2021-10-20
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Disruptor
 ---
 

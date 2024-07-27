@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java并发 on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/java%E5%B9%B6%E5%8F%91/</link>
+    <description>Recent content in Java并发 on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/java%E5%B9%B6%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>synchronized和volatile相关知识</title>
+      <link>http://localhost:1313/post/java-concurrent/synchronized%E5%92%8Cvolatile%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/synchronized%E5%92%8Cvolatile%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</guid>
+      <description>总结下synchronized和volatile关键字相关八股文 在多线程环境下，线程是交替执行的，多线程竞争共享资源容易产生线程不安全的问题</description>
+    </item>
+    <item>
+      <title>阻塞队列BlockingQueue</title>
+      <link>http://localhost:1313/post/java-concurrent/%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97blockingqueue/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97blockingqueue/</guid>
+      <description>本文介绍BlockingQueue阻塞队列相关知识 简介 BlockingQueue是JUC包下的一个接口，通常用于一个线程生产对象，而另外一个</description>
+    </item>
+    <item>
+      <title>Java线程池相关知识</title>
+      <link>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
+      <description>本文介绍Java线程池相关知识 前言 线程池：线程池是一种基于池化思想管理线程的工具，经常出现再多线程服务器中。 线程池解决的问题是什么： 线程池解</description>
+    </item>
+    <item>
+      <title>Java线程通信工具类的使用</title>
+      <link>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>本文介绍一些Java线程常用通信工具类，主要介绍怎么使用。 简介 常见的线程间通信方法有： wait()和notify() +加锁机制synchro</description>
+    </item>
+    <item>
+      <title>深入了解ReentrantReadWriteLock</title>
+      <link>http://localhost:1313/post/java-concurrent/reentrantreadwritelock/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/reentrantreadwritelock/</guid>
+      <description>本文分析JDK1.8中的ReentrantReadWriteLock类 简介 由于ReentrantLock是独占锁，某时只有一个线程可以获取该</description>
+    </item>
+    <item>
+      <title>Java并发基础</title>
+      <link>http://localhost:1313/post/java-concurrent/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</guid>
+      <description>本篇介绍Java并发的基础知识，主要包括线程安全，共享变量的内存可见性，synchronized和volatile关键字，指令重排序，伪共享</description>
+    </item>
+    <item>
+      <title>深入了解ThreadLocal</title>
+      <link>http://localhost:1313/post/java-concurrent/threadlocal/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/threadlocal/</guid>
+      <description>本文分析ThreadLocal的原理和使用 1.ThreadLocal简介 多线程访问共享变量时容易出现并发问题，为了保证线程安全，一般会给共享</description>
+    </item>
+  </channel>
+</rss>

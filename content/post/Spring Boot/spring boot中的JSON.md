@@ -2,8 +2,9 @@
 
 title:      "Spring Boot中操作JSON"
 date:       2021-09-07
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring Boot
 ---
 

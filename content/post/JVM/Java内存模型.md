@@ -1,9 +1,9 @@
 ---
-
 title:      "Java内存模型"
 date:       2021-05-14
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - JVM
 ---
 

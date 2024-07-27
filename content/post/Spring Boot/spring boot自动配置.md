@@ -2,8 +2,9 @@
 
 title:      "Spring Boot自动配置相关知识"
 date:       2021-08-31
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring Boot
 ---
 

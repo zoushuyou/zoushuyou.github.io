@@ -2,8 +2,9 @@
 
 title:      "OpenFeign服务调用"
 date:       2021-10-18
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring Cloud
 ---
 
@@ -89,4 +90,4 @@ logging:
 
 这里的 value 表示要调用的服务的名称， fallback 表示服务降级时调用的类。
 
-[参考代码](https://github.com/zoushuyou/spring-cloud-samples/tree/main/spring-cloud-openfeign)
+[参考代码](https://github.com/ZouShuYou/spring-cloud-samples/tree/main/spring-cloud-openfeign)

@@ -1,9 +1,9 @@
 ---
-
 title:      "Java类加载机制"
 date:       2021-03-22
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - JVM
 ---
 

@@ -2,8 +2,9 @@
 
 title:      "Mysql相关知识（二）"
 date:       2021-04-09
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Mysql
 ---
 

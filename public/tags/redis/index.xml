@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/redis/</link>
+    <description>Recent content in Redis on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis实战----主从复制</title>
+      <link>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>本文介绍使用docker操作Redis主从复制相关内容 这里使用 docker-compose 来测试 Redis 的主从复制功能。 首先需要安装 docker 和 docker-compose 以及 Redis 镜像，这里就不再做这方面的安</description>
+    </item>
+    <item>
+      <title>Redis实战----哨兵机制</title>
+      <link>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</guid>
+      <description>本文介绍使用docker操作Redis哨兵机制相关内容 还是使用 docker-compose 来测试 Redis 的哨兵机制。 这里建议使用一个 docker-compose 来测试，我一开始是使用的两个 yaml 文件，会</description>
+    </item>
+    <item>
+      <title>Redis相关知识----缓存问题</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</guid>
+      <description>本文介绍Redis缓存相关问题，包括缓存穿透、缓存击穿、缓存雪崩等相关知识 缓存穿透： 缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请</description>
+    </item>
+    <item>
+      <title>Redis相关知识----哨兵机制</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</guid>
+      <description>本文介绍Redis哨兵相关知识 哨兵机制（Redis Sentinel）： Redis Sentinel，即Redis哨兵，在Redis 2.8版本开始引入。</description>
+    </item>
+    <item>
+      <title>Redis相关知识----主从复制</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>本文介绍Redis主从复制相关知识 主从复制：是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master)，</description>
+    </item>
+    <item>
+      <title>Redis相关知识----持久化（RDB和AOF）</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%8C%81%E4%B9%85%E5%8C%96/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%8C%81%E4%B9%85%E5%8C%96/</guid>
+      <description>本文介绍Redis的持久化相关知识 简介 Redis是基于内存的数据库，服务器一旦宕机，内存中的数据将全部丢失。 通常的解决方案是从后端数据库恢复</description>
+    </item>
+    <item>
+      <title>Redis相关知识----对象机制</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%AF%B9%E8%B1%A1%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%AF%B9%E8%B1%A1%E6%9C%BA%E5%88%B6/</guid>
+      <description>本文介绍Redis对象机制相关知识，只是对底层做一些了解，并不深入底层的数据结构。 Redis的5种基础数据类型，在底层是采用对象机制实现的。</description>
+    </item>
+    <item>
+      <title>Redis相关知识----数据类型</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>本文介绍Redis的数据类型相关知识 Redis数据结构简介 对于Redis，所有的Key都是字符串。我们在谈Redis基础数据结构时，讨论的是</description>
+    </item>
+  </channel>
+</rss>

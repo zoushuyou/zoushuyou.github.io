@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mybatis on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/mybatis/</link>
+    <description>Recent content in Mybatis on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mybatis执行过程</title>
+      <link>http://localhost:1313/post/mybatis/mybatis%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mybatis/mybatis%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/</guid>
+      <description>本文简单分析Mybatis的执行过程 重要类 SqlSession Configuration Excutor MappedStatement StatementHandler 从注入开始 spring boot使用mybatis，需要导入mybatis-spring-boot-</description>
+    </item>
+  </channel>
+</rss>

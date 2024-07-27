@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/docker/</link>
+    <description>Recent content in Docker on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Win10下使用docker</title>
+      <link>http://localhost:1313/post/docker/win10%E4%B8%8B%E4%BD%BF%E7%94%A8docker/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/docker/win10%E4%B8%8B%E4%BD%BF%E7%94%A8docker/</guid>
+      <description>本文介绍在win10下使用docker和wsl2 之前一直是在虚拟机或者远程服务器上使用的docker，后面发现了win10下有wsl2之后就</description>
+    </item>
+  </channel>
+</rss>

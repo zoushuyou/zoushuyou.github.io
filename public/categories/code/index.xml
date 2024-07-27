@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/categories/code/</link>
+    <description>Recent content in Code on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从hexo迁移到hugo</title>
+      <link>http://localhost:1313/post/blog/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/blog/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
+      <description>本文介绍下从hexo迁移到hugo的过程 背景： 从深圳回武汉后，都没怎么写博客了，一方面是公司开发主要都是业务方面涉及的多，技术方面没那么高的</description>
+    </item>
+    <item>
+      <title>Spring 循环依赖</title>
+      <link>http://localhost:1313/post/spring/spring%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/</link>
+      <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring/spring%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96/</guid>
+      <description>本文介绍Spring的循环依赖问题，以及Spring是如何解决的。 循环依赖是指多个对象实例之间存在直接或间接的依赖关系，如A对象中引用了B对</description>
+    </item>
+    <item>
+      <title>Win10下使用docker</title>
+      <link>http://localhost:1313/post/docker/win10%E4%B8%8B%E4%BD%BF%E7%94%A8docker/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/docker/win10%E4%B8%8B%E4%BD%BF%E7%94%A8docker/</guid>
+      <description>本文介绍在win10下使用docker和wsl2 之前一直是在虚拟机或者远程服务器上使用的docker，后面发现了win10下有wsl2之后就</description>
+    </item>
+    <item>
+      <title>Mybatis执行过程</title>
+      <link>http://localhost:1313/post/mybatis/mybatis%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Tue, 16 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mybatis/mybatis%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B/</guid>
+      <description>本文简单分析Mybatis的执行过程 重要类 SqlSession Configuration Excutor MappedStatement StatementHandler 从注入开始 spring boot使用mybatis，需要导入mybatis-spring-boot-</description>
+    </item>
+    <item>
+      <title>SSM项目改造为Spring Boot项目</title>
+      <link>http://localhost:1313/post/spring-boot/ssm%E9%A1%B9%E7%9B%AE%E6%94%B9%E9%80%A0%E4%B8%BAspring-boot%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-boot/ssm%E9%A1%B9%E7%9B%AE%E6%94%B9%E9%80%A0%E4%B8%BAspring-boot%E9%A1%B9%E7%9B%AE/</guid>
+      <description>本文介绍怎么把SSM项目改造为Spring Boot项目 0.改造步骤 原ssm项目打成jar包 将相关配置文件放到resources目录下 将前端界</description>
+    </item>
+    <item>
+      <title>Spring Cloud Gateway网关服务</title>
+      <link>http://localhost:1313/post/spring-cloud/spring-cloud-gateway%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Wed, 27 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/spring-cloud-gateway%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/</guid>
+      <description>本文介绍Spring Cloud Gateway网关服务相关知识 简介 Gateway 是Spring提供的API网关服务框架，具有强大的智能路由和过滤功能。 依赖 &amp;lt;properties&amp;gt; &amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt; &amp;lt;!-- 核</description>
+    </item>
+    <item>
+      <title>Tomcat报错及解决方案</title>
+      <link>http://localhost:1313/post/tomcat/tomcat%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/tomcat/tomcat%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>最近试着在wsl2中使用docker跑公司的web项目，但是tomcat容器会报错 报错 java.lang.illegalargumentexception the main resource set specified [...] is not valid in Tomcat 解决方案 将 %CATALINA_HOME%/conf/server.xml 中的 &amp;lt;Context docBase=&amp;#34;&amp;#34; path=&amp;#34;/web&amp;#34; reloadable=&amp;#34;false&amp;#34; /&amp;gt; 删除</description>
+    </item>
+    <item>
+      <title>Disruptor源码分析</title>
+      <link>http://localhost:1313/post/disruptor/disruptor%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/disruptor/disruptor%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</guid>
+      <description>本文简单分析下Disruptor的原理 简介 Disruptor是一个高性能队列，它是系统内部的内存队列，而不是Kafka这样的分布式队列。 由于</description>
+    </item>
+    <item>
+      <title>OpenFeign服务调用</title>
+      <link>http://localhost:1313/post/spring-cloud/openfeign%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/openfeign%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/</guid>
+      <description>本文介绍 OpenFeign 相关知识 简介 Spring Cloud OpenFeign 是声明式的服务调用工具，它整合了Ribbon和Hystrix，拥有负载均衡和服务容错功能。 依赖 &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-bootstrap&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;</description>
+    </item>
+    <item>
+      <title>Nacos服务注册与发现</title>
+      <link>http://localhost:1313/post/spring-cloud/nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</guid>
+      <description>本文介绍 Nacos 相关知识 简介 Nacos 可以用来实现分布式环境下的配置管理和服务注册与发现。 通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-config 实现配置的动态变更。 通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-discovery 实现服务的注册与发现</description>
+    </item>
+    <item>
+      <title>Eureka服务注册与发现</title>
+      <link>http://localhost:1313/post/spring-cloud/eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</link>
+      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</guid>
+      <description>本文介绍Eureka相关知识 简介 Eureka是由netflix开发的一款服务治理的框架，Sping Cloud对其进行了集成。 Eureka既包</description>
+    </item>
+    <item>
+      <title>微服务相关概念</title>
+      <link>http://localhost:1313/post/spring-cloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</guid>
+      <description>本文介绍微服务相关概念，了解微服务的相关架构和发展。 微服务架构 传统的软件架构，往往是一个单体应用糅合了各种业务模块。随着业务的发展，单体应用</description>
+    </item>
+    <item>
+      <title>Spring Boot内容协商</title>
+      <link>http://localhost:1313/post/spring-boot/spring-boot%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86/</link>
+      <pubDate>Mon, 13 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-boot/spring-boot%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86/</guid>
+      <description>本文介绍内容协商相关知识 内容协商（Content Negotiation） 内容协商：客户端和服务器就响应的资源内容进行交涉，然后服务器提供给客</description>
+    </item>
+    <item>
+      <title>Spring Boot中使用过滤器和拦截器</title>
+      <link>http://localhost:1313/post/spring-boot/spring-boot%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%87%E6%BB%A4%E5%99%A8%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
+      <pubDate>Fri, 10 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-boot/spring-boot%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%BF%87%E6%BB%A4%E5%99%A8%E5%92%8C%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
+      <description>过滤器（Filter）和拦截器（Interceptor）是Web项目中常用的两个功能，本文将简单介绍在Spring Boot中使用过滤器和拦截</description>
+    </item>
+    <item>
+      <title>Spring Boot中操作JSON</title>
+      <link>http://localhost:1313/post/spring-boot/spring-boot%E4%B8%AD%E7%9A%84json/</link>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-boot/spring-boot%E4%B8%AD%E7%9A%84json/</guid>
+      <description>本文介绍常用的JSON相关操作，Spring Boot内置Jackson包可以进行JSON相关操作 序列化 Fastjson User user1 = new User(); String s1 = JSON.toJSONString(user1); System.out.println(s1); Jackson ObjectMapper objectMapper = new ObjectMapper(); String s2</description>
+    </item>
+    <item>
+      <title>Spring Boot相关注解</title>
+      <link>http://localhost:1313/post/spring-boot/spring-boot%E7%9B%B8%E5%85%B3%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Wed, 01 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-boot/spring-boot%E7%9B%B8%E5%85%B3%E6%B3%A8%E8%A7%A3/</guid>
+      <description>本文介绍Spring Boot开发web相关注解知识 基础web注解 Bean处理 @Component：通用的注解，可标注任意类为 Spring 组件。如果一个</description>
+    </item>
+    <item>
+      <title>Spring Boot自动配置相关知识</title>
+      <link>http://localhost:1313/post/spring-boot/spring-boot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-boot/spring-boot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE/</guid>
+      <description>本文介绍Spring Boot自动配置相关知识 Spring 3.0开始，Spring提供了Java Config的方式，进行Spring bean的创建 @Configuration public class</description>
+    </item>
+    <item>
+      <title>synchronized和volatile相关知识</title>
+      <link>http://localhost:1313/post/java-concurrent/synchronized%E5%92%8Cvolatile%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 26 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/synchronized%E5%92%8Cvolatile%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</guid>
+      <description>总结下synchronized和volatile关键字相关八股文 在多线程环境下，线程是交替执行的，多线程竞争共享资源容易产生线程不安全的问题</description>
+    </item>
+    <item>
+      <title>Cookie、Session和Token相关知识</title>
+      <link>http://localhost:1313/post/tomcat/cookiesession%E5%92%8Ctoken/</link>
+      <pubDate>Fri, 16 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/tomcat/cookiesession%E5%92%8Ctoken/</guid>
+      <description>本文介绍Cookie、Session和Token相关知识 什么是Cookie 由于Http是无状态的协议，这意味着一旦数据提交后，客户端与服务器</description>
+    </item>
+    <item>
+      <title>Redis实战----主从复制</title>
+      <link>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>本文介绍使用docker操作Redis主从复制相关内容 这里使用 docker-compose 来测试 Redis 的主从复制功能。 首先需要安装 docker 和 docker-compose 以及 Redis 镜像，这里就不再做这方面的安</description>
+    </item>
+    <item>
+      <title>Redis实战----哨兵机制</title>
+      <link>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E5%AE%9E%E6%88%98----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</guid>
+      <description>本文介绍使用docker操作Redis哨兵机制相关内容 还是使用 docker-compose 来测试 Redis 的哨兵机制。 这里建议使用一个 docker-compose 来测试，我一开始是使用的两个 yaml 文件，会</description>
+    </item>
+    <item>
+      <title>Java内存模型</title>
+      <link>http://localhost:1313/post/jvm/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <description>本文介绍Java内存模型相关知识 Java内存模型和JVM内存结构是两个不同的概念。 Java内存模型： Java 的并发采用的是共享内存模型，Java 线</description>
+    </item>
+    <item>
+      <title>Redis相关知识----缓存问题</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 11 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E7%BC%93%E5%AD%98%E9%97%AE%E9%A2%98/</guid>
+      <description>本文介绍Redis缓存相关问题，包括缓存穿透、缓存击穿、缓存雪崩等相关知识 缓存穿透： 缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请</description>
+    </item>
+    <item>
+      <title>Redis相关知识----哨兵机制</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6/</guid>
+      <description>本文介绍Redis哨兵相关知识 哨兵机制（Redis Sentinel）： Redis Sentinel，即Redis哨兵，在Redis 2.8版本开始引入。</description>
+    </item>
+    <item>
+      <title>Redis相关知识----主从复制</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</link>
+      <pubDate>Tue, 27 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/</guid>
+      <description>本文介绍Redis主从复制相关知识 主从复制：是指将一台Redis服务器的数据，复制到其他的Redis服务器。前者称为主节点(master)，</description>
+    </item>
+    <item>
+      <title>Redis相关知识----持久化（RDB和AOF）</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%8C%81%E4%B9%85%E5%8C%96/</link>
+      <pubDate>Fri, 23 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%8C%81%E4%B9%85%E5%8C%96/</guid>
+      <description>本文介绍Redis的持久化相关知识 简介 Redis是基于内存的数据库，服务器一旦宕机，内存中的数据将全部丢失。 通常的解决方案是从后端数据库恢复</description>
+    </item>
+    <item>
+      <title>Hux主题添加搜索</title>
+      <link>http://localhost:1313/post/blog/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Thu, 22 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/blog/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</guid>
+      <description>本文介绍下给hux主题添加搜索功能，主要是抄 黄玄 的作业，可以去参考huxpro 使用插件：hexo-generator-search npm install hexo-generator-search --save 配</description>
+    </item>
+    <item>
+      <title>Redis相关知识----对象机制</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%AF%B9%E8%B1%A1%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Wed, 21 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E5%AF%B9%E8%B1%A1%E6%9C%BA%E5%88%B6/</guid>
+      <description>本文介绍Redis对象机制相关知识，只是对底层做一些了解，并不深入底层的数据结构。 Redis的5种基础数据类型，在底层是采用对象机制实现的。</description>
+    </item>
+    <item>
+      <title>Redis相关知识----数据类型</title>
+      <link>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/redis/redis%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86----%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</guid>
+      <description>本文介绍Redis的数据类型相关知识 Redis数据结构简介 对于Redis，所有的Key都是字符串。我们在谈Redis基础数据结构时，讨论的是</description>
+    </item>
+    <item>
+      <title>阻塞队列BlockingQueue</title>
+      <link>http://localhost:1313/post/java-concurrent/%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97blockingqueue/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97blockingqueue/</guid>
+      <description>本文介绍BlockingQueue阻塞队列相关知识 简介 BlockingQueue是JUC包下的一个接口，通常用于一个线程生产对象，而另外一个</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（五）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%94/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%94/</guid>
+      <description>本文介绍Mysql ACID特性的实现原理 ACID: 原子性 一致性 隔离性 持久性 原子性：一个事务是一个不可切割的单位，要么全部执行成功，要么全部失败。 是采</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（四）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%9B%9B/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%9B%9B/</guid>
+      <description>本文介绍Mysql中explain相关知识 explain: 当mysql的查询语句执行较慢时，可以通过使用explain命令解释mysql语句，通过结果分析</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（三）索引</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%89%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%89%E7%B4%A2%E5%BC%95/</guid>
+      <description>本文介绍Mysql索引相关知识 索引是什么 索引是一种帮助数据库高效查询数据的数据结构 索引本身也很大，不可能全部存储在内存中，因此索引往往是存储</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（二）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%8C/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%8C/</guid>
+      <description>本文介绍Mysql操作和语句相关知识，包括增删改查、建表、函数、过程等相关知识。 1.操作 连接Mysql： mysql -h 主机地址 -u 用户名 -p 密码 本地连接：</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（一）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%80/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%80/</guid>
+      <description>本文介绍Mysql相关知识，主要包括Mysql的基础架构、事务、索引和日志等知识。 基础架构 基础架构示意图： 连接器：管理连接，权限验证 查询缓存</description>
+    </item>
+    <item>
+      <title>Java线程池相关知识</title>
+      <link>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/</link>
+      <pubDate>Thu, 01 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E6%B1%A0/</guid>
+      <description>本文介绍Java线程池相关知识 前言 线程池：线程池是一种基于池化思想管理线程的工具，经常出现再多线程服务器中。 线程池解决的问题是什么： 线程池解</description>
+    </item>
+    <item>
+      <title>二叉树相关知识</title>
+      <link>http://localhost:1313/post/algorithm/%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/algorithm/%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+      <description>本文介绍二叉树相关知识 定义：树的任意节点至多包含两棵子树。 数据存储： 链表 数组 链表方式定义 public class TreeNode { public int val; public TreeNode left; public TreeNode right; public TreeNode(int val) { this.val = val; } public TreeNode(int val, TreeNode left,</description>
+    </item>
+    <item>
+      <title>Spring bean的生命周期相关知识</title>
+      <link>http://localhost:1313/post/spring/spring-bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring/spring-bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>本文简单介绍Spring bean的生命周期相关知识 Spring IOC 简介 IOC：Inversion of Control,即控制反转。传统Java程序中，我们是</description>
+    </item>
+    <item>
+      <title>Java垃圾回收</title>
+      <link>http://localhost:1313/post/jvm/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>本文介绍Java垃圾回收相关知识 判断一个对象是否可以被回收 回收对象首先需要判断这个对象是否可以被回收，Java虚拟机采用可达性分析算法判断。</description>
+    </item>
+    <item>
+      <title>深入了解JVM内存结构</title>
+      <link>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</guid>
+      <description>本文主要介绍JVM内存结构相关知识，需要注意JVM内存结构和Java内存模型是两个概念。 运行时数据区 Java虚拟机在执行程序时会把它所管理的</description>
+    </item>
+    <item>
+      <title>Spring 事务相关知识</title>
+      <link>http://localhost:1313/post/spring/spring%E4%BA%8B%E5%8A%A1/</link>
+      <pubDate>Tue, 23 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring/spring%E4%BA%8B%E5%8A%A1/</guid>
+      <description>本文介绍Spring事务相关的知识，包括事务隔离级别和事务传播特性。 事务 事务是逻辑上的一组操作，要么都执行，要么都不执行。我自己的理解是，数</description>
+    </item>
+    <item>
+      <title>Java类加载机制</title>
+      <link>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</guid>
+      <description>本文简单介绍Java类加载相关知识 Java类的生命周期 一个类从被加载到虚拟机内存到卸载出虚拟机内存，它的生命周期会经历：加载、验证、准备、解</description>
+    </item>
+    <item>
+      <title>FIFO、LRU、LFU三种缓存淘汰算法</title>
+      <link>http://localhost:1313/post/algorithm/%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/algorithm/%E7%BC%93%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AE%97%E6%B3%95/</guid>
+      <description>本文介绍三种常用缓存淘汰算法，即它们的简单实现。 简介 缓存，就是将程序或系统经常要调用的对象存在内存中，再次调用时可以快速从内存中获取对象，不</description>
+    </item>
+    <item>
+      <title>深入了解LinkedHashMap</title>
+      <link>http://localhost:1313/post/java-base/linkedhashmap/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/linkedhashmap/</guid>
+      <description>本文介绍LinkedHashMap的相关知识 简介 之前了解过HashMap，HashMap是无序的，当我们希望有顺序地去存储key-value</description>
+    </item>
+    <item>
+      <title>Java线程通信工具类的使用</title>
+      <link>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/java%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>本文介绍一些Java线程常用通信工具类，主要介绍怎么使用。 简介 常见的线程间通信方法有： wait()和notify() +加锁机制synchro</description>
+    </item>
+    <item>
+      <title>深入了解ReentrantReadWriteLock</title>
+      <link>http://localhost:1313/post/java-concurrent/reentrantreadwritelock/</link>
+      <pubDate>Wed, 10 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/reentrantreadwritelock/</guid>
+      <description>本文分析JDK1.8中的ReentrantReadWriteLock类 简介 由于ReentrantLock是独占锁，某时只有一个线程可以获取该</description>
+    </item>
+    <item>
+      <title>Java并发基础</title>
+      <link>http://localhost:1313/post/java-concurrent/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</guid>
+      <description>本篇介绍Java并发的基础知识，主要包括线程安全，共享变量的内存可见性，synchronized和volatile关键字，指令重排序，伪共享</description>
+    </item>
+    <item>
+      <title>深入了解ThreadLocal</title>
+      <link>http://localhost:1313/post/java-concurrent/threadlocal/</link>
+      <pubDate>Fri, 05 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-concurrent/threadlocal/</guid>
+      <description>本文分析ThreadLocal的原理和使用 1.ThreadLocal简介 多线程访问共享变量时容易出现并发问题，为了保证线程安全，一般会给共享</description>
+    </item>
+    <item>
+      <title>深入了解ConcurrentHashMap</title>
+      <link>http://localhost:1313/post/java-base/concurrenthashmap/</link>
+      <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/concurrenthashmap/</guid>
+      <description>本文将深入源码分析ConcurrentHashMap的相关内容 1.ConcurrentHashMap简介 由于HashMap是非线程安全的，所</description>
+    </item>
+    <item>
+      <title>深入了解HashMap</title>
+      <link>http://localhost:1313/post/java-base/hashmap/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/hashmap/</guid>
+      <description>本篇分析HashMap的 hash()函数 和 底层数据结构 以及 常用方法 和 常见面试相关题目 1. HashMap简介 HashMap 是一个K，V键值对的常用集合类，它</description>
+    </item>
+    <item>
+      <title>Java集合小结</title>
+      <link>http://localhost:1313/post/java-base/java%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/java%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/</guid>
+      <description>这篇文章对Java集合相关类进行介绍，包括Collection、List、Set、Map、Queue这些常见得集合相关接口和类。 1.集合概述</description>
+    </item>
+    <item>
+      <title>Aviator的初步了解和使用</title>
+      <link>http://localhost:1313/post/aviator/aviator%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/aviator/aviator%E4%BD%BF%E7%94%A8/</guid>
+      <description>&amp;ldquo;初步了解和使用Aviator&amp;rdquo; 1.Aviator简介 Aviator 是一个高性能，轻量级的java语言实现的表达式求值引擎，主要</description>
+    </item>
+    <item>
+      <title>Spring AOP的初步使用</title>
+      <link>http://localhost:1313/post/spring/spring-aop/spring-aop%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring/spring-aop/spring-aop%E4%BD%BF%E7%94%A8/</guid>
+      <description>&amp;ldquo;初步了解和使用SPRING AOP&amp;rdquo; 一、JDK 动态代理的使用 1.Food 目标接口 package proxy; /** * @author zsy * @version v1.0 * @Description * @date 2020-09-23 15:50 */ public interface Food { /** * @Author Zousy * @Description 测试静态代理</description>
+    </item>
+    <item>
+      <title>Spring AOP的初步了解</title>
+      <link>http://localhost:1313/post/spring/spring-aop/spring-aop%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring/spring-aop/spring-aop%E4%BB%8B%E7%BB%8D/</guid>
+      <description>&amp;ldquo;初步了解和使用SPRING AOP&amp;rdquo; 一、AOP 1.1 什么是AOP AOP(Aspect Orient Programming)，面向切面编程。AOP是一种编程思想，是对面向</description>
+    </item>
+  </channel>
+</rss>

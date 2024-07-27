@@ -1,9 +1,9 @@
 ---
-
 title:      "深入了解JVM内存结构"
 date:       2021-03-24
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - JVM
 ---
 

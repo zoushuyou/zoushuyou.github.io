@@ -1,9 +1,9 @@
 ---
-
 title:      "Java线程通信工具类的使用"
 date:       2021-03-12
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Java并发
 ---
 

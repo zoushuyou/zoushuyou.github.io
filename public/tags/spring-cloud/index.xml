@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Cloud on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/spring-cloud/</link>
+    <description>Recent content in Spring Cloud on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Cloud Gateway网关服务</title>
+      <link>http://localhost:1313/post/spring-cloud/spring-cloud-gateway%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Wed, 27 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/spring-cloud-gateway%E7%BD%91%E5%85%B3%E6%9C%8D%E5%8A%A1/</guid>
+      <description>本文介绍Spring Cloud Gateway网关服务相关知识 简介 Gateway 是Spring提供的API网关服务框架，具有强大的智能路由和过滤功能。 依赖 &amp;lt;properties&amp;gt; &amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt; &amp;lt;!-- 核</description>
+    </item>
+    <item>
+      <title>OpenFeign服务调用</title>
+      <link>http://localhost:1313/post/spring-cloud/openfeign%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/</link>
+      <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/openfeign%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/</guid>
+      <description>本文介绍 OpenFeign 相关知识 简介 Spring Cloud OpenFeign 是声明式的服务调用工具，它整合了Ribbon和Hystrix，拥有负载均衡和服务容错功能。 依赖 &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-bootstrap&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;</description>
+    </item>
+    <item>
+      <title>Nacos服务注册与发现</title>
+      <link>http://localhost:1313/post/spring-cloud/nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/nacos%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</guid>
+      <description>本文介绍 Nacos 相关知识 简介 Nacos 可以用来实现分布式环境下的配置管理和服务注册与发现。 通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-config 实现配置的动态变更。 通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-discovery 实现服务的注册与发现</description>
+    </item>
+    <item>
+      <title>Eureka服务注册与发现</title>
+      <link>http://localhost:1313/post/spring-cloud/eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</link>
+      <pubDate>Mon, 11 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/eureka%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/</guid>
+      <description>本文介绍Eureka相关知识 简介 Eureka是由netflix开发的一款服务治理的框架，Sping Cloud对其进行了集成。 Eureka既包</description>
+    </item>
+    <item>
+      <title>微服务相关概念</title>
+      <link>http://localhost:1313/post/spring-cloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>Mon, 27 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/spring-cloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5/</guid>
+      <description>本文介绍微服务相关概念，了解微服务的相关架构和发展。 微服务架构 传统的软件架构，往往是一个单体应用糅合了各种业务模块。随着业务的发展，单体应用</description>
+    </item>
+  </channel>
+</rss>

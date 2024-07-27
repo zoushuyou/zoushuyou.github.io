@@ -2,8 +2,9 @@
 
 title:      "Spring 事务相关知识"
 date:       2021-03-23
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring
 ---
 

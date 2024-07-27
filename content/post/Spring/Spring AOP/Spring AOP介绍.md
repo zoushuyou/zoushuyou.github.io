@@ -2,8 +2,9 @@
 
 title:      "Spring AOP的初步了解"
 date:       2021-01-09
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring
 ---
 >"初步了解和使用SPRING AOP"

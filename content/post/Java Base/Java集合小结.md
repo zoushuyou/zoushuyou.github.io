@@ -1,9 +1,9 @@
 ---
-
 title:      "Java集合小结"
 date:       2021-02-23
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Java集合
 ---
 >这篇文章对Java集合相关类进行介绍，包括Collection、List、Set、Map、Queue这些常见得集合相关接口和类。

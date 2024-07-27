@@ -1,9 +1,9 @@
 ---
-
 title:      "Redis实战----哨兵机制"
 date:       2021-05-21
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Redis
 ---
 

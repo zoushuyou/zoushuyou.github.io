@@ -1,8 +1,9 @@
 ---
 title:      "Spring 循环依赖"
 date:       2021-12-28
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring
 ---
 

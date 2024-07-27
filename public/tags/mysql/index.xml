@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/mysql/</link>
+    <description>Recent content in Mysql on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Apr 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mysql相关知识（五）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%94/</link>
+      <pubDate>Fri, 16 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%94/</guid>
+      <description>本文介绍Mysql ACID特性的实现原理 ACID: 原子性 一致性 隔离性 持久性 原子性：一个事务是一个不可切割的单位，要么全部执行成功，要么全部失败。 是采</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（四）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%9B%9B/</link>
+      <pubDate>Tue, 13 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%9B%9B/</guid>
+      <description>本文介绍Mysql中explain相关知识 explain: 当mysql的查询语句执行较慢时，可以通过使用explain命令解释mysql语句，通过结果分析</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（三）索引</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%89%E7%B4%A2%E5%BC%95/</link>
+      <pubDate>Sat, 10 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%89%E7%B4%A2%E5%BC%95/</guid>
+      <description>本文介绍Mysql索引相关知识 索引是什么 索引是一种帮助数据库高效查询数据的数据结构 索引本身也很大，不可能全部存储在内存中，因此索引往往是存储</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（二）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%8C/</link>
+      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%BA%8C/</guid>
+      <description>本文介绍Mysql操作和语句相关知识，包括增删改查、建表、函数、过程等相关知识。 1.操作 连接Mysql： mysql -h 主机地址 -u 用户名 -p 密码 本地连接：</description>
+    </item>
+    <item>
+      <title>Mysql相关知识（一）</title>
+      <link>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%80/</link>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/mysql/mysql%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E4%B8%80/</guid>
+      <description>本文介绍Mysql相关知识，主要包括Mysql的基础架构、事务、索引和日志等知识。 基础架构 基础架构示意图： 连接器：管理连接，权限验证 查询缓存</description>
+    </item>
+  </channel>
+</rss>

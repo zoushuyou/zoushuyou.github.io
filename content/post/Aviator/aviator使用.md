@@ -1,11 +1,10 @@
 ---
-
-title:      "Aviator的初步了解和使用"
-date:       2021-01-18
-lastmod: 2024-06-09
-categories:
-    - Aviator
+title: "Aviator的初步了解和使用"
+date: 2021-01-18
+author:	"shuyou"
+categories: ["Code"]
 ---
+
 >"初步了解和使用Aviator"
 
 ## 1.Aviator简介

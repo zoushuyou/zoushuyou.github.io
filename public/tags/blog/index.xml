@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/blog/</link>
+    <description>Recent content in Blog on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>从hexo迁移到hugo</title>
+      <link>http://localhost:1313/post/blog/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/blog/%E4%BB%8Ehexo%E8%BF%81%E7%A7%BB%E5%88%B0hugo/</guid>
+      <description>本文介绍下从hexo迁移到hugo的过程 背景： 从深圳回武汉后，都没怎么写博客了，一方面是公司开发主要都是业务方面涉及的多，技术方面没那么高的</description>
+    </item>
+    <item>
+      <title>Hux主题添加搜索</title>
+      <link>http://localhost:1313/post/blog/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Thu, 22 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/blog/hux%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%90%9C%E7%B4%A2/</guid>
+      <description>本文介绍下给hux主题添加搜索功能，主要是抄 黄玄 的作业，可以去参考huxpro 使用插件：hexo-generator-search npm install hexo-generator-search --save 配</description>
+    </item>
+  </channel>
+</rss>

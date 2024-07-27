@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java集合 on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/java%E9%9B%86%E5%90%88/</link>
+    <description>Recent content in Java集合 on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/java%E9%9B%86%E5%90%88/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深入了解LinkedHashMap</title>
+      <link>http://localhost:1313/post/java-base/linkedhashmap/</link>
+      <pubDate>Tue, 16 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/linkedhashmap/</guid>
+      <description>本文介绍LinkedHashMap的相关知识 简介 之前了解过HashMap，HashMap是无序的，当我们希望有顺序地去存储key-value</description>
+    </item>
+    <item>
+      <title>深入了解ConcurrentHashMap</title>
+      <link>http://localhost:1313/post/java-base/concurrenthashmap/</link>
+      <pubDate>Wed, 03 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/concurrenthashmap/</guid>
+      <description>本文将深入源码分析ConcurrentHashMap的相关内容 1.ConcurrentHashMap简介 由于HashMap是非线程安全的，所</description>
+    </item>
+    <item>
+      <title>深入了解HashMap</title>
+      <link>http://localhost:1313/post/java-base/hashmap/</link>
+      <pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/hashmap/</guid>
+      <description>本篇分析HashMap的 hash()函数 和 底层数据结构 以及 常用方法 和 常见面试相关题目 1. HashMap简介 HashMap 是一个K，V键值对的常用集合类，它</description>
+    </item>
+    <item>
+      <title>Java集合小结</title>
+      <link>http://localhost:1313/post/java-base/java%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/java-base/java%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/</guid>
+      <description>这篇文章对Java集合相关类进行介绍，包括Collection、List、Set、Map、Queue这些常见得集合相关接口和类。 1.集合概述</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tomcat on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/tomcat/</link>
+    <description>Recent content in Tomcat on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tomcat/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tomcat报错及解决方案</title>
+      <link>http://localhost:1313/post/tomcat/tomcat%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Mon, 25 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/tomcat/tomcat%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>最近试着在wsl2中使用docker跑公司的web项目，但是tomcat容器会报错 报错 java.lang.illegalargumentexception the main resource set specified [...] is not valid in Tomcat 解决方案 将 %CATALINA_HOME%/conf/server.xml 中的 &amp;lt;Context docBase=&amp;#34;&amp;#34; path=&amp;#34;/web&amp;#34; reloadable=&amp;#34;false&amp;#34; /&amp;gt; 删除</description>
+    </item>
+    <item>
+      <title>Cookie、Session和Token相关知识</title>
+      <link>http://localhost:1313/post/tomcat/cookiesession%E5%92%8Ctoken/</link>
+      <pubDate>Fri, 16 Jul 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/tomcat/cookiesession%E5%92%8Ctoken/</guid>
+      <description>本文介绍Cookie、Session和Token相关知识 什么是Cookie 由于Http是无状态的协议，这意味着一旦数据提交后，客户端与服务器</description>
+    </item>
+  </channel>
+</rss>

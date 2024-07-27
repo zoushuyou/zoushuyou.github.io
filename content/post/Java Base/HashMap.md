@@ -1,9 +1,9 @@
 ---
-
 title:      "深入了解HashMap"
 date: 2021-03-02
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Java集合
 ---
 >本篇分析HashMap的 hash()函数 和 底层数据结构 以及 常用方法 和 常见面试相关题目

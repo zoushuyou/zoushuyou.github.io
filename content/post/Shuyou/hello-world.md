@@ -3,8 +3,9 @@
 title:      "Welcome to ShuYou Blog"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2020-11-29
-lastmod: 2024-06-09
-categories:       
+author: "shuyou"
+categories: ["Life"]
+tags:       
     - 记录
 ---
 > “Yeah It's on. ”

@@ -1,9 +1,9 @@
 ---
-
 title: "从hexo迁移到hugo"
 date: 2024-06-10
-lastmod: 2024-06-10
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Blog
 ---
 

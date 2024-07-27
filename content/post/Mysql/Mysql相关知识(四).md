@@ -2,8 +2,9 @@
 
 title:      "Mysql相关知识（四）"
 date:       2021-04-13
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Mysql
 ---
 >本文介绍Mysql中explain相关知识

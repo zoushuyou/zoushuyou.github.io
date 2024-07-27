@@ -2,8 +2,9 @@
 
 title:      "Nacos服务注册与发现"
 date:       2021-10-13
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring Cloud
 ---
 
@@ -120,7 +121,7 @@ spring:
 ```
 
 # 入门代码案例
-[参考：spring-cloud-samples](https://github.com/zoushuyou/spring-cloud-samples/tree/main/spring-cloud-alibaba-nacos-register)
+[参考：spring-cloud-samples](https://github.com/ZouShuYou/spring-cloud-samples/tree/main/spring-cloud-alibaba-nacos-register)
 
 
 

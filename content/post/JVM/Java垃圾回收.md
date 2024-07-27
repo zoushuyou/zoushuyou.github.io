@@ -1,9 +1,9 @@
 ---
-
 title:      "Java垃圾回收"
 date:       2021-03-25
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - JVM
 ---
 >本文介绍Java垃圾回收相关知识

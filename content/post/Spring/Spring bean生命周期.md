@@ -2,8 +2,9 @@
 
 title:      "Spring bean的生命周期相关知识"
 date:       2021-03-30
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring
 ---
 
@@ -37,7 +38,7 @@ categories:
 ### Spring Bean生命周期
 ![Spring bean生命周期](https://img-blog.csdnimg.cn/20210330191031791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NhcnJvdFpzeQ==,size_16,color_FFFFFF,t_70#pic_center)
 
-**测试代码**：[bean生命周期](https://github.com/zoushuyou/sping-boot-demos/tree/master/spring-bean-lifecycle)
+**测试代码**：[bean生命周期](https://github.com/ZouShuYou/sping-boot-demos/tree/master/spring-bean-lifecycle)
 
 
 ### 扩展点

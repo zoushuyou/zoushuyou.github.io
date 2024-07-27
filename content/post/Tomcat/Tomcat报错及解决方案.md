@@ -2,8 +2,9 @@
 
 title:      "Tomcat报错及解决方案"
 date:       2021-10-25
-lastmod: 2024-06-09
-categories:      
+author: "shuyou"
+categories: ["Code"]
+tags:      
     - Tomcat
 ---
 

@@ -1,9 +1,9 @@
 ---
-
 title:      "深入了解LinkedHashMap"
 date:       2021-03-16
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Java集合
 ---
 

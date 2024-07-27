@@ -2,8 +2,9 @@
 
 title:      "Redis相关知识----哨兵机制"
 date:       2021-04-28
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Redis
 ---
 

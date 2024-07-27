@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JVM on ShuYou&#39;s Blog</title>
+    <link>http://localhost:1313/tags/jvm/</link>
+    <description>Recent content in JVM on ShuYou&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 14 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java内存模型</title>
+      <link>http://localhost:1313/post/jvm/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Fri, 14 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</guid>
+      <description>本文介绍Java内存模型相关知识 Java内存模型和JVM内存结构是两个不同的概念。 Java内存模型： Java 的并发采用的是共享内存模型，Java 线</description>
+    </item>
+    <item>
+      <title>Java垃圾回收</title>
+      <link>http://localhost:1313/post/jvm/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</guid>
+      <description>本文介绍Java垃圾回收相关知识 判断一个对象是否可以被回收 回收对象首先需要判断这个对象是否可以被回收，Java虚拟机采用可达性分析算法判断。</description>
+    </item>
+    <item>
+      <title>深入了解JVM内存结构</title>
+      <link>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Wed, 24 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84/</guid>
+      <description>本文主要介绍JVM内存结构相关知识，需要注意JVM内存结构和Java内存模型是两个概念。 运行时数据区 Java虚拟机在执行程序时会把它所管理的</description>
+    </item>
+    <item>
+      <title>Java类加载机制</title>
+      <link>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/post/jvm/java%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/</guid>
+      <description>本文简单介绍Java类加载相关知识 Java类的生命周期 一个类从被加载到虚拟机内存到卸载出虚拟机内存，它的生命周期会经历：加载、验证、准备、解</description>
+    </item>
+  </channel>
+</rss>

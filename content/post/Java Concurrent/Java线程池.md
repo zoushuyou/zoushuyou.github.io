@@ -1,9 +1,9 @@
 ---
-
 title:      "Java线程池相关知识"
 date:       2021-04-01
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Java并发
 ---
 >本文介绍Java线程池相关知识

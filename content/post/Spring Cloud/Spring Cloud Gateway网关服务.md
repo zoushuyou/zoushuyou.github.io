@@ -2,8 +2,9 @@
 
 title:      "Spring Cloud Gateway网关服务"
 date:       2021-10-27
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring Cloud
 ---
 
@@ -122,7 +123,7 @@ logging:
 
 # 使用
 
-[参考代码](https://github.com/zoushuyou/spring-cloud-samples/tree/main/spring-cloud-gateway)
+[参考代码](https://github.com/ZouShuYou/spring-cloud-samples/tree/main/spring-cloud-gateway)
 
 # 一些配置功能
 

@@ -1,9 +1,9 @@
 ---
-
 title: "Hux主题添加搜索"
 date: 2021-04-22
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Blog
 ---
 

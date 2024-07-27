@@ -1,9 +1,9 @@
 ---
-
 title:      "Java并发基础"
 date:       2021-03-08
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Java并发
 ---
 >本篇介绍Java并发的基础知识，主要包括线程安全，共享变量的内存可见性，synchronized和volatile关键字，指令重排序，伪共享等相关知识。

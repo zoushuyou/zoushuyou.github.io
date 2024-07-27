@@ -2,8 +2,9 @@
 
 title:      "Eureka服务注册与发现"
 date:       2021-10-11
-lastmod: 2024-06-09
-categories:
+author: "shuyou"
+categories: ["Code"]
+tags:
     - Spring Cloud
 ---
 
