@@ -1,5 +1,5 @@
 baseurl = "https://zoushuyou.github.io"
-title = "ShuYou Blog"
+title = "ShuYou's Blog"
 theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
@@ -14,7 +14,7 @@ home = ["HTML", "RSS", "JSON"]
 
 [params]
   header_image = "img/home-bg-jeep.jpg"
-  SEOTitle = "-书友的博客 | ShuYou's Blog"
+  SEOTitle = "书友的博客"
   description = "在路上"
   keyword = "zoushuyou, zoushuyou.github.io"
   slogan = "我不知道去何方，但我已经在路上"
@@ -108,9 +108,9 @@ home = ["HTML", "RSS", "JSON"]
   [[params.addtional_menus]]
   title =  "ARCHIVE"
   href =  "/archive/"
-  [[params.addtional_menus]]
-  title =  "NOTES"
-  href =  "/notes/"
+#  [[params.addtional_menus]]
+#  title =  "NOTES"
+#  href =  "/notes/"
   [[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/about/"
