@@ -1,96 +1,4 @@
----
-title: "Hux主题添加搜索"
-date: 2021-04-22
-author: "shuyou"
-categories: ["Code"]
-tags:
-    - Blog
----
-
->本文介绍下给hux主题添加搜索功能，主要是抄 [黄玄](https://huangxuan.me/) 的作业，可以去参考[huxpro](https://github.com/Huxpro/huxpro.github.io/)
-
-**使用插件**：hexo-generator-search
-
-```yaml
-npm install hexo-generator-search --save
-```
-
-**配置 _config.yml**：
-
-```yaml
-search:
-  path: index.json
-  field: post
-  limit: 50
-  enable: true
-```
-
-**增加模板 search.ejs**:
-
-```javascript
-<div class="search-page">
-    <div class="search-icon-close-container">
-      <span class="search-icon-close">
-        <i class="fa fa-chevron-down"></i>
-      </span>
-    </div>
-    <div class="search-main container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <form></form>
-          <input type="text" id="search-input" placeholder="search: ">
-          
-          <div id="search-results" class="mini-post-list"></div>
-        </div>
-      </div>
-    </div>
-</div>
-
-<script>
-
-    $(document).ready(function () {
-        var $searchPage = $('.search-page');
-        var $searchOpen = $('.search-icon');
-        var $searchClose = $('.search-icon-close');
-        var $searchInput = $('#search-input');
-        var $body = $('body');
-
-        $searchOpen.on('click', function (e) {
-            e.preventDefault();
-            $searchPage.toggleClass('search-active');
-            var prevClasses = $body.attr('class') || '';
-            setTimeout(function () {
-                $body.addClass('no-scroll');
-            }, 400)
-
-            if ($searchPage.hasClass('search-active')) {
-                $searchClose.on('click', function (e) {
-                    e.preventDefault();
-                    $searchPage.removeClass('search-active');
-                    $body.attr('class', prevClasses);  // from closure 
-                });
-                $searchInput.focus();
-            }
-            searchFunc('/index.json', 'search-input', 'search-results');
-        });
-    });
-</script>
-```
-
-把search.ejs导入到 layout.ejs中:
-
-```javascript
-    <!-- Search -->
-    <%- partial('_partial/search')%>
-```
-
-**新增search.js**:
-
-定义 searchFunc 函数
-
-```javascript
 var searchFunc = function (path, search_id, content_id) {
-    console.log("test");
     $.ajax({
         url: path,
         dataType: "json",
@@ -129,6 +37,8 @@ var searchFunc = function (path, search_id, content_id) {
                                 }
                             }
                         });
+                    }else {
+                        isMatch = false;
                     }
                     // show search results
                     if (isMatch) {
@@ -164,9 +74,3 @@ var searchFunc = function (path, search_id, content_id) {
         }
     });
 }
-```
-
-**增加样式**：
-
-抄huxpro的作业：[hux](https://huangxuan.me/)
-

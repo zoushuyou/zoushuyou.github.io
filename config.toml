@@ -13,7 +13,7 @@ hasCJKLanguage = true
 home = ["HTML", "RSS", "JSON"]
 
 [params]
-  header_image = "img/home-bg-jeep.jpg"
+  header_image = "img/tag-bg.jpg"
   SEOTitle = "书友的博客"
   description = "在路上"
   keyword = "zoushuyou, zoushuyou.github.io"

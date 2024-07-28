@@ -10,8 +10,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="http://localhost:1313//img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="http://localhost:1313//img/home-bg-jeep.jpg" />
+    <meta property="og:image" content="http://localhost:1313//img/tag-bg.jpg">
+    <meta property="twitter:image" content="http://localhost:1313//img/tag-bg.jpg" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="zoushuyou, zoushuyou.github.io">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Searches | 书友的博客 | ShuYou&#39;s Blog</title>
+    <title>Searches | 书友的博客</title>
 
     <link rel="canonical" href="/search/">
 
@@ -111,14 +111,12 @@
                         
                     
                     
-		    
+		            
                         <li><a href="/archive//">ARCHIVE</a></li>
-                    
-                        <li><a href="/notes//">NOTES</a></li>
                     
                         <li><a href="/about//">ABOUT</a></li>
                     
-		            <li>
+		            <li class="search-icon">
                         <a href="/search"><i class="fa fa-search"></i></a>
 		           </li>
                 </ul>
@@ -159,7 +157,7 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+<header class="intro-header" style="background-image: url('/img/tag-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
@@ -187,12 +185,56 @@
             post-container
         ">
         
-            <link href="/_pagefind/pagefind-ui.css" rel="stylesheet">
-<script src="/_pagefind/pagefind-ui.js" type="text/javascript"></script>
-<div id="search"></div>
+            
+<script src="/js/search.js"></script>
+<link rel="stylesheet" href="/css/search.css">
+
+
+<div class="search-page">
+    <div class="search-icon-close-container">
+      <span class="search-icon-close">
+        <i class="fa fa-chevron-down"></i>
+      </span>
+    </div>
+    <div class="search-main container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <form></form>
+                <input type="text" id="search-input" placeholder="$ grep...">
+
+                <div id="search-results" class="mini-post-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        new PagefindUI({ element: "#search" });
+
+    $(document).ready(function () {
+        var $searchPage = $('.search-page');
+        var $searchOpen = $('.search-icon');
+        var $searchClose = $('.search-icon-close');
+        var $searchInput = $('#search-input');
+        var $body = $('body');
+
+        $searchOpen.on('click', function (e) {
+            e.preventDefault();
+            $searchPage.toggleClass('search-active');
+            var prevClasses = $body.attr('class') || '';
+            setTimeout(function () {
+                $body.addClass('no-scroll');
+            }, 400)
+
+            if ($searchPage.hasClass('search-active')) {
+                $searchClose.on('click', function (e) {
+                    e.preventDefault();
+                    $searchPage.removeClass('search-active');
+                    $body.attr('class', prevClasses);  
+                });
+                $searchInput.focus();
+            }
+            searchFunc('/index.json', 'search-input', 'search-results');
+        });
     });
 </script>
         
