@@ -3,7 +3,7 @@
 title:      "Redis实战----主从复制"
 date:       2021-05-21
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Redis
 ---

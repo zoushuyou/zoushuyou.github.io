@@ -3,7 +3,7 @@
 title:      "Redis相关知识----对象机制"
 date:       2021-04-21
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Redis
 ---

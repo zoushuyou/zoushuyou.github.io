@@ -2,7 +2,7 @@
 title:      "Win10下使用docker"
 date:       2021-12-09
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Docker
 ---

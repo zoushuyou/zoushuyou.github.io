@@ -2,7 +2,7 @@
 title:      "深入了解ReentrantReadWriteLock"
 date:       2021-03-10
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java并发
 ---

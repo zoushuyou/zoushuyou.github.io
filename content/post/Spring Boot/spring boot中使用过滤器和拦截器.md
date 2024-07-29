@@ -3,7 +3,7 @@
 title:      "Spring Boot中使用过滤器和拦截器"
 date:       2021-09-10
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Boot
 ---

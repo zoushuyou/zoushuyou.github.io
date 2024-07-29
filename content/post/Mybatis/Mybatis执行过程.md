@@ -2,7 +2,7 @@
 title:      "Mybatis执行过程"
 date:       2021-11-16
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Mybatis
 ---

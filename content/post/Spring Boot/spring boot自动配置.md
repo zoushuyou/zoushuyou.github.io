@@ -3,7 +3,7 @@
 title:      "Spring Boot自动配置相关知识"
 date:       2021-08-31
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Boot
 ---

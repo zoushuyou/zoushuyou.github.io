@@ -3,7 +3,7 @@
 title:      "SSM项目改造为Spring Boot项目"
 date:       2021-10-28
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Boot
 ---

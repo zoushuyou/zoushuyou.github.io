@@ -2,7 +2,7 @@
 title: "Hux主题添加搜索"
 date: 2021-04-22
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Blog
 ---

@@ -3,7 +3,7 @@
 title:      "Nacos服务注册与发现"
 date:       2021-10-13
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Cloud
 ---

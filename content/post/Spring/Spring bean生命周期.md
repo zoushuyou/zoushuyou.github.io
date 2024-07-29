@@ -3,7 +3,7 @@
 title:      "Spring bean的生命周期相关知识"
 date:       2021-03-30
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring
 ---

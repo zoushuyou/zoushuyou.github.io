@@ -3,7 +3,7 @@
 title:      "Tomcat报错及解决方案"
 date:       2021-10-25
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:      
     - Tomcat
 ---

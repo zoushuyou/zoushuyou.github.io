@@ -2,7 +2,7 @@
 title:      "Java集合小结"
 date:       2021-02-23
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java集合
 ---

@@ -3,7 +3,7 @@
 title:      "Redis相关知识----数据类型"
 date:       2021-04-19
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Redis
 ---

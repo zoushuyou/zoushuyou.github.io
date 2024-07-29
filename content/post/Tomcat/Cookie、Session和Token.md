@@ -3,7 +3,7 @@
 title:      "Cookie、Session和Token相关知识"
 date:       2021-07-16
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:      
     - Tomcat
 ---

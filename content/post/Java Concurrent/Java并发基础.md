@@ -2,7 +2,7 @@
 title:      "Java并发基础"
 date:       2021-03-08
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java并发
 ---

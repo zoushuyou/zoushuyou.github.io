@@ -2,7 +2,7 @@
 title:      "Java垃圾回收"
 date:       2021-03-25
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - JVM
 ---

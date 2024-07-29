@@ -2,7 +2,7 @@
 title:      "阻塞队列BlockingQueue"
 date:       2021-04-18
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java并发
 ---

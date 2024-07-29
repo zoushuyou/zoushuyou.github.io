@@ -2,7 +2,7 @@
 title: "Aviator的初步了解和使用"
 date: 2021-01-18
 author:	"shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 ---
 
 >"初步了解和使用Aviator"

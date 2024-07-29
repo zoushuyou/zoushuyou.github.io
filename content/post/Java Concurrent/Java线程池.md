@@ -2,7 +2,7 @@
 title:      "Java线程池相关知识"
 date:       2021-04-01
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java并发
 ---

@@ -3,7 +3,7 @@
 title:      "Redis相关知识----缓存问题"
 date:       2021-05-11
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Redis
 ---

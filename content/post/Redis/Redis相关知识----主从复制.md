@@ -3,7 +3,7 @@
 title:      "Redis相关知识----主从复制"
 date:       2021-04-27
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Redis
 ---

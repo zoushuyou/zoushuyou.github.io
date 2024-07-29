@@ -2,7 +2,7 @@
 title:      "Java类加载机制"
 date:       2021-03-22
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - JVM
 ---

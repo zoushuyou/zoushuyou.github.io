@@ -2,7 +2,7 @@
 title:      "Java内存模型"
 date:       2021-05-14
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - JVM
 ---

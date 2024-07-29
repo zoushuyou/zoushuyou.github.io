@@ -2,7 +2,7 @@
 title:      "深入了解LinkedHashMap"
 date:       2021-03-16
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java集合
 ---

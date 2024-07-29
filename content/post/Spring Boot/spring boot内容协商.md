@@ -3,7 +3,7 @@
 title:      "Spring Boot内容协商"
 date:       2021-09-13
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Boot
 ---

@@ -3,7 +3,7 @@
 title:      "OpenFeign服务调用"
 date:       2021-10-18
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Cloud
 ---

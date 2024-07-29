@@ -2,7 +2,7 @@
 title:      "深入了解ConcurrentHashMap"
 date:       2021-03-03
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java集合
 ---

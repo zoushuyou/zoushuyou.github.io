@@ -2,7 +2,7 @@
 title:      "深入了解HashMap"
 date: 2021-03-02
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java集合
 ---

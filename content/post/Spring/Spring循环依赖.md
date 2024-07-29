@@ -2,7 +2,7 @@
 title:      "Spring 循环依赖"
 date:       2021-12-28
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring
 ---

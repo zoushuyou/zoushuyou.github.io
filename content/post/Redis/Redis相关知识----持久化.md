@@ -3,7 +3,7 @@
 title:      "Redis相关知识----持久化（RDB和AOF）"
 date:       2021-04-23
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Redis
 ---

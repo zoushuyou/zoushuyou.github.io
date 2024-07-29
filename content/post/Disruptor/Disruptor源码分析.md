@@ -2,7 +2,7 @@
 title: "Disruptor源码分析"
 date: 2021-10-20
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Disruptor
 ---

@@ -3,7 +3,7 @@
 title:      "Spring Cloud Gateway网关服务"
 date:       2021-10-27
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Cloud
 ---

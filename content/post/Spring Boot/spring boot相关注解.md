@@ -3,7 +3,7 @@
 title:      "Spring Boot相关注解"
 date:       2021-09-01
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Spring Boot
 ---

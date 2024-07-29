@@ -3,7 +3,7 @@
 title:      "Mysql相关知识（五）"
 date:       2021-04-16
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Mysql
 ---

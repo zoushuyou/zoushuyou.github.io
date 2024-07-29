@@ -2,7 +2,7 @@
 title:      "深入了解ThreadLocal"
 date:       2021-03-05
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java并发
 ---

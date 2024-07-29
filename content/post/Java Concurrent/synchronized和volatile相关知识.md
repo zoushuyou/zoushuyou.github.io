@@ -2,7 +2,7 @@
 title:      "synchronized和volatile相关知识"
 date:       2021-07-26
 author: "shuyou"
-categories: ["Code"]
+categories: ["Coding"]
 tags:
     - Java并发
 ---
