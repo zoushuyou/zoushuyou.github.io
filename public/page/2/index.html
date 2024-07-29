@@ -190,6 +190,29 @@
 <div data-pagefind-ignore="all">
 
 <div class="post-preview">
+    <a href="http://localhost:1313/post/tomcat/tomcat%E6%8A%A5%E9%94%99%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+        <h2 class="post-title">
+            Tomcat报错及解决方案
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            最近试着在wsl2中使用docker跑公司的web项目，但是tomcat容器会报错 报错 java.lang.illegalargumentexception the main resource set specified [...] is not valid in Tomcat 解决方案 将 %CATALINA_HOME%/conf/server.xml 中的 &lt;Context docBase=&#34;&#34; path=&#34;/web&#34; reloadable=&#34;false&#34; /&gt; 删除
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by shuyou on Monday, October 25, 2021
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="http://localhost:1313/post/disruptor/disruptor%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
         <h2 class="post-title">
             Disruptor源码分析
@@ -342,29 +365,6 @@
     <p class="post-meta">
     
         Posted by shuyou on Thursday, September 23, 2021
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="http://localhost:1313/post/spring-boot/spring-boot%E5%86%85%E5%AE%B9%E5%8D%8F%E5%95%86/">
-        <h2 class="post-title">
-            Spring Boot内容协商
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            本文介绍内容协商相关知识 内容协商（Content Negotiation） 内容协商：客户端和服务器就响应的资源内容进行交涉，然后服务器提供给客
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by shuyou on Monday, September 13, 2021
         
         
     
