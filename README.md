@@ -4,9 +4,12 @@
 
 安装最新版的hugo，依赖go环境
 
-直接运行
-hugo server
+编译
+hugo -t hugo-theme-cleanwhite
 
+
+本地直接运行
+hugo serve -t  hugo-theme-cleanwhite
 
 ## 调整样式
 
