@@ -2,7 +2,7 @@
 title: "从hexo迁移到hugo"
 date: 2024-06-10
 author: "shuyou"
-categories: ["Coding"]
+categories: ["Blog"]
 tags:
     - Blog
 ---
