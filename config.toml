@@ -1,6 +1,6 @@
 baseurl = "https://zoushuyou.github.io"
 title = "ShuYou's Blog"
-theme = "hugo-theme-cleanwhite"
+theme = "hugo-theme-shuyou"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
 # disqusShortname = ""
