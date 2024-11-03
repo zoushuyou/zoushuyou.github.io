@@ -1,4 +1,3 @@
-[submodule "themes/hugo-theme-cleanwhite"]
- 	branch = main
-	path = themes/hugo-theme-cleanwhite
-	url = https://github.com/zhaohuabing/hugo-theme-cleanwhite.git
+[submodule "themes/shuyou"]
+	path = themes/shuyou
+	url = https://github.com/zoushuyou/hugo-theme-shuyou.git
