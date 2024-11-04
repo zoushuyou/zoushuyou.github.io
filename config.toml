@@ -1,4 +1,5 @@
-baseurl = "https://zoushuyou.github.io"
+baseurl = "/"
+relativeURLs = true
 title = "ShuYou's Blog"
 theme = "hugo-theme-shuyou"
 languageCode = "en-us"
