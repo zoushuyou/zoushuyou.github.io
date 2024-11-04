@@ -108,13 +108,13 @@ home = ["HTML", "RSS", "JSON"]
   
   [[params.addtional_menus]]
   title =  "ARCHIVE"
-  href =  "/archive/"
+  href =  "/archive"
 #  [[params.addtional_menus]]
 #  title =  "NOTES"
 #  href =  "/notes/"
   [[params.addtional_menus]]
   title =  "ABOUT"
-  href =  "/about/"
+  href =  "/about"
 
 #[outputFormats.Algolia]
 #baseName = "algolia"
