@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = ""
 relativeURLs = true
 title = "ShuYou's Blog"
 theme = "hugo-theme-shuyou"
