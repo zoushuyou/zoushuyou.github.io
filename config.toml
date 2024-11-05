@@ -19,10 +19,10 @@ home = ["HTML", "RSS", "JSON"]
   description = "在路上"
   keyword = "zoushuyou, zoushuyou.github.io"
   slogan = "我不知道去何方，但我已经在路上"
-  upstreamAttribution = true
+  upstreamAttribution = false
 
   image_404 = "img/404-bg.jpg"
-  title_404 = "你来到了没有知识的荒原 :("
+  title_404 = "这里什么都没有"
   omit_categories = false
 
   # leancloud storage for page view counter
@@ -60,7 +60,7 @@ home = ["HTML", "RSS", "JSON"]
   reward = true
   # reward_guide = "如果这篇文章对你有用,请随意打赏" 
 
-  friends = false
+  friends = true
   bookmarks = false
   about_me = true
 
@@ -89,9 +89,9 @@ home = ["HTML", "RSS", "JSON"]
   #xing          = "https://www.xing.com/profile/yourxingid"
   #git           = "full profile url for git user"
   
-#  [[params.friend_link]]
-#  title = "Linda的博客"
-#  href =  "https://zhaozhihan.com"
+[[params.friend_link]]
+  title = "LINUX DO"
+  href =  "https://linux.do/?source=www_shuyou_fun"
 #
 #  [[params.bookmark_link]]
 #  title =  "Martin Fowler"
@@ -106,15 +106,17 @@ home = ["HTML", "RSS", "JSON"]
 #  title = "unsplash"
 #  href = "https://unsplash.com"
   
-  [[params.addtional_menus]]
+[[params.addtional_menus]]
   title =  "ARCHIVE"
   href =  "/archive"
-#  [[params.addtional_menus]]
-#  title =  "NOTES"
-#  href =  "/notes/"
-  [[params.addtional_menus]]
+
+[[params.addtional_menus]]
   title =  "ABOUT"
   href =  "/about"
+
+[[params.addtional_menus]]
+  title =  "FRIENDS"
+  href =  "/friends/"
 
 #[outputFormats.Algolia]
 #baseName = "algolia"
