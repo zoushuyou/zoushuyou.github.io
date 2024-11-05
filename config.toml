@@ -116,7 +116,7 @@ home = ["HTML", "RSS", "JSON"]
 
 [[params.addtional_menus]]
   title =  "FRIENDS"
-  href =  "/friends/"
+  href =  "/friends"
 
 #[outputFormats.Algolia]
 #baseName = "algolia"
