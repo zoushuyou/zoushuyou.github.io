@@ -91,7 +91,7 @@ home = ["HTML", "RSS", "JSON"]
   
 [[params.friend_link]]
   title = "LINUX DO"
-  href =  "https://linux.do/?source=www_shuyou_fun"
+  href =  "https://linux.do/?source=shuyou_fun"
 #
 #  [[params.bookmark_link]]
 #  title =  "Martin Fowler"

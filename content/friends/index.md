@@ -14,4 +14,4 @@ layout: page
 
 ## 友情链接
 
-- [LINUX DO](https://linux.do/?source=www_shuyou_fun)
+- [LINUX DO](https://linux.do/?source=shuyou_fun)

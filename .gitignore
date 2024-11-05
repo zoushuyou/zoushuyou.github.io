@@ -1,3 +1,3 @@
 # Ignore Hugo resource files
 .idea/
-./public
+.public/*
